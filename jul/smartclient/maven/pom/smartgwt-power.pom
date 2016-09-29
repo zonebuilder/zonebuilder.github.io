@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+
+    <description>
+        Unlocks Power-level features of SmartGWT client and server libraries.  Best for Highly skilled teams able to take advantage 
+        of advanced productivity features.  See http://smartclient.com/product/
+    </description>
+
+	<groupId>com.isomorphic.smartclient.lgpl</groupId>
+	<artifactId>smartgwt-power</artifactId>
+	<version>10.0-p20141028</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.isomorphic.smartclient.lgpl</groupId>
+            <artifactId>isomorphic-core-rpc</artifactId>
+            <version>10.0-p20141028</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.isomorphic.smartclient.lgpl</groupId>
+            <artifactId>isc-batchuploader</artifactId>
+            <version>10.0-p20141028</version>
+            <type>pom</type>
+            <optional>true</optional>
+        </dependency>
+
+    </dependencies>
+</project>

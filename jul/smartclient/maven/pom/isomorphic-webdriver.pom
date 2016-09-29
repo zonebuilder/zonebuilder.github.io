@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+
+	<description>
+	    Support for WebDriver-based automated testing and Continuous Integration, as documented at
+	    http://www.smartclient.com/smartgwtee/javadoc/com/smartgwt/client/docs/AutomatedTesting.html 
+	</description>
+
+	<groupId>com.isomorphic.smartclient.lgpl</groupId>
+	<artifactId>isomorphic-webdriver</artifactId>
+	<version>10.0-p20141028</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.37.0</version>
+		</dependency>  
+		<dependency>
+			<groupId>org.htmlparser</groupId>
+			<artifactId>htmlparser</artifactId>
+			<version>2.1</version>
+		</dependency>
+	</dependencies>
+
+</project>

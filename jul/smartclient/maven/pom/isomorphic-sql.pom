@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<description>
+	  The Smart GWT SQLDataSource.
+	</description>
+	
+	<groupId>com.isomorphic.smartclient.lgpl</groupId>
+	<artifactId>isomorphic-sql</artifactId>
+	<version>10.0-p20141028</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.isomorphic.smartclient.lgpl</groupId>
+			<artifactId>isomorphic-core-rpc</artifactId>
+			<version>10.0-p20141028</version>
+		</dependency>
+
+		<!-- the doc doesn't say these are optional, but I assume they should be -->
+		<dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.2.2</version>
+            <optional>true</optional>
+        </dependency>
+	</dependencies>
+
+</project>

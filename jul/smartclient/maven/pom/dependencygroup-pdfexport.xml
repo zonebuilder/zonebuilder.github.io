@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+
+    <description>
+        A dependency group containing the various artifacts required for PDF export, required by isomorphic-core-rpc and 
+        isomorphic-content-export, provided for convenience.
+    </description>
+
+    <groupId>com.isomorphic.smartclient.lgpl</groupId>
+    <artifactId>dependencygroup-pdfexport</artifactId>
+    <version>10.0-p20141028</version>
+    <packaging>pom</packaging>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.xhtmlrenderer</groupId>
+            <artifactId>core-renderer</artifactId>
+            <version>R8</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jtidy</groupId>
+            <artifactId>jtidy</artifactId>
+            <version>r938</version>
+        </dependency>
+        
+        <!--  To be able to export DrawPanes and FacetCharts in IE6-8, the following libraries are needed -->
+        <dependency>
+            <groupId>com.isomorphic.smartclient.lgpl</groupId>
+            <artifactId>dependencygroup-batik</artifactId>
+            <version>10.0-p20141028</version>
+            <type>pom</type>
+            <optional>true</optional>
+        </dependency>
+        
+    </dependencies>
+</project>

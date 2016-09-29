@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+
+    <description>
+        This is a part of the Network Performance Module. The isomorphic_compression module is required for dynamic and static 
+        compression of various assets delivered to the browser. For more information, see: 
+        
+        http://www.smartclient.com/smartgwtee/javadoc/com/smartgwt/client/docs/Compression.html
+    </description>
+
+    <groupId>com.isomorphic.smartclient.lgpl</groupId>
+    <artifactId>isomorphic-compression</artifactId>
+    <version>10.0-p20141028</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.isomorphic.smartclient.lgpl</groupId>
+            <artifactId>isomorphic-core-rpc</artifactId>
+            <version>10.0-p20141028</version>
+        </dependency>
+    </dependencies>
+
+</project>

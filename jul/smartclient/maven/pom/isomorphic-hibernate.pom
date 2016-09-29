@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+
+    <description>
+        Contains support for Hibernate DataSources as described at: 
+        http://www.smartclient.com/smartgwtee/javadoc/com/smartgwt/client/docs/HibernateIntegration.html
+    </description>
+	
+	<groupId>com.isomorphic.smartclient.lgpl</groupId>
+	<artifactId>isomorphic-hibernate</artifactId>
+	<version>10.0-p20141028</version>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.isomorphic.smartclient.lgpl</groupId>
+			<artifactId>isomorphic-core-rpc</artifactId>
+			<version>10.0-p20141028</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.isomorphic.smartclient.lgpl</groupId>
+			<artifactId>isomorphic-sql</artifactId>
+			<version>10.0-p20141028</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.6.10.Final</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>javax.sql</groupId>
+		    <artifactId>jdbc-stdext</artifactId>
+		    <version>2.0</version>
+		</dependency>
+
+	</dependencies>
+
+    <!-- resolve jdbc-stdext -->
+    <repositories>
+        <repository>
+          <id>maven2-repository.dev.java.net</id>
+          <name>Java.net Repository for Maven</name>
+          <url>http://download.java.net/maven/2/</url>
+          <layout>default</layout>
+        </repository>
+    </repositories>
+
+</project>

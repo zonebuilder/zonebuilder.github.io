@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+
+    <description>
+	    This is part of the Network Performance Module. The isomorphic_assembly module is required for file assembly and stripping. 
+	    For more information, see: http://www.smartclient.com/smartgwtee/javadoc/com/smartgwt/client/docs/FileAssembly.html 
+    </description>
+
+	<groupId>com.isomorphic.smartclient.lgpl</groupId>
+	<artifactId>isomorphic-assembly</artifactId>
+	<version>10.0-p20141028</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.isomorphic.smartclient.lgpl</groupId>
+			<artifactId>isomorphic-core-rpc</artifactId>
+			<version>10.0-p20141028</version>
+		</dependency>
+	</dependencies>
+
+</project>

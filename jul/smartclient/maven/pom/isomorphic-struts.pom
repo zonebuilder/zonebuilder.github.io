@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.isomorphic.smartclient.lgpl</groupId>
+	<artifactId>isomorphic-struts</artifactId>
+	<version>10.0-p20141028</version>
+	
+	<description> 
+		Contains the ValidationAction and ValidationFailureAction classes that implement
+		RPC-based validation of DynamicForms using the Struts ValidatorPlugIn. If you're not using
+		Struts or if you don't need this particular feature of Smart GWT, you do not need this module or
+		its dependencies (also see the important note below). An example of this style of validation is
+		available here: http://www.smartclient.com/examples/struts/forms/welcome.do - read the info on
+		this page, and follow the "Dynamic Form (With RPC-based Validation)" Link for the actual
+		example. NOTE: This support is for Struts 1.0 only, and is only intended to be used in certain
+		edge cases of incremental migration to Smart GWT. You should only use it if directed to do so by
+		Isomorphic Support.
+	</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.isomorphic.smartclient.lgpl</groupId>
+			<artifactId>isomorphic-core-rpc</artifactId>
+			<version>10.0-p20141028</version>
+		</dependency>
+		<dependency>
+			<groupId>struts</groupId>
+			<artifactId>struts</artifactId>
+			<version>1.2.9</version>
+		</dependency>
+	</dependencies>
+</project>

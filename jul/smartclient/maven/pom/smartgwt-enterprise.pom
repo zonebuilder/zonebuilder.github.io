@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+
+    <description>
+        Unlocks Enterprise-level features of SmartGWT client and server libraries.  Best for Complex, mission-critical or 
+        enterprise-wide applications, and enterprise ISVs.  See http://smartclient.com/product/
+    </description>
+
+	<groupId>com.isomorphic.smartclient.lgpl</groupId>
+	<artifactId>smartgwt-enterprise</artifactId>
+	<version>10.0-p20141028</version>
+
+	<dependencies>
+		<dependency>
+		    <groupId>com.isomorphic.smartclient.lgpl</groupId>
+		    <artifactId>isomorphic-core-rpc</artifactId>
+		    <version>10.0-p20141028</version>
+		</dependency>
+
+		<!-- 
+          Required if you wish to use the Batch Upload feature bundled with Power+ editions. See
+          
+            http://smartclient.com/product/#batchUploader
+          
+          and/or
+          
+            https://www.smartclient.com/smartgwtee/javadoc/com/smartgwt/client/widgets/BatchUploader.html
+        -->
+      <dependency>
+        <groupId>com.isomorphic.smartclient.lgpl</groupId>
+        <artifactId>isc-batchuploader</artifactId>
+        <version>10.0-p20141028</version>
+        <type>pom</type>
+        <optional>true</optional>
+      </dependency>
+
+	</dependencies>
+</project>

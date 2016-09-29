@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+    <description>
+    	"Optional module" available with Power+ licenses, enabling real-time data delivery via HTTP streaming 
+    	(aka "Comet") for monitoring, command &amp; control, trading desk and real-time collaboration applications involving time-sensitive, continuously updated data. SmartClient Messaging supports data delivery rates sufficient for continuous full-screen refresh and works through firewalls, HTTP proxies and other intervening network devices that can cause issues with other HTTP Streaming / Comet implementations. Supports codeless integration with JMS (Java Message Service) and a custom connector architecture for other message sources.
+    </description>
+
+	<groupId>com.isomorphic.smartclient.lgpl</groupId>
+	<artifactId>smartclient-messaging</artifactId>
+	<version>10.0-p20141028</version>
+	<packaging>pom</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.isomorphic.smartclient.lgpl</groupId>
+			<artifactId>smartclient-messaging-resources</artifactId>
+			<version>10.0-p20141028</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.isomorphic.smartclient.lgpl</groupId>
+			<artifactId>isomorphic-messaging</artifactId>
+			<version>10.0-p20141028</version>
+		</dependency>
+	</dependencies>
+
+</project>

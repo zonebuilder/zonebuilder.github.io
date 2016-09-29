@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <description>
+        Contains back-end logic for the "Admin Console" tool visible in the Developer Console, and also standalone from the SDK home page. Also contains the the various data importers and exporters, 
+        and the server-side components of the BatchUploader.
+    </description>
+
+    <groupId>com.isomorphic.smartclient.lgpl</groupId>
+    <artifactId>isomorphic-tools</artifactId>
+    <version>10.0-p20141028</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.isomorphic.smartclient.lgpl</groupId>
+            <artifactId>isomorphic-core-rpc</artifactId>
+            <version>10.0-p20141028</version>
+        </dependency>
+        <dependency>
+            <groupId>com.isomorphic.smartclient.lgpl</groupId>
+            <artifactId>isomorphic-sql</artifactId>
+            <version>10.0-p20141028</version>
+        </dependency>
+
+        <!-- 
+            This should probably be optional, so that it's not included with batchUploader
+            but would require another admin console grouping (which isn't necessarily bad)
+          -->
+        <dependency>
+            <groupId>com.isomorphic.smartclient.lgpl</groupId>
+            <artifactId>isomorphic-hibernate</artifactId>
+            <version>10.0-p20141028</version>
+        </dependency>
+
+    </dependencies>
+</project>
