@@ -1,0 +1,321 @@
+{"result":
+{
+	"lastComponentId":25,
+	"listenersProperty":"listeners",
+	"noLogic":false,
+	"ns":"JUL.Comments.project",
+	"suggestedFramework":"xul",
+	"title":"JUL Comment System - Main page",
+	"version":"1.1463257738752",
+	"init":"=func: function () {\n\tthis.parser = new JUL.UI.Parser(this.parserConfig);\n\tthis.page = this.parser.create(this.ui, this.logic);\n\tif (this.page) { ample.documentElement.appendChild(this.page); }\n}",
+	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<title>{project_title}</title>\n<link type=\"text/css\" href=\"/jcs/amplesdk-mainta-0.9.4/ample/languages/xhtml/themes/default/style-prod.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"/jcs/amplesdk-mainta-0.9.4/ample/languages/xul/themes/default/style-prod.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"/jcs/source/css/main.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"/jcs/source/css/skin.css\" rel=\"stylesheet\" />\n<script type=\"text/javascript\" src=\"/jcs/amplesdk-mainta-0.9.4/ample/runtime.js\"></script>\n<script type=\"text/javascript\" src=\"/jcs/amplesdk-mainta-0.9.4/ample/languages/xhtml/xhtml.js\"></script>\n<script type=\"text/javascript\" src=\"/jcs/amplesdk-mainta-0.9.4/ample/languages/xul/xul.js\"></script>\n<script type=\"text/javascript\" src=\"/designer/source/js/jul.js\"></script>\n{project_script}\n</head>\n<body>\n<script type=\"text/javascript\">\nample.$init();\n{project_ns}.init();\n</script>\n</body>\n</html>",
+	"parserConfig":{
+		"classProperty":"xclass","defaultClass":"xul","childrenProperty":"children","membersProperties":[],"idProperty":"id",
+		"bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent",
+		"customFactory":"JUL.UI.createDom"
+	},
+	"ui":{
+		"xclass":"xul","tag":"page","children":[
+			{"xclass":"xul","tag":"toolbar","children":[
+				{"xclass":"xul","tag":"toolbargrippy"},
+				{"xclass":"xul","tag":"toolbarbutton","label":"NP","id":"tbutton-new-project","tooltiptext":"New project",
+				"css":"tbutton darkr"},
+				{"xclass":"xul","tag":"toolbarbutton","label":"OP","id":"tbutton-open-project","css":"tbutton darkr",
+				"tooltiptext":"Open project"},
+				{"xclass":"xul","tag":"toolbarbutton","label":"EP","id":"tbutton-edit-project","css":"tbutton darkr",
+				"tooltiptext":"Edit project"},
+				{"xclass":"xul","tag":"toolbarbutton","label":"CP","id":"tbutton-close-project","css":"tbutton darkr",
+				"tooltiptext":"Close project"},
+				{"xclass":"xul","tag":"toolbarbutton","label":"XP","id":"tbutton-delete-project","css":"tbutton darkr",
+				"tooltiptext":"Delete project"},
+				{"xclass":"xul","tag":"toolbarseparator"},
+				{"xclass":"xul","tag":"toolbarbutton","label":"HC","id":"tbutton-help-contents","css":"tbutton darkb",
+				"tooltiptext":"Contents"},
+				{"xclass":"xul","tag":"toolbarbutton","label":"HA","id":"tbutton-help-about","css":"tbutton darkb","tooltiptext":"About"},
+				{"xclass":"xul","tag":"vbox","flex":1,"children":[
+					{"xclass":"xul","tag":"description","value":"{ JUL Comment System }","pack":"center","style":"margin-top:6px",
+					"id":"description-title"}
+				]},
+				{"xclass":"xul","tag":"toolbarbutton","label":"Save project","id":"tbutton-save-project",
+				"tooltiptext":"Save project to enable downloading the code","css":"darky"},
+				{"xclass":"xul","tag":"toolbarbutton","label":"Download code","id":"tbutton-download-code",
+				"tooltiptext":"Download the last saved code","css":"darkg"},
+				{"xclass":"xul","tag":"toolbarseparator"}
+			]},
+			{"xclass":"xul","tag":"hbox","flex":1,"children":[
+				{"xclass":"xul","tag":"vbox","width":310,"children":[
+					{"xclass":"xul","tag":"description","value":"Site","css":"caption"},
+					{"xclass":"xul","tag":"hbox","children":[
+						{"xclass":"xul","tag":"description","value":"Address","tooltiptext":"Enter an address in the same domain",
+						"style":"padding:0 5px"},
+						{"xclass":"xul","tag":"textbox","flex":1,"id":"textbox-address"},
+						{"xclass":"xul","tag":"button","label":"Go","id":"button-go"}
+					]},
+					{"xclass":"xul","tag":"iframe","height":150,"id":"iframe-site"},
+					{"xclass":"xul","tag":"splitter"},
+					{"xclass":"xul","tag":"description","value":"DOM","css":"caption"},
+					{"xclass":"xul","tag":"hbox","children":[
+						{"xclass":"xul","tag":"description","value":"Object","tooltiptext":"Enter a dotted path","style":"padding:0 5px"},
+						{"xclass":"xul","tag":"textbox","flex":1,"id":"textbox-object"},
+						{"xclass":"xul","tag":"button","label":"Find","id":"button-find"}
+					]},
+					{"xclass":"xul","tag":"tree","flex":1,"children":[
+						{"xclass":"xul","tag":"treecols","children":[
+							{"xclass":"xul","tag":"treecol","label":"Name","width":400,"primary":true}
+						]},
+						{"xclass":"xul","tag":"treebody"}
+					],
+					"id":"tree-dom","seltype":"single"},
+					{"xclass":"xul","tag":"hbox","children":[
+						{"xclass":"xul","tag":"toolbargrippy"},
+						{"xclass":"xul","tag":"checkbox","label":"separate file, put outside","id":"checkbox-separate-file",
+						"tooltiptext":"generate a distinct file for this object and its descendants"},
+						{"xclass":"xul","tag":"textbox","id":"textbox-put-outside","style":"width:110px",
+						"tooltiptext":"comma delimited list of members to put separately in the file"}
+					]},
+					{"xclass":"xul","tag":"hbox","children":[
+						{"xclass":"xul","tag":"toolbargrippy"},
+						{"xclass":"xul","tag":"checkbox","id":"checkbox-sort-keys","label":"sort members",
+						"tooltiptext":"sort properties and methods alphabetically"},
+						{"xclass":"xul","tag":"checkbox","label":"show prototype","id":"checkbox-expand-proto",
+						"tooltiptext":"expose object's prototype in the generated code"}
+					]}
+				],
+				"id":"vbox-dom"},
+				{"xclass":"xul","tag":"splitter"},
+				{"xclass":"xul","tag":"vbox","flex":1,"children":[
+					{"xclass":"xul","tag":"hbox","children":[
+						{"xclass":"xul","tag":"vbox","children":[
+							{"xclass":"xul","tag":"description","value":"Comment","css":"caption"},
+							{"xclass":"xul","tag":"hbox","children":[
+								{"xclass":"xul","tag":"toolbargrippy"},
+								{"xclass":"xul","tag":"button","label":"Add","id":"button-add-field"},
+								{"xclass":"xul","tag":"menulist","editable":true,"children":[
+									{"xclass":"xul","tag":"menupopup"}
+								],
+								"id":"menulist-field"},
+								{"xclass":"xul","tag":"button","label":"Up","id":"button-up-field"},
+								{"xclass":"xul","tag":"button","label":"Down","id":"button-down-field"},
+								{"xclass":"xul","tag":"button","label":"Remove","id":"button-remove-field"},
+								{"xclass":"xul","tag":"spacer","width":10},
+								{"xclass":"xul","tag":"button","label":"Copy","id":"button-copy-field"},
+								{"xclass":"xul","tag":"button","label":"Cut","id":"button-cut-field"},
+								{"xclass":"xul","tag":"button","label":"Paste","id":"button-paste-field"}
+							]},
+							{"xclass":"xul","tag":"listbox","flex":1,"children":[
+								{"xclass":"xul","tag":"listhead","children":[
+									{"xclass":"xul","tag":"listheader","label":"Field","width":110},
+									{"xclass":"xul","tag":"listheader","label":"Properties","width":520}
+								]},
+								{"xclass":"xul","tag":"listbody"}
+							],
+							"id":"listbox-comment"},
+							{"xclass":"xul","tag":"hbox","children":[
+								{"xclass":"xul","tag":"button","label":"Generate","id":"button-generate","tooltiptext":"Generate a common block comment"},
+								{"xclass":"xul","tag":"menulist","id":"menulist-generate","children":[
+									{"xclass":"xul","tag":"menupopup"}
+								]},
+								{"xclass":"xul","tag":"button","label":"Reset","id":"button-reset",
+								"tooltiptext":"Reset the fields to the stored comment"},
+								{"xclass":"xul","tag":"spacer","flex":1},
+								{"xclass":"xul","tag":"button","label":"Apply","id":"button-apply",
+								"tooltiptext":"Store the displayed comment and apply it to the code"}
+							]}
+						],
+						"flex":1},
+						{"xclass":"xul","tag":"splitter"},
+						{"xclass":"xul","tag":"vbox","children":[
+							{"xclass":"xul","tag":"description","value":"Preview","css":"caption","id":"description-preview"},
+							{"xclass":"xul","tag":"textbox","flex":1,"width":"100%","multiline":true,"readonly":true,"id":"textbox-preview"}
+						],
+						"width":370,"id":"vbox-preview"}
+					],
+					"flex":1},
+					{"xclass":"xul","tag":"splitter"},
+					{"xclass":"xul","tag":"vbox","flex":0,"children":[
+						{"xclass":"xul","tag":"description","value":"Code","css":"caption"},
+						{"xclass":"xul","tag":"hbox","children":[
+							{"xclass":"xul","tag":"tabbox","children":[
+								{"xclass":"xul","tag":"tabs","orient":"horizontal","id":"tabs-code"}
+							],
+							"width":"100%"},
+							{"xclass":"xul","tag":"button","label":"Properties","id":"button-file-properties"},
+							{"xclass":"xul","tag":"button","label":"Remove","id":"button-file-remove"}
+						],
+						"width":"100%"},
+						{"xclass":"xul","tag":"textbox","multiline":true,"readonly":true,"flex":1,"width":"100%","id":"textbox-code"}
+					],
+					"height":260,"id":"vbox-code"}
+				]}
+			]},
+			{"xclass":"xul","tag":"statusbar","children":[
+				{"xclass":"xul","tag":"statusbarpanel","flex":1,"label":"JUL Comment System","id":"statuspanel-title"},
+				{"xclass":"xul","tag":"statusbarpanel","flex":1,"id":"statuspanel-project","label":"Project"}
+			]}
+		]
+	},
+	"logic":{
+		"button-add-field":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.addField();\n}"
+			}
+		},
+		"button-apply":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.applyComment();\n}"
+			}
+		},
+		"button-copy-field":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.copyField();\n}"
+			}
+		},
+		"button-cut-field":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.copyField(true);\n}"
+			}
+		},
+		"button-down-field":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.moveField();\n}"
+			}
+		},
+		"button-file-properties":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onFileProperties();\n}"
+			}
+		},
+		"button-file-remove":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onFileRemove();\n}"
+			}
+		},
+		"button-find":{
+			"listeners":{
+				"command":"=func: function () {\n\tvar sObject = JUL.trim(ample.getElementById('textbox-object').getAttribute('value'));\n\tif (!sObject) { return; }\n\tJUL.Comments.project.findObject(sObject);\n}"
+			}
+		},
+		"button-generate":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.generateComment();\n}"
+			}
+		},
+		"button-go":{
+			"listeners":{
+				"command":"=func: function (oEvent, oElement) {\n\talert(this.ns + ' ' + oEvent + ' ' +  oElement); return;\nvar sUrl = JUL.trim(ample.getElementById('textbox-address').getAttribute('value'));\n\tif (!sUrl) { return; }\n\tJUL.Comments.project.loadSite(sUrl);\n}"
+			}
+		},
+		"button-paste-field":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.pasteField();\n}"
+			}
+		},
+		"button-remove-field":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.removeField();\n}"
+			}
+		},
+		"button-reset":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.resetComment();\n}"
+			}
+		},
+		"button-up-field":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.moveField(true);\n}"
+			}
+		},
+		"checkbox-expand-proto":{
+			"listeners":{
+				"change":"=func: function () {\n\tvar bCheck = this.getAttribute('checked') === 'true';\n\tJUL.Comments.project.onExpandProto(bCheck);\n}"
+			}
+		},
+		"checkbox-separate-file":{
+			"listeners":{
+				"change":"=func: function () {\n\tvar bCheck = this.getAttribute('checked') === 'true';\n\tJUL.Comments.project.onSeparateFile(bCheck);\n}"
+			}
+		},
+		"checkbox-sort-keys":{
+			"listeners":{
+				"change":"=func: function () {\n\tvar bCheck = this.getAttribute('checked') === 'true';\n\tJUL.Comments.project.onSortKeys(bCheck);\n}"
+			}
+		},
+		"menulist-field":{
+			"listeners":{
+				"blur":"=func: function () {\n\tthis.setAttribute('value', this.$getContainer('input').value);\n}"
+			}
+		},
+		"tabs-code":{
+			"listeners":{
+				"select":"=func: function () {\n\tJUL.Comments.project.onSelectTab(this.parentNode.selectedTab);\n}"
+			}
+		},
+		"tbutton-close-project":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onCloseProject();\n}"
+			}
+		},
+		"tbutton-delete-project":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onDeleteProject();\n}"
+			}
+		},
+		"tbutton-download-code":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onDownloadCode();\n}"
+			}
+		},
+		"tbutton-edit-project":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onEditProject();\n}"
+			}
+		},
+		"tbutton-help-about":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onHelpAbout();\n}"
+			}
+		},
+		"tbutton-help-contents":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onHelpContents();\n}"
+			}
+		},
+		"tbutton-new-project":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onNewProject();\n}"
+			}
+		},
+		"tbutton-open-project":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onOpenProject();\n}"
+			}
+		},
+		"tbutton-save-project":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onSaveProject();\n}"
+			}
+		},
+		"textbox-address":{
+			"listeners":{
+				"keypress":"=func: function (oEvent) {\n\tif (oEvent.keyIdentifier !== 'Enter') { return; }\n\tvar sUrl = JUL.trim(this.getAttribute('value'));\n\tif (!sUrl) { return; }\n\tJUL.Comments.project.loadSite(sUrl);\n}"
+			}
+		},
+		"textbox-object":{
+			"listeners":{
+				"keypress":"=func: function (oEvent) {\n\tif (oEvent.keyIdentifier !== 'Enter') { return; }\n\tvar sObject = JUL.trim(this.getAttribute('value'));\n\tif (!sObject) { return; }\n\tJUL.Comments.project.findObject(sObject);\n}"
+			}
+		},
+		"textbox-put-outside":{
+			"listeners":{
+				"change":"=func: function () {\n\tvar sVal = JUL.trim(this.getAttribute('value'));\n\tJUL.Comments.project.onPutOutside(sVal);\n}",
+				"keypress":"=func: function (oEvent) {\n\tif (oEvent.keyIdentifier !== 'Enter') { return; }\n\tvar sVal = JUL.trim(this.getAttribute('value'));\n\tJUL.Comments.project.onPutOutside(sVal);\n}"
+			}
+		},
+		"tree-dom":{
+			"listeners":{
+				"select":"=func: function () {\n\tvar oThis = this;\n\tsetTimeout(function() {\n\t\tJUL.Comments.project.onSelectNode(oThis.selectedItems.length ? oThis.currentItem : null);\n\t}, 50);\n}"
+			}
+		}
+	}
+}
+}

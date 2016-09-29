@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>JUL Comment System</title>
+<link type="text/css" href="https://googledrive.com/host/0B9zLzpZ-06uFY1A2OG5Dd0k3TW8/ample-sdk/ample/languages/xhtml/themes/default/style-prod.css" rel="stylesheet" />
+<link type="text/css" href="https://googledrive.com/host/0B9zLzpZ-06uFY1A2OG5Dd0k3TW8/ample-sdk/ample/languages/xul/themes/default/style-prod.css" rel="stylesheet" />
+<link type="text/css" href="../examples/jcs/main.css" rel="stylesheet" />
+<link type="text/css" href="../examples/jcs/skin.css" rel="stylesheet" />
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js"></script>
+<script type="text/javascript" src="https://googledrive.com/host/0B9zLzpZ-06uFY1A2OG5Dd0k3TW8/ample-sdk/ample/runtime.js"></script>
+<script type="text/javascript" src="https://googledrive.com/host/0B9zLzpZ-06uFY1A2OG5Dd0k3TW8/ample-sdk/ample/languages/xhtml/xhtml.js"></script>
+<script type="text/javascript" src="https://googledrive.com/host/0B9zLzpZ-06uFY1A2OG5Dd0k3TW8/ample-sdk/ample/languages/xul/xul.js"></script>
+<script type="text/javascript" src="../js/jul.js?v=1.3.5"></script>
+<script type="text/javascript" src="JUL/Comments.js?v=1.2"></script>
+<script type="text/javascript" src="../projects/JUL/Comments/project.js?v=1.2"></script>
+	<script type="text/javascript" src="../projects/JUL/Comments/edit.js?v=1.2"></script>
+	<script type="text/javascript" src="../projects/JUL/Comments/browse.js?v=1.2"></script>
+	<script type="text/javascript" src="../projects/JUL/Comments/open.js?v=1.2"></script>
+<script type="text/javascript">
+(function() {
+var oParent = window.opener || window.parent;
+if (!oParent.JUL || !oParent.JUL.Designer) {
+	alert('Not available outside the designer');
+	window.error11();
+}
+if (oParent.JUL.Designer.designer.current.ns) {
+	document.write('<' + 'script type="text/javascript">//<![CDATA[\n' + oParent.JUL.Designer.state.code + '\n//]]><' + '/script>');
+}
+})();
+</script>
+</head>
+<body>
+<script type="text/javascript">
+ample.$init();
+JUL.Comments.init();
+</script>
+</body>
+</html>

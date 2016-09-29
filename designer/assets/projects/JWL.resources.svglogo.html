@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>JWL Components - SVG Logo</title>
+	<!-- Custom includes -->
+	<script type="text/javascript" src="../js/jul.js?v=1.3.5"></script>
+	<script type="text/javascript">
+(function() {
+var oParent = window.opener || window.parent;
+if (!oParent.JUL || !oParent.JUL.Designer) {
+	alert('Not available outside the designer');
+	window.error11();
+}
+document.write('<' + 'script type="text/javascript">//<![CDATA[\n' + oParent.JUL.Designer.state.code + '\n//]]><' + '/script>');
+})();
+</script>
+ 
+	<script type="text/javascript">
+	// chnge as needed
+	window.onload = function() {
+		// create UI
+		JWL.resources.svglogo.init();
+	};
+	</script>
+</head>
+<body>
+	<!-- Custom body -->
+</body>
+</html>

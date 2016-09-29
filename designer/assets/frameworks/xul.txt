@@ -1,0 +1,714 @@
+{"result":
+{
+	"ns":"xul",
+	"prependNS":false,
+	"title":"XUL",
+	"components":{
+		"XULElement":{
+			"description":"Abstract base element","restrictParent":"#","getBoundingRect":"function () {\n    var oRect = this.getBoundingClientRect();\n    oRect.width = oRect.right - oRect.left;\n    oRect.height = oRect.bottom - oRect.top;\n    return oRect;\n}","members":{
+				"align":{
+					"required":false,"description":"Specifies how child elements of the box are aligned when the size of the box is larger than the total size of the children","template":"'start'|'center'|'end'|'stretch'","logic":false
+				},
+				"css":{
+					"required":false,"description":"CSS class","template":"<string>","logic":false
+				},
+				"flex":{
+					"required":false,"description":"Indicates the flexibility of the element, which indicates how an element's container distributes remaining empty space among its children","template":"<number>","defaultValue":0,"logic":false
+				},
+				"height":{
+					"required":false,"description":"The preferred height of the element in pixels","template":"<number>|<string>","defaultValue":0,"logic":false
+				},
+				"hidden":{
+					"required":false,"defaultValue":false,"description":"If set to true, the element is not displayed","template":"<Boolean>","logic":false
+				},
+				"id":{
+					"required":false,"description":"Element identifier","template":"<string>","logic":false
+				},
+				"orient":{
+					"required":false,"description":"Used to specify whether the children of the element are oriented horizontally or vertically","template":"'horizontal'|'vertical'","logic":false
+				},
+				"pack":{
+					"required":false,"description":"The pack attribute specifies where child elements of the box are placed when the box is larger that the size of the children","template":"'start'|'center'|'end'|'stretch'","logic":false
+				},
+				"tooltiptext":{
+					"required":false,"description":"Used to set the text which appears in the tooltip when the user moves the mouse over the element","template":"<string>","logic":false
+				},
+				"width":{
+					"required":false,"description":"The preferred width of the element in pixels","template":"<number>|<string>","defaultValue":0,"logic":false
+				}
+			},
+			"events":{
+				"blur":{
+					"description":"Fires when element looses focus","template":"function(oUIEvent ) { ... }"
+				},
+				"click":{
+					"description":"A pointing device button is clicked over an element","template":"function(oMouseEvent ) { ... }"
+				},
+				"command":{
+					"description":"This event handler is called when the command is activated","template":"function(oEvent) { ... }"
+				},
+				"contextmenu":{
+					"description":"Fires when the user clicks the right mouse button in the client area, opening the context menu","template":"function(oMouseEvent ) { ... }"
+				},
+				"dblclick":{
+					"description":"Fires when the user double-clicks the object","template":"function(oMouseEvent ) { ... }"
+				},
+				"focus":{
+					"description":"Fires when element receives focus","template":"function(oUIEvent ) { ... }"
+				},
+				"keypress":{
+					"description":"A key is pressed down","template":"function(oKeyboardEvent ) { ... }"
+				},
+				"resize":{
+					"description":"Fires continuously while user is resizing object","template":"function(oResizeEvent ) { ... }"
+				}
+			}
+		},
+		"XULPopupElement":{
+			"description":"Represents base functionality for popup elements","inherits":"XULElement","restrictParent":"#","members":{
+				"position":{
+					"required":false,"description":"The position attribute determines where the popup appears relative to the element the user clicked to invoke the popup","template":"'after_start'|'after_end'|'before_start'|'before_end'|'end_after'|'d_before'|'start_after'|'start_before'|'overlap'|'at_pointer'|'after_pointer'","logic":false
+				}
+			}
+		},
+		"XULSelectElement":{
+			"description":"Represents base functionality for selection elements","inherits":"XULElement","restrictParent":"#","members":{
+				"seltype":{
+					"required":false,"description":"Used to indicate whether multiple selection is allowed","template":"'single'|'multiple'","logic":false
+				}
+			},
+			"events":{
+				"select":{
+					"description":"Fires when selection changes","template":"function((oEvent) { ... }"
+				}
+			}
+		},
+		"XULWindowElement":{
+			"description":"Abstracr window element","inherits":"XULElement","restrictParent":"#","members":{
+				"screenX":{
+					"required":false,"description":"Specifies x location on the screen","template":"<number>|<string>","logic":false
+				},
+				"screenY":{
+					"required":false,"description":"Specifies y location on the screen","template":"<number>|<string>","logic":false
+				}
+			},
+			"events":{
+				"windowhidden":{
+					"description":"event is sent to a window after it has been hidden","template":"function() { ... }"
+				},
+				"windowshown":{
+					"description":"event is sent to a window after it has been shown","template":"function() { ... }"
+				}
+			}
+		},
+		"arrowscrollbox":{
+			"description":"A box which provides scroll arrows along its edges for scolling through the contents of the box. ","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","row","column"]
+		},
+		"button":{
+			"description":"A button that can be pressed by the user","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox","row","column"],
+			"members":{
+				"disabled":{
+					"required":false,"description":"Indicates whether the element is disabled or not","template":"<boolean>","defaultValue":false,"logic":false
+				},
+				"image":{
+					"required":false,"description":"The URL of the image to appear on the element","template":"<string>","logic":false
+				},
+				"label":{
+					"required":false,"description":"The label that will appear on the element","defaultValue":"Button1","template":"<string>","logic":false
+				}
+			}
+		},
+		"caption":{
+			"description":"A header for a groupbox","inherits":"XULElement","restrictParent":"groupbox","members":{
+				"image":{
+					"required":false,"description":"The URL of the image to appear on the element","template":"<string>","logic":false
+				},
+				"label":{
+					"required":false,"description":"The label that will appear on the element","template":"<string>","logic":false
+				}
+			}
+		},
+		"checkbox":{
+			"description":"An element that can be turned on and off","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox","row","column"],
+			"members":{
+				"checked":{
+					"required":false,"description":"Indicates whether the element is checked or not","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"disabled":{
+					"required":false,"description":"Indicates whether the element is disabled or not","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"label":{
+					"required":false,"description":"The label that will appear on the element","defaultValue":"Checkbox1","template":"<string>","logic":false
+				}
+			},
+			"events":{
+				"change":{
+					"description":"Fires when user change the selection","template":"function(oEvent) { ... }"
+				}
+			}
+		},
+		"colorpicker":{
+			"description":"An element rendered as a textbox and a button beside","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox","row","column"],
+			"members":{
+				"disabled":{
+					"required":false,"description":"Indicates whether the element is disabled or not","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"value":{
+					"required":false,"description":"The string attribute allows you to associate a data value with an element","template":"<string>","logic":false
+				}
+			},
+			"events":{
+				"change":{
+					"description":"Fires when user change the selection","template":"function(oEvent) { ... }"
+				}
+			}
+		},
+		"column":{
+			"description":"A single column in a columns element","inherits":"XULElement","restrictParent":"columns"
+		},
+		"columns":{
+			"description":"Defines the columns of a grid","inherits":"XULElement","restrictParent":"grid"
+		},
+		"datepicker":{
+			"description":"An element rendered as a textbox and a button beside. ","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox","row","column"],
+			"members":{
+				"disabled":{
+					"required":false,"description":"Indicates whether the element is disabled or not","template":"<boolean>","defaultValue":false,"logic":false
+				},
+				"max":{
+					"required":false,"description":"Maximal allowed value","template":"<string>","logic":false
+				},
+				"min":{
+					"required":false,"description":"Minimal allowed value","template":"<string>","logic":false
+				},
+				"value":{
+					"required":false,"description":"The initial value of the datepicker in the form YYYY-MM-DD","template":"<string>","logic":false
+				}
+			},
+			"events":{
+				"change":{
+					"description":"Fires when user change the selection","template":"function(oEvent) { ... }"
+				}
+			}
+		},
+		"deck":{
+			"description":"An element that displays only one of its children at a time","inherits":"XULElement","restrictParent":["document","window","dialog","wizardpage","page","vbox","hbox","deck","stack","tabpanel","row","column"],
+			"members":{
+				"selectedIndex":{
+					"required":false,"description":"Gets and sets the index of the currently selected panel","template":"<number>","defaultValue":0,"logic":false
+				}
+			},
+			"events":{
+				"select":{
+					"description":"Fires when selected child element changes","template":"function(oEvent) { ... }"
+				}
+			}
+		},
+		"description":{
+			"description":"This element is used to create a block of text","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox","row","column"],
+			"members":{
+				"html":{
+					"required":false,"description":"HTML content","logic":false
+				},
+				"value":{
+					"required":false,"description":"The text of the description","defaultValue":"Descriptopn1","template":"<string>","logic":false
+				}
+			}
+		},
+		"dialog":{
+			"description":"This element should be used in place of the window element for dialog boxes","inherits":"XULWindowElement","restrictParent":"document","members":{
+				"buttons":{
+					"required":false,"description":"A comma-separated list of buttons to appear on the dialog box","template":"'accept, cancel, nelp, disclosure'","logic":false
+				},
+				"title":{
+					"required":false,"description":"The text to appear in the title bar of the window","defaultValue":"Dialog1","logic":false
+				}
+			},
+			"events":{
+				"dialogaccept":{
+					"description":"Called when the accept button is pressed, or when the acceptDialog method is called","template":"function(oEvent) { ... }"
+				},
+				"dialogcancel":{
+					"template":"function(oEvent) { ... }","description":"Called when the cancel button is pressed, or when the cancelDialog method is called"
+				}
+			}
+		},
+		"grid":{
+			"description":" grid is a layout type that arranges elements in rows and columns","inherits":"XULElement","restrictParent":["document","window","dialog","wizardpage","page","vbox","hbox","deck","stack","tabpanel","groupbox","row","column"]
+		},
+		"groupbox":{
+			"description":"The groupbox is used to group related elements together","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","row","column"]
+		},
+		"hbox":{
+			"description":"A container element with horizontal orientation which can contain any number of child elements","inherits":"XULElement","restrictParent":["document","window","dialog","wizardpage","page","vbox","hbox","deck","stack","tabpanel","row","column"]
+		},
+		"iframe":{
+			"description":"An inner frame that works much like the HTML iframe element","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","deck","stack","tabpanel","groupbox","row","column"],
+			"members":{
+				"src":{
+					"required":false,"description":"The URL of the content to appear in the element","template":"<string>","logic":false
+				}
+			}
+		},
+		"image":{
+			"description":"An element that displays an image, much like the HTML img element","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox","row","column"],
+			"members":{
+				"src":{
+					"required":false,"description":"The URL of the content to appear in the element","template":"<string>","logic":false
+				}
+			}
+		},
+		"label":{
+			"description":"This element is used to provide a label for a control element","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox"],
+			"members":{
+				"control":{
+					"required":false,"description":"This attribute should be set to the id of an element that the label is associated","template":"<string>","logic":false
+				},
+				"value":{
+					"required":false,"template":"<string>","defaultValue":"Label1","description":"The text to be used for the label","logic":false
+				}
+			}
+		},
+		"listbody":{
+			"description":"Can only be placed as direct child of listbox. ","inherits":"XULElement","restrictParent":"listbox"
+		},
+		"listbox":{
+			"description":"This element is used to create a list of items where one or more of the items may be selected","inherits":"XULSelectElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","deck","stack","tabpanel","groupbox","row","column"],
+			"members":{
+				"type":{
+					"required":false,"description":"Adds a control element at the beginning of every row","template":"'radio'|'checkbox'","logic":false
+				}
+			}
+		},
+		"listcell":{
+			"description":"A single cell of a listbox","inherits":"XULElement","restrictParent":"listitem","members":{
+				"image":{
+					"required":false,"description":"The URL of the image to appear on the element","template":"<string>","logic":false
+				},
+				"label":{
+					"required":false,"description":"The label that will appear on the element","template":"<string>","logic":false
+				}
+			}
+		},
+		"listhead":{
+			"description":"A header row of a listbox. It is usual to place listheader elements inside the listhead","inherits":"XULElement","restrictParent":"listbox"
+		},
+		"listheader":{
+			"description":"A header for a single column in a listbox","inherits":"XULElement","restrictParent":"listhead","members":{
+				"label":{
+					"required":false,"description":"Text label inside listheader","defaultValue":"Listheader1","template":"<string>","logic":false
+				}
+			}
+		},
+		"listitem":{
+			"description":"A single row in a listbox","inherits":"XULElement","restrictParent":"listbody","members":{
+				"image":{
+					"required":false,"description":"The URL of the image to appear on the element","template":"<string>","logic":false
+				},
+				"label":{
+					"required":false,"description":"The label that will appear on the element","template":"<string>","defaultValue":"Listitem1","logic":false
+				},
+				"selected":{
+					"required":false,"description":"Indicates whether the element is selected or not","template":"<boolean>","defaultValue":false,"logic":false
+				},
+				"value":{
+					"required":false,"description":"The string attribute allows you to associate a data value with an element","template":"<string>","logic":false
+				}
+			}
+		},
+		"menu":{
+			"description":"An element, much like a button, that is placed on a menubar","inherits":"XULElement","restrictParent":["menubar","menupopup"],
+			"members":{
+				"disabled":{
+					"required":false,"description":"Indicates whether the element is disabled or not","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"image":{
+					"required":false,"description":"The URL of the image to appear on the element","template":"<string>","logic":false
+				},
+				"label":{
+					"required":false,"description":"The label that will appear on the element","defaultValue":"Menu1","template":"<string>","logic":false
+				},
+				"value":{
+					"required":false,"description":"Allows you to associate a data value with an element","template":"<string>","logic":false
+				}
+			}
+		},
+		"menubar":{
+			"description":"A container that usually contains menu elements","inherits":"XULElement","restrictParent":"toolbox"
+		},
+		"menuitem":{
+			"description":"A single choice in a menupopup element","inherits":"XULElement","restrictParent":"menupopup","members":{
+				"checked":{
+					"required":false,"description":"Indicates whether the element is checked or not","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"disabled":{
+					"required":false,"description":"Indicates whether the element is disabled or not","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"image":{
+					"required":false,"description":"The URL of the image to appear on the element","template":"<string>","logic":false
+				},
+				"label":{
+					"required":false,"description":"The label that will appear on the element","defaultValue":"Menuitem1","template":"<string>","logic":false
+				},
+				"name":{
+					"required":false,"description":"Radio menuitems with the same name as put into a group","template":"<string>","logic":false
+				},
+				"type":{
+					"required":false,"description":"Can be used to create checkable menuitems or for radio button menuitems","template":"'checkbox'|'radio'","logic":false
+				},
+				"value":{
+					"required":false,"description":"Allows you to associate a data value with an element","template":"<string>","logic":false
+				}
+			}
+		},
+		"menulist":{
+			"description":"The currently selected choice is displayed on the menulist element","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox","row","column"],
+			"members":{
+				"disabled":{
+					"required":false,"description":"Indicates whether the element is disabled or not","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"editable":{
+					"required":false,"description":"Indicates that the value of the menulist can be modified by typing directly into the value field","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"value":{
+					"required":false,"description":"The string attribute allows you to associate a data value with an element","template":"<string>","logic":false
+				}
+			}
+		},
+		"menupopup":{
+			"description":" container used to display the contents of a popup menu","inherits":"XULPopupElement","restrictParent":["menu","toolbarbutton","menulist"]
+		},
+		"menuseparator":{
+			"description":"Used to create a separator between menu items","inherits":"XULElement","restrictParent":"menupopup"
+		},
+		"page":{
+			"description":"Similar to a window, except it should be used for XUL files that are to be loaded into an iframe","inherits":"XULElement","restrictParent":"document"
+		},
+		"progressmeter":{
+			"description":"A meter which can be used to display the progress of a lengthy operation","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox","row","column"],
+			"members":{
+				"mode":{
+					"required":false,"description":"A determined progressmeter is used in cases where you know how long an operation will take","template":"'determined'|'undetermined'","logic":false
+				},
+				"value":{
+					"required":false,"description":"An integer ranging from 0 to the maximum value that indicates the progress","defaultValue":0,"template":"<number>","logic":false
+				}
+			}
+		},
+		"radio":{
+			"description":"An element that can be turned on and off. Radio buttons are almost always grouped together in groups","inherits":"XULElement","restrictParent":"radiogroup","members":{
+				"disabled":{
+					"required":false,"description":"Indicates whether the element is disabled or not","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"label":{
+					"required":false,"description":"The label that will appear on the element","defaultValue":"Radio1","template":"<string>","logic":false
+				},
+				"selected":{
+					"required":false,"description":"Indicates whether the element is selected or not","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"value":{
+					"required":false,"description":"The string attribute allows you to associate a data value with an element","template":"<string>","logic":false
+				}
+			}
+		},
+		"radiogroup":{
+			"description":" group of radio buttons","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox","row","column"]
+		},
+		"row":{
+			"description":" single row in a rows element","inherits":"XULElement","restrictParent":"rows"
+		},
+		"rows":{
+			"description":"Defines the rows of a grid","inherits":"XULElement","restrictParent":"grid"
+		},
+		"scale":{
+			"description":" scale (sometimes referred to as a \"slider\") allows the user to select a value from a range","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox","row","column"],
+			"members":{
+				"disabled":{
+					"required":false,"description":"Indicates whether the element is disabled or not","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"max":{
+					"required":false,"description":"The maximum value that the scale or number box may be set to","defaultValue":100,"template":"<number>","logic":false
+				},
+				"min":{
+					"required":false,"description":"The minimum value that the scale or number box may be set to","defaultValue":0,"template":"<number>","logic":false
+				},
+				"step":{
+					"required":false,"description":"The amount by which the value attribute changes when the arrows are clicked","defaultValue":1,"template":"<number>","logic":false
+				},
+				"value":{
+					"required":false,"description":"The string attribute allows you to associate a data value with an element","template":"<number>","defaultValue":0,"logic":false
+				}
+			},
+			"events":{
+				"change":{
+					"description":"Fires when user change the selection","template":"function(oEvent) { ... }"
+				}
+			}
+		},
+		"separator":{
+			"description":"Creates a small separating gap between elements","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox","row","column"]
+		},
+		"spacer":{
+			"description":"An element that takes up space but does not display anything","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","row","column"]
+		},
+		"splitter":{
+			"description":"An element which should appear before or after an element inside a container","inherits":"XULElement","restrictParent":["window","dialog","page","vbox","hbox","tabpanel","groupbox","row","column"],
+			"members":{
+				"resizrafter":{
+					"required":false,"description":"This attribute indicates which element to the right or below the splitter should be resized when the splitter is repositioned","template":"'closest'|'farthest '|'flex'","logic":false
+				},
+				"resizrbefore":{
+					"required":false,"template":"'closest'|'farthest '|'flex'","description":"This attribute indicates which element to the left or above the splitter should be resized when the splitter is repositioned","logic":false
+				}
+			}
+		},
+		"stack":{
+			"description":"An element that renders its children on top of each other","inherits":"XULElement","restrictParent":["document","window","dialog","wizardpage","page","vbox","hbox","deck","stack","tabpanel"]
+		},
+		"statusbar":{
+			"description":"An element used to create a status bar","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","row","column"]
+		},
+		"statusbarpanel":{
+			"description":"An individual element of a statusbar","inherits":"XULElement","restrictParent":"statusbar","members":{
+				"image":{
+					"required":false,"description":"The URL of the image to appear on the element","template":"<string>","logic":false
+				},
+				"label":{
+					"required":false,"description":"The label that will appear on the element","template":"<string>","logic":false
+				}
+			}
+		},
+		"tab":{
+			"description":"A single tab which should be placed inside a tabs element","inherits":"XULElement","restrictParent":"tabs","members":{
+				"disabled":{
+					"required":false,"defaultValue":false,"description":"Indicates whether the element is disabled or not","template":"<boolean>","logic":false
+				},
+				"image":{
+					"required":false,"description":"The URL of the image to appear on the element","template":"<string>","logic":false
+				},
+				"label":{
+					"required":false,"defaultValue":"Tab1","template":"<string>","description":"The label that will appear on the element","logic":false
+				},
+				"selected":{
+					"required":false,"description":"This attribute is set to true if the tab is selected by default","defaultValue":false,"template":"<boolean>","logic":false
+				}
+			},
+			"events":{
+				"command":{
+					"description":"This event is fired when the command is activated","template":"function(oEvent) { ... }"
+				}
+			}
+		},
+		"tabbox":{
+			"description":"A container used to display a set of tabbed pages of elements","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","deck","stack","tabpanel","groupbox","row","column"]
+		},
+		"tabpanel":{
+			"description":"A individual panel in a tabpanels element","inherits":"XULElement","restrictParent":"tabpanels"
+		},
+		"tabpanels":{
+			"description":"A container to hold the set of pages in a tabbox","inherits":"XULElement","restrictParent":"tabbox"
+		},
+		"tabs":{
+			"description":"A row of tabs","inherits":"XULElement","restrictParent":"tabbox","events":{
+				"select":{
+					"description":"This event is sent to the tabs element when this tab is changed","template":"function(oEvent) { ... }"
+				}
+			}
+		},
+		"textbox":{
+			"description":"An input field where the user can enter text","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox","row","column"],
+			"members":{
+				"cols":{
+					"required":false,"description":"For multiline textboxes, the number of columns to display","defaultValue":0,"template":"<number>","logic":false
+				},
+				"disabled":{
+					"required":false,"description":"Indicates whether the element is disabled or not","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"increment":{
+					"required":false,"description":"The amount by which the value (for number boxes) attribute changes when the arrows are clicked","defaultValue":1,"template":"<number>","logic":false
+				},
+				"max":{
+					"required":false,"description":"The maximum value that the scale or number box may be set to","defaultValue":0,"template":"<number>","logic":false
+				},
+				"maxlength":{
+					"required":false,"description":"The maximum number of characters that the textbox allows to be entered","defaultValue":0,"template":"<number>","logic":false
+				},
+				"min":{
+					"required":false,"description":"The minimum value that the scale or number box may be set to","defaultValue":0,"template":"<number>","logic":false
+				},
+				"multiline":{
+					"required":false,"description":"If true, the textbox displays multiple lines","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"placeholder":{
+					"required":false,"description":"A string that appears in the textbox when it has no value","template":"<string>","logic":false
+				},
+				"readonly":{
+					"required":false,"description":"If set to true, then the user cannot change the value of the element","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"rows":{
+					"required":false,"description":"The number of rows to display in the element","defaultValue":0,"template":"<number>","logic":false
+				},
+				"type":{
+					"required":false,"description":"You can set the type attribute for a more specialized type of textbox","template":"'password'|'number'|'search'","logic":false
+				},
+				"value":{
+					"required":false,"description":"The default value entered in a textbox","template":"<string>","logic":false
+				}
+			}
+		},
+		"timepicker":{
+			"description":"The timepicker is used to allow the user to enter a time","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","arrowscrollbox","row","column"],
+			"members":{
+				"disabled":{
+					"required":false,"description":"Indicates whether the element is disabled or not","template":"<Boolean>","logic":false
+				},
+				"max":{
+					"required":false,"description":"Maximal allowed value","template":"<string>","logic":false
+				},
+				"min":{
+					"required":false,"description":"Minimal allowed value","template":"<string>","logic":false
+				},
+				"value":{
+					"required":false,"description":"The initial value of the timepicker in either the form HH:MM:SS or HH:MM","template":"<string>","logic":false
+				}
+			},
+			"events":{
+				"change":{
+					"description":"Fires when user change the selection","template":"function(oEvent) { ... }"
+				}
+			}
+		},
+		"toolbar":{
+			"description":" container which typically contains a row of buttons","inherits":"XULElement","restrictParent":"toolbox"
+		},
+		"toolbarbutton":{
+			"description":"A button that appears on a toolbar","inherits":"XULElement","restrictParent":"toolbar","members":{
+				"checked":{
+					"required":false,"description":"Indicates whether the element is checked or not","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"image":{
+					"required":false,"description":"The URL of the image to appear on the element","template":"<string>","logic":false
+				},
+				"label":{
+					"required":false,"description":"The label that will appear on the element","template":"<string>","defaultValue":"B1","logic":false
+				},
+				"type":{
+					"required":false,"description":"The type of button. If this attribute is not present","template":"'menu'|'menu-button'|'checkbox'|'radio'","logic":false
+				}
+			}
+		},
+		"toolbargrippy":{
+			"description":"The notch on the side of a toolbar which can be used to collapse and expand it.","inherits":"XULElement","restrictParent":["toolbar","menubar"]
+		},
+		"toolbarseparator":{
+			"description":"Creates a separator between groups of toolbar items","inherits":"XULElement","restrictParent":"toolbar"
+		},
+		"toolbox":{
+			"description":"A container for toolbars. It is a type of box but defaults to vertical orientation","inherits":"XULElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","tabpanel","groupbox","row","column"]
+		},
+		"tree":{
+			"description":" container which can be used to hold a tabular or hierarchical set of rows of elements. The tree may contain any number of rows and any number of columns","inherits":"XULSelectElement","restrictParent":["window","dialog","wizardpage","page","vbox","hbox","deck","stack","tabpanel","groupbox","row","column"],
+			"members":{
+				"type":{
+					"required":false,"description":"Adds a control element at the beginning of every row","template":"'radio'|'checkbox'","logic":false
+				}
+			}
+		},
+		"treebody":{
+			"description":"Can only be placed as direct child of tree","inherits":"XULElement","restrictParent":"tree"
+		},
+		"treecell":{
+			"description":"A single cell in a tree. This element should be placed inside a treerow","inherits":"XULElement","restrictParent":"treerow","members":{
+				"label":{
+					"required":false,"description":"The label that will appear on the element","template":"<string>","logic":false
+				},
+				"src":{
+					"required":false,"description":"Set this to the URL of an image to appear in the tree cell","template":"<string>","logic":false
+				}
+			}
+		},
+		"treechildren":{
+			"description":"This element is the body of the tree","inherits":"XULElement","restrictParent":["treebody","treeitem"]
+		},
+		"treecol":{
+			"description":"A column of a tree","inherits":"XULElement","restrictParent":"treecols","members":{
+				"hideheader":{
+					"required":false,"description":"Set this to true to indicate that the tree column header should be displayed without any column header styling","defaultValue":false,"template":"<boolean>","logic":false
+				},
+				"label":{
+					"required":false,"description":"The label that will appear on the element","template":"<string>","defaultValue":"Treecol1","logic":false
+				},
+				"primary":{
+					"required":false,"description":"If set to true, the treecol will have indentation and twisties drawn to the left of it to indicate the hierarchy level of the rows","defaultValue":false,"template":"<boolean>","logic":false
+				}
+			}
+		},
+		"treecols":{
+			"description":"A group of treecol elements","inherits":"XULElement","restrictParent":"tree"
+		},
+		"treeitem":{
+			"description":"A treeitem should be placed inside a treechildren element and should contain treerow elements","inherits":"XULElement","restrictParent":"treechildren","members":{
+				"label":{
+					"required":false,"description":"For trees with only a single column, the label may be placed directly on the treeitem without the need for a treerow and treecell inside","template":"<string>","defaultValue":"Treeitem1","logic":false
+				},
+				"open":{
+					"required":false,"description":"For the menu type buttons, the open attribute is set to true when the menu is open","defaultValue":false,"template":"<boolean>","logic":false
+				}
+			}
+		},
+		"treerow":{
+			"description":"A single row in a tree. It should be placed inside a treeitem element","inherits":"XULElement","restrictParent":"treeitem"
+		},
+		"vbox":{
+			"description":"A container element with vertical orientation which can contain any number of child elements","inherits":"XULElement","restrictParent":["document","window","dialog","wizardpage","page","vbox","hbox","deck","stack","tabpanel","groupbox","row","column"]
+		},
+		"window":{
+			"description":"Describes the structure of a top-level window. It is by default a horizontally oriented box.","inherits":"XULWindowElement","restrictParent":"document","members":{
+				"title":{
+					"required":false,"description":"The text to appear in the title bar of the window","template":"<string>","defaultValue":"Window1","logic":false
+				}
+			}
+		},
+		"wizard":{
+			"description":"This element is used to construct a step-by-step wizard found in some applications to guide users through a task. It is used for a window with several steps contained on several pages","inherits":"XULWindowElement","restrictParent":"document","members":{
+				"pagestep":{
+					"required":false,"description":"The index of the current page","defaultValue":0,"template":"<number>","logic":false
+				},
+				"title":{
+					"required":false,"description":"The text to appear in the title bar of the window","defaultValue":"Wizard1","logic":false
+				}
+			},
+			"events":{
+				"wizardback":{
+					"description":"Called when the user presses the Back button","template":"function(oEvent) { ... }"
+				},
+				"wizardcancel":{
+					"description":"Called when the user presses the Cancel button","template":"function(oEvent) { ... }"
+				},
+				"wizardfinish":{
+					"template":"function(oEvent) { ... }","description":"Called when the user presses the Finish button"
+				},
+				"wizardnext":{
+					"template":"function(oEvent) { ... }","description":"Called when the user presses the Next button"
+				}
+			}
+		},
+		"wizardpage":{
+			"description":"This element defines a page in a wizard","inherits":"XU:Element","restrictParent":"wizard","members":{
+				"description":{
+					"required":false,"description":"Descriptive text to appear in addition to the dialog title","template":"<string>","logic":false
+				},
+				"label":{
+					"required":false,"description":"The label that will appear on the element","template":"<string>","logic":false
+				},
+				"next":{
+					"required":false,"description":"Set to the pageid of the next page after this one","template":"<string>","logic":false
+				},
+				"pageid":{
+					"required":false,"description":"This attribute should be set to a string that identifies the page's identifer in the wizard","template":"<string>","logic":false
+				}
+			}
+		}
+	}
+}
+}

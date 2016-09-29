@@ -1,0 +1,32 @@
+html, body {
+	width:	100%;
+	height: 100%;
+	padding: 0;
+	margin:	0;
+}
+body {	
+	font-family: "Helvetica", Helvetica, sans-serif;
+	font-size: 13px;
+	color: #222;
+	background-color: #f0f0f0;
+}
+.title {
+	font-size: 18px;
+	text-align: center;
+	padding: 0.5em;
+}
+.content {
+	padding: 1em;
+}
+.date-article {
+	text-align: center;
+}
+.image-article {
+	margin-top: 1.25em;
+}
+.articles td.cell, .articles td.cellDark,
+.articles td.cellOver, .articles td.cellOverDark,
+.articles td.cellSelected, .articles td.cellSelectedDark,
+.articles td.cellSelectedOver, .articles td.cellSelectedOverDark {
+	cursor: pointer;
+}

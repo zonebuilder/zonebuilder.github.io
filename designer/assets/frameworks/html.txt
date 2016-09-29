@@ -1,0 +1,416 @@
+{"result":
+{
+	"ns":"html",
+	"prependNS":false,
+	"title":"HTML5",
+	"version":"1.1461587613426",
+	"components":{
+		"HTMLElement":{
+			"restrictParent":"#",
+			"getBoundingRect":"=func: function () {\n\tvar oRect = this.getBoundingClientRect();\n\treturn {\n\t\tleft: oRect.left,\n\t\ttop: oRect.top,\n\t\twidth: oRect.right - oRect.left,\n\t\theight: oRect.bottom - oRect.top\n};\n}","members":{
+				"css":{
+					"logic":false,"required":false,"description":"Specifies one or more CSS class names for an element",
+					"template":"<string>"
+				},
+				"html":{
+					"logic":false,"required":false,"description":"HTML string between starting and closing tags","template":"<string>"
+				},
+				"id":{
+					"logic":false,"required":false,"description":"Specifies a unique id for an element","template":"<string>"
+				},
+				"style":{
+					"logic":false,"required":false,"description":"Specifies an inline CSS style for an element","template":"<string>"
+				},
+				"title":{
+					"logic":false,"required":false,"description":"Specifies extra information about an element","template":"<string>"
+				}
+			}
+		},
+		"a":{
+			"description":"Defines a hyperlink","inherits":"HTMLElement","members":{
+				"href":{
+					"logic":false,"required":false,"description":"Specifies the URL of the page the link goes to","template":"<string>"
+				},
+				"rel":{
+					"logic":false,"required":false,
+					"description":"Specifies the relationship between the current document and the linked document",
+					"template":"alternate|author|bookmark|help|license|next|nofollow|noreferrer|prefetch|prev|search|tag"
+				},
+				"target":{
+					"logic":false,"required":false,"description":"Specifies where to open the linked document","template":"<string>"
+				}
+			}
+		},
+		"article":{
+			"description":"Defines an article","inherits":"HTMLElement"
+		},
+		"audio":{
+			"description":"Defines sound content","inherits":"HTMLElement","members":{
+				"autoplay":{
+					"logic":false,"required":false,"description":"Specifies that the audio will start playing as soon as it is ready",
+					"template":"autoplay"
+				},
+				"controls":{
+					"logic":false,"required":false,"description":"Specifies that audio controls should be displayed","template":"controls"
+				},
+				"loop":{
+					"logic":false,"required":false,"description":"Specifies that the audio will start over again, every time it is finished",
+					"template":"loop"
+				},
+				"src":{
+					"logic":false,"required":false,"description":"Specifies the URL of the audio file","template":"<string>"
+				}
+			}
+		},
+		"blockquote":{
+			"description":"Defines a section that is quoted from another source","inherits":"HTMLElement","members":{
+				"cite":{
+					"logic":false,"required":false,"description":"Specifies the source of the quotation","template":"<string>"
+				}
+			}
+		},
+		"br":{
+			"description":"Defines a single line break","inherits":"HTMLElement"
+		},
+		"button":{
+			"description":"Defines a clickable button","inherits":"HTMLElement","members":{
+				"disabled":{
+					"logic":false,"required":false,"description":"Specifies that a button should be disabled","template":"disabled"
+				},
+				"name":{
+					"logic":false,"required":false,"description":"Specifies a name for the button","template":"<string>"
+				},
+				"type":{
+					"logic":false,"required":false,"description":"Specifies the type of button","template":"button|reset|submit"
+				},
+				"value":{
+					"logic":false,"required":false,"description":"Specifies an initial value for the button","template":"<string>"
+				}
+			}
+		},
+		"div":{
+			"description":" Defines additional details that the user can view or hide ","inherits":"HTMLElement"
+		},
+		"embed":{
+			"description":"Defines a container for an external (non-HTML) application","inherits":"HTMLElement","members":{
+				"height":{
+					"logic":false,"required":false,"description":"Specifies the height of the embedded content","template":"<string>"
+				},
+				"src":{
+					"logic":false,"required":false,"description":"Specifies the address of the external file to embed","template":"<string>"
+				},
+				"type":{
+					"logic":false,"required":false,"description":"Specifies the media type of the embedded content","template":"<string>"
+				},
+				"width":{
+					"logic":false,"required":false,"description":"Specifies the width of the embedded content","template":"<string>"
+				}
+			}
+		},
+		"fieldset":{
+			"description":"Groups related elements in a form ","inherits":"HTMLElement","members":{
+				"disabled":{
+					"logic":false,"required":false,"description":"Specifies that a group of related form elements should be disabled",
+					"template":"disabled"
+				}
+			}
+		},
+		"footer":{
+			"description":"Defines a footer for a document or section","inherits":"HTMLElement"
+		},
+		"form":{
+			"description":"Defines an HTML form for user input","inherits":"HTMLElement","members":{
+				"action":{
+					"logic":false,"required":false,"description":"Specifies where to send the form-data when a form is submitted",
+					"template":"<string>"
+				},
+				"enctype":{
+					"logic":false,"required":false,
+					"description":"Specifies how the form-data should be encoded when submitting it to the server (only for method=\"post\")",
+					"template":"application/x-www-form-urlencoded|multipart/form-data|text/plain"
+				},
+				"method":{
+					"logic":false,"required":false,"description":"Specifies the HTTP method to use when sending form-data",
+					"template":"GET|POST"
+				},
+				"target":{
+					"logic":false,"required":false,
+					"description":"Specifies where to display the response that is received after submitting the form","template":"<string>"
+				}
+			}
+		},
+		"h1":{
+			"description":"Defines HTML headings","inherits":"HTMLElement"
+		},
+		"h2":{
+			"description":"Defines HTML headings","inherits":"HTMLElement"
+		},
+		"h3":{
+			"description":"Defines HTML headings","inherits":"HTMLElement"
+		},
+		"header":{
+			"description":"Defines a header for a document or section","inherits":"HTMLElement"
+		},
+		"iframe":{
+			"description":"Defines an inline frame","inherits":"HTMLElement","members":{
+				"height":{
+					"logic":false,"required":false,"description":"Specifies the height of an <iframe>","template":"<string>"
+				},
+				"name":{
+					"logic":false,"required":false,"description":"Specifies the name of an <iframe>","template":"<string>"
+				},
+				"seamless":{
+					"logic":false,"required":false,
+					"description":"Specifies that the <iframe> should look like it is a part of the containing document",
+					"template":"seamless"
+				},
+				"src":{
+					"logic":false,"required":false,"description":"Specifies the address of the document to embed in the <iframe>",
+					"template":"<string>"
+				},
+				"width":{
+					"logic":false,"required":false,"description":"Specifies the width of an <iframe>","template":"<string>"
+				}
+			}
+		},
+		"img":{
+			"description":"Defines an image","inherits":"HTMLElement","members":{
+				"alt":{
+					"logic":false,"required":false,"description":"Specifies an alternate text for an image","template":"<string>"
+				},
+				"height":{
+					"logic":false,"required":false,"description":"Specifies the height of an image","template":"<string>"
+				},
+				"src":{
+					"logic":false,"required":false,"description":"Specifies the URL of an image","template":"<string>"
+				},
+				"width":{
+					"logic":false,"required":false,"description":"Specifies the width of an image","template":"<string>"
+				}
+			}
+		},
+		"input":{
+			"description":"Defines an input control","inherits":"HTMLElement","members":{
+				"checked":{
+					"logic":false,"required":false,"description":"selected when the page loads (for type=\"checkbox\" or type=\"radio\")",
+					"template":"checked"
+				},
+				"disabled":{
+					"logic":false,"required":false,"description":"Specifies that an <input> element should be disabled",
+					"template":"disabled"
+				},
+				"name":{
+					"logic":false,"required":false,"description":"Specifies the name of an <input> element","template":"<string>"
+				},
+				"readonly":{
+					"logic":false,"required":false,"description":"Specifies that an input field is read-only","template":"readonly"
+				},
+				"type":{
+					"logic":false,"required":false,"description":"Specifies the type <input> element to display",
+					"template":"button|checkbox|color|date| datetime|email|file|hidden|image||month|number|password|radio|range|reset|search|submit|tel|text|time|url|week"
+				},
+				"value":{
+					"logic":false,"required":false,"description":"Specifies the value of an <input> element","template":"<string>"
+				}
+			}
+		},
+		"label":{
+			"description":"Defines a label for an <input> element","inherits":"HTMLElement","members":{
+				"for":{
+					"logic":false,"required":false
+				}
+			}
+		},
+		"legend":{
+			"description":"Defines a caption for a <fieldset> element","inherits":"HTMLElement"
+		},
+		"li":{
+			"description":"Defines a list item","inherits":"HTMLElement","members":{
+				"value":{
+					"logic":false,"required":false,
+					"description":"Specifies the value of a list item. The following list items will increment from that number (only for <ol> lists)",
+					"template":"<string>"
+				}
+			}
+		},
+		"object":{
+			"description":"Defines an embedded object","inherits":"HTMLElement","members":{
+				"data":{
+					"logic":false,"required":false,"description":"Specifies the URL of the resource to be used by the object",
+					"template":"<string>"
+				},
+				"height":{
+					"logic":false,"required":false,"description":"Specifies the height of the object","template":"<string>"
+				},
+				"name":{
+					"logic":false,"required":false,"description":"Specifies a name for the object","template":"<string>"
+				},
+				"type":{
+					"logic":false,"required":false,"description":"Specifies the media type of data specified in the data attribute",
+					"template":"<string>"
+				},
+				"width":{
+					"logic":false,"required":false,"description":"Specifies the width of the object","template":"<string>"
+				}
+			}
+		},
+		"ol":{
+			"description":"Defines an ordered list","inherits":"HTMLElement","members":{
+				"reversed":{
+					"logic":false,"required":false,"description":"Specifies that the list order should be descending (9,8,7...)",
+					"template":"reversed"
+				},
+				"start":{
+					"logic":false,"required":false,"description":"Specifies the start value of an ordered list","template":"<string>"
+				},
+				"type":{
+					"logic":false,"required":false,"description":"Specifies the kind of marker to use in the list","template":"1|A|a|I|i"
+				}
+			}
+		},
+		"optgroup":{
+			"description":"Defines a group of related options in a drop-down list","inherits":"HTMLElement"
+		},
+		"option":{
+			"description":"Defines an option in a drop-down list","inherits":"HTMLElement","members":{
+				"disabled":{
+					"logic":false,"required":false,"description":"Specifies that an option should be disabled","template":"disabled"
+				},
+				"selected":{
+					"logic":false,"required":false,"description":"Specifies that an option should be pre-selected when the page loads",
+					"template":"selected"
+				},
+				"value":{
+					"logic":false,"required":false,"description":"Specifies the value to be sent to a server","template":"<string>"
+				}
+			}
+		},
+		"p":{
+			"description":"Defines a paragraph","inherits":"HTMLElement"
+		},
+		"param":{
+			"description":"Defines a parameter for an object","inherits":"HTMLElement","members":{
+				"name":{
+					"logic":false,"required":false,"description":"Specifies the name of a parameter","template":"<string>"
+				},
+				"value":{
+					"logic":false,"required":false,"description":"Specifies the value of the parameter","template":"<string>"
+				}
+			}
+		},
+		"pre":{
+			"description":"Defines preformatted text","inherits":"HTMLElement"
+		},
+		"section":{
+			"description":"Defines a section in a document","inherits":"HTMLElement"
+		},
+		"select":{
+			"description":"Defines a drop-down list","inherits":"HTMLElement","members":{
+				"disabled":{
+					"logic":false,"required":false,
+					"description":"Specifies that the drop-down list should automaticallySpecifies that a drop-down list should be disabled",
+					"template":"disabled"
+				},
+				"multiple":{
+					"logic":false,"required":false,"description":"Specifies that multiple options can be selected at once",
+					"template":"multiple"
+				},
+				"name":{
+					"logic":false,"required":false,"description":"Defines a name for the drop-down list","template":"<string>"
+				}
+			}
+		},
+		"source":{
+			"description":"Defines multiple media resources for media elements (<video> and <audio>)","inherits":"HTMLElement","members":{
+				"media":{
+					"logic":false,"required":false,"description":"Specifies the type of media resource","template":"<string>"
+				},
+				"src":{
+					"logic":false,"required":false,"description":"Specifies the URL of the media file","template":"<string>"
+				},
+				"type":{
+					"logic":false,"required":false,"description":"Specifies the media type of the media resource","template":"<string>"
+				}
+			}
+		},
+		"span":{
+			"description":"Defines a section in a document","inherits":"HTMLElement"
+		},
+		"table":{
+			"description":"Defines a table","inherits":"HTMLElement"
+		},
+		"tbody":{
+			"description":"Groups the body content in a table","inherits":"HTMLElement"
+		},
+		"td":{
+			"description":"Defines a cell in a table","inherits":"HTMLElement"
+		},
+		"textarea":{
+			"description":"Defines a multiline input control (text area)","inherits":"HTMLElement","members":{
+				"cols":{
+					"logic":false,"required":false,"description":"Specifies the visible width of a text area","template":"<string>"
+				},
+				"disabled":{
+					"logic":false,"required":false,"description":"Specifies that a text area should be disabled","template":"disabled"
+				},
+				"name":{
+					"logic":false,"required":false,"description":"Specifies a name for a text area","template":"<string>"
+				},
+				"readonly":{
+					"logic":false,"required":false,"description":"Specifies that a text area should be read-only","template":"readonly"
+				},
+				"rows":{
+					"logic":false,"required":false,"description":"Specifies the visible number of lines in a text area",
+					"template":"<string>"
+				}
+			}
+		},
+		"tfoot":{
+			"description":"Groups the footer content in a table","inherits":"HTMLElement"
+		},
+		"th":{
+			"description":"Defines a header cell in a table","inherits":"HTMLElement"
+		},
+		"thead":{
+			"description":"Groups the header content in a table","inherits":"HTMLElement"
+		},
+		"tr":{
+			"description":"Defines a row in a table","inherits":"HTMLElement"
+		},
+		"ul":{
+			"description":"Defines an unordered list","inherits":"HTMLElement"
+		},
+		"video":{
+			"description":"Defines a video or movie","inherits":"HTMLElement","members":{
+				"autoplay":{
+					"logic":false,"required":false,"description":"Specifies that the video will start playing as soon as it is ready",
+					"template":"autoplay"
+				},
+				"controls":{
+					"logic":false,"required":false,
+					"description":"Specifies that video controls should be displayed (such as a play/pause button etc)",
+					"template":"controls"
+				},
+				"height":{
+					"logic":false,"required":false,"description":"Sets the height of the video player","template":"<string>"
+				},
+				"loop":{
+					"logic":false,"required":false,"description":"Specifies that the video will start over again, every time it is finished",
+					"template":"loop"
+				},
+				"poster":{
+					"logic":false,"required":false,
+					"description":"Specifies an image to be shown while the video is downloading, or until the user hits the play",
+					"template":"<string>"
+				},
+				"src":{
+					"logic":false,"required":false,"description":"Specifies the URL of the video file","template":"<string>"
+				},
+				"width":{
+					"logic":false,"required":false,"description":"Sets the width of the video player","template":"<string>"
+				}
+			}
+		}
+	}
+}
+}

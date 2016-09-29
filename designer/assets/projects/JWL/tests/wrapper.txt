@@ -1,0 +1,35 @@
+{"result":
+{
+	"keepBindings":false,
+	"lastComponentId":5,
+	"listenersProperty":"listeners",
+	"noLogic":false,
+	"ns":"JWL.tests.wrapper",
+	"suggestedFramework":"html",
+	"title":"JWL Components - Wrapper test",
+	"version":"1.1470634898998",
+	"init":"=func: function () {\n\tvar oParser = new JUL.UI.Parser(this.parserConfig);\n\toParser.create(this.ui, this.logic, document.body);\n}",
+	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>{project_title}</title>\n<style type=\"text/css\">\nbody {\n\tfont-family: helvetica, sans-serif;\n\tcolor: #111;\n\tbackground-color: #f2f2f2;\n}\np {\n\tfont-size: 11px;\n}\n</style>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/faws/css/font-awesome.min.css?{ts}\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/jwl/css/playerbar.css?{ts}\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/jwl/css/jsonoptions.css?{ts}\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/jwl/css/frameplayer.css?{ts}\" />\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/projects/JWL/components/playerbar.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/projects/JWL/components/jsonoptions.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/projects/JWL/resources/svglogo.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/projects/JWL/components/frameplayer.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl-data.js?{ts}\"></script>\n</head>\n<body>\n<script type=\"text/javascript\">\n{project_ns}.init();\n</script>\n<p>\n  To see the pictures, please download \n  <a target=\"_blank\" href=\"https://sourceforge.net/projects/jwl-library/\">the JWL release from SourceForge</a>, <br />\n  and copy 'media/frames' folder from the distribution to 'media' folder of the JUL Designer.\n</p>\n</body>\n</html>",
+	"parserConfig":{
+		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"idProperty":"id",
+		"bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent",
+		"customFactory":"JWL.factory"
+	},
+	"ui":{
+		"xclass":"html","tag":"div","children":[
+			{"xclass":"html","tag":"frameplayer","id":"class-frameplayer","css":"abc"}
+		]
+	},
+	"logic":{
+		"class-frameplayer":{
+			"data-image-height":"144","data-image-src":"../../media/frames/frame05.jpg","data-image-width":"256",
+			"data-options":"{\"template\":\"../../media/frames/frame{n}.jpg\",\"range\":[1,30],\"zeropad\":true,\"interval\":400}","listeners":{
+				"gotoend":"=func: function () {\n\tthis.gotoEnd();\n}","gotostart":"=func: function () {\n\tthis.gotoStart();\n}",
+				"optionschanged":"=func: function () {\n\tthis.stop();\n}","pause":"=func: function () {\n\tthis.pause();\n}",
+				"play":"=func: function () {\n\tthis.play();\n}","stepbackward":"=func: function () {\n\tthis.stepBackward();\n}",
+				"stepforward":"=func: function () {\n\tthis.stepForward();\n}","stop":"=func: function () {\n\tthis.stop();\n}"
+			}
+		}
+	}
+}
+}

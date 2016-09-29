@@ -1,0 +1,62 @@
+{"result":
+{
+	"keepBindings":true,
+	"lastComponentId":9,
+	"listenersProperty":"listeners",
+	"noLogic":false,
+	"ns":"JWL.components.playerbar",
+	"suggestedFramework":"html",
+	"title":"JWL Components - General purpose player bar",
+	"version":"1.1470634643364",
+	"init":"=func: function () {\n\tJWL.parser._keepInstance = true;\n\tJWL.parser.create(this.ui, this.logic, document.body);\n}",
+	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>{project_title}</title>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/faws/css/font-awesome.min.css?{ts}\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/jwl/css/playerbar.css?{ts}\" />\n\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl-data.js?{ts}\"></script>\n</head>\n<body>\n<script type=\"text/javascript\">\n{project_ns}.init();\n</script>\n</body>\n</html>",
+	"parserConfig":{
+		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"idProperty":"id",
+		"bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent",
+		"customFactory":"JUL.UI.createDom"
+	},
+	"ui":{
+		"xclass":"html","tag":"div","cid":".playerbar","css":"playerbar","children":[
+			{"xclass":"html","tag":"a","cid":".playerbar-gotostart","css":"fa fa-fast-backward","href":"#","title":"Go to start"},
+			{"xclass":"html","tag":"a","cid":".playerbar-stepbackward","css":"fa fa-step-backward","href":"#",
+			"title":"Step backward"},
+			{"xclass":"html","tag":"a","cid":".playerbar-play","css":"fa fa-play","href":"#","title":"Play"},
+			{"xclass":"html","tag":"a","cid":".playerbar-stepforward","css":"fa fa-step-forward","href":"#","title":"Step forward"},
+			{"xclass":"html","tag":"a","cid":".playerbar-gotoend","css":"fa fa-fast-forward","href":"#","title":"Go to end"},
+			{"xclass":"html","tag":"a","cid":".playerbar-stop","css":"fa fa-stop","href":"#","title":"Stop"}
+		]
+	},
+	"logic":{
+		".playerbar-gotoend":{
+			"listeners":{
+				"click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this.parentNode, 'gotoend');\n\treturn false;\n}"
+			}
+		},
+		".playerbar-gotostart":{
+			"listeners":{
+				"click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this.parentNode, 'gotostart');\n\treturn false;\n}"
+			}
+		},
+		".playerbar-play":{
+			"listeners":{
+				"click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tvar sClass = this.getAttribute('class');\n\tif (sClass.indexOf('fa-play') > -1) {\n\t\tJWL.trigger(this.parentNode, 'play');\n\t\tthis.setAttribute('class', sClass.replace('fa-play', 'fa-pause'));\n\t\tthis.setAttribute('title', 'Pause');\n\t}\n\telse {\n\t\tJWL.trigger(this.parentNode, 'pause');\n\t\tthis.setAttribute('class', sClass.replace('fa-pause', 'fa-play'));\n\t\tthis.setAttribute('title', 'Play');\n\t}\n\treturn false;\n}"
+			}
+		},
+		".playerbar-stepbackward":{
+			"listeners":{
+				"click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this.parentNode, 'stepbackward');\n\treturn false;\n}"
+			}
+		},
+		".playerbar-stepforward":{
+			"listeners":{
+				"click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this.parentNode, 'stepforward');\n\treturn false;\n}"
+			}
+		},
+		".playerbar-stop":{
+			"listeners":{
+				"click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this.parentNode, 'stop');\n\tvar oPlay = this.parentNode.childNodes[2];\n\tvar sClass = oPlay.getAttribute('class');\n\toPlay.setAttribute('class', sClass.replace('fa-pause', 'fa-play'));\n\toPlay.setAttribute('title', 'Play');\n\treturn false;\n}"
+			}
+		}
+	}
+}
+}

@@ -1,0 +1,78 @@
+{"result":
+{
+	"lastComponentId":33,
+	"listenersProperty":"listeners",
+	"noLogic":false,
+	"ns":"newsreader.smartclient",
+	"suggestedFramework":"isc",
+	"title":"JUL News Reader - Isomorphic SmartClient",
+	"version":"0.1429186825322",
+	"init":"function () {\n    this.parser = new JUL.UI.Parser(this.parserConfig);\n    this.wnd = this.parser.create(this.ui, this.logic);\n    this.wnd.draw();\n}",
+	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<title>{project_title}</title>\n<link type=\"text/css\" href=\"../../assets/examples/{project_ns}.css\" rel=\"stylesheet\" />\n<script type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js\"></script>\n<script type=\"text/javascript\">\nvar isomorphicDir=\"https://googledrive.com/host/0B9zLzpZ-06uFY1A2OG5Dd0k3TW8/smartclient/isomorphic/\";\nvar isc_useSimpleNames = false;\n</script>\n<script type=\"text/javascript\" src=\"https://googledrive.com/host/0B9zLzpZ-06uFY1A2OG5Dd0k3TW8/smartclient/isomorphic/system/modules/ISC_Core.js\"></script>\n<script type=\"text/javascript\" src=\"https://googledrive.com/host/0B9zLzpZ-06uFY1A2OG5Dd0k3TW8/smartclient/isomorphic/system/modules/ISC_Foundation.js\"></script>\n<script type=\"text/javascript\" src=\"https://googledrive.com/host/0B9zLzpZ-06uFY1A2OG5Dd0k3TW8/smartclient/isomorphic/system/modules/ISC_Containers.js\"></script>\n<script type=\"text/javascript\" src=\"https://googledrive.com/host/0B9zLzpZ-06uFY1A2OG5Dd0k3TW8/smartclient/isomorphic/system/modules/ISC_Grids.js\"></script>\n<script type=\"text/javascript\" src=\"https://googledrive.com/host/0B9zLzpZ-06uFY1A2OG5Dd0k3TW8/smartclient/isomorphic/system/modules/ISC_Forms.js\"></script>\n<script type=\"text/javascript\" src=\"https://googledrive.com/host/0B9zLzpZ-06uFY1A2OG5Dd0k3TW8/smartclient/isomorphic/system/modules/ISC_DataBinding.js\"></script>\n<script type=\"text/javascript\" src=\"https://googledrive.com/host/0B9zLzpZ-06uFY1A2OG5Dd0k3TW8/smartclient/isomorphic/skins/TreeFrog/load_skin.js\"></script>\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/{project_ns}.js\"></script>\n<script type=\"text/javascript\" src=\"//www.google.com/jsapi\"></script>\n</head>\n<body>\n<script type=\"text/javascript\">\nisc.setAutoDraw(false);\n{project_ns}.init();\ngoogle.load('feeds', '1');\n</script>\n</body>\n</html>",
+	"parserConfig":{
+		"classProperty":"xclass","defaultClass":"Object","childrenProperty":"members","membersProperties":["items","menus","children","dataSource"],
+		"idProperty":"ID","bindingProperty":"cid","useTags":false,"tagProperty":"tag","topDown":false,"parentProperty":"parent","customFactory":"function (oConfig) {\n\tif (oConfig.listeners) {\n\t\tJUL.apply(oConfig, oConfig.listeners);\n\t\tdelete oConfig.listeners;\n\t}\n\tif (['Object', 'Tab'].indexOf(oConfig.xclass) > -1) { return oConfig; }\n\telse { return isc[oConfig.xclass].create(oConfig); }\n}"
+	},
+	"ui":{
+		"xclass":"Window","ID":"windowMain","autoCenter":true,"canDragResize":true,"height":375,"title":"JUL News Reader","width":730,"items":[
+			{"xclass":"MenuBar","buttonDefaults":{
+				"align":"left"
+			},
+			"menus":[
+				{"xclass":"Menu","title":"File","width":100,"data":[
+					{"title":"Exit","click":"alert('Not implemented')"}
+				]},
+				{"xclass":"Menu","title":"View","width":100,"data":[
+					{"title":"Show articles","checked":true,"click":"alert('Not implemented')"}
+				]},
+				{"xclass":"Menu","title":"Options","width":100,"data":[
+					{"title":"Refresh every minute","checked":false,"click":"alert('Not implemented')"}
+				]}
+			]},
+			{"xclass":"ToolStrip","members":[
+				{"xclass":"DynamicForm","ID":"formAddress","numCols":2,"titleAlign":"center","titleSuffix":"","width":"100%","colWidths":[60,"100%"],
+				"fields":[
+					{"name":"address","title":"Address","type":"text","width":"100%","value":"http://feeds.skynews.com/feeds/rss/technology.xml"}
+				]},
+				{"xclass":"Button","ID":"buttonGo","prompt":"Get the news","title":"Go","width":50}
+			]},
+			{"xclass":"HLayout","height":"100%","width":"100%","members":[
+				{"xclass":"ListGrid","ID":"listgridArticles","emptyMessage":"","height":"100%","showResizeBar":true,"styleName":"articles","width":260,"fields":[
+					{"name":"title","title":"Article","showHover":true,"width":350}
+				]},
+				{"xclass":"VLayout","border":"1px solid #777","height":"100%","width":"100%","members":[
+					{"xclass":"Label","ID":"labelTitle","height":10,"styleName":"title"},
+					{"xclass":"Label","ID":"labelDate","height":10,"styleName":"date-article"},
+					{"xclass":"HLayout","ID":"hlayoutImage","align":"center","height":10,"visibility":"hidden","members":[
+						{"xclass":"Img","ID":"imgArticle","height":120,"imageType":"normal","imageWidth":200,"styleName":"image-article","width":200}
+					]},
+					{"xclass":"HTMLFlow","ID":"htmlflowContent","height":10,"styleName":"content"}
+				]}
+			]}
+		]
+	},
+	"logic":{
+		"buttonGo":{
+			"listeners":{
+				"action":"function () {\n\tnewsreader.smartclient.go();\n}"
+			}
+		},
+		"formAddress":{
+			"saveOnEnter":true,"listeners":{
+				"submit":"function () {\n\tnewsreader.smartclient.go();\n}"
+			}
+		},
+		"listgridArticles":{
+			"listeners":{
+				"recordClick":"function (oList, oRecord) {\n\tnewsreader.smartclient.onSelectArticle(oRecord.id);\n}"
+			},
+			"dataSource":{
+				"xclass":"DataSource","ID":"datasourceArticles","clientOnly":true,"fields":[
+					{"name":"title"},
+					{"name":"id","hidden":true}
+				]
+			}
+		}
+	}
+}
+}

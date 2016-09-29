@@ -1,0 +1,68 @@
+{"result":
+{
+	"lastComponentId":1,
+	"listenersProperty":"listeners",
+	"noLogic":true,
+	"ns":"newsreader.jqm",
+	"suggestedFramework":"html",
+	"title":"JUL News Reader - jQuery Mobile",
+	"version":"0.1429184731569",
+	"init":"function () {\n\tvar oParser = new JUL.UI.Parser(this.parserConfig);\n\toParser.create(this.ui, this.logic, document.body);\n}",
+	"template":"<!doctype html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<title>{project_title}</title>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<link rel=\"stylesheet\" href=\"//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css\" />\n<link type=\"text/css\" href=\"../../assets/examples/{project_ns}.css\" rel=\"stylesheet\" />\n<script type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js\"></script>\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js\"></script>\n<script src=\"//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js\"></script>\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/{project_ns}.js\"></script>\n<script type=\"text/javascript\" src=\"//www.google.com/jsapi\"></script>\n</head>\n<body>\n<script type=\"text/javascript\">\n{project_ns}.init();\ngoogle.load('feeds', '1');\n</script>\n</body>\n</html>",
+	"parserConfig":{
+		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"idProperty":"id","bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent","customFactory":"JUL.UI.createDom"
+	},
+	"ui":{
+		"xclass":"html","tag":"div","id":"content","children":[
+			{"xclass":"html","tag":"div","data-dialog":true,"data-role":"page","children":[
+				{"xclass":"html","tag":"div","data-role":"header","children":[
+					{"xclass":"html","tag":"h1","id":"caption","html":"JUL News Reader"},
+					{"xclass":"html","tag":"div","css":"ui-bar","children":[
+						{"xclass":"html","tag":"form","id":"form-address","action":"#","method":"GET","children":[
+							{"xclass":"html","tag":"div","css":"left","children":[
+								{"xclass":"html","tag":"label","css":"ui-hidden-accessible","for":"input-address","html":"Address"},
+								{"xclass":"html","tag":"input","id":"input-address","placeholder":"Address","value":"http://feeds.skynews.com/feeds/rss/technology.xml"}
+							]},
+							{"xclass":"html","tag":"div","css":"right","children":[
+								{"xclass":"html","tag":"button","css":"ui-btn ui-btn-a ui-corner-all ui-mini","html":"Go","title":"Get the news","type":"submit"}
+							]}
+						]}
+					]}
+				]},
+				{"xclass":"html","tag":"div","css":"ui-content","data-role":"main","children":[
+					{"xclass":"html","tag":"div","id":"tabs-feed","data-role":"tabs","children":[
+						{"xclass":"html","tag":"div","data-role":"navbar","children":[
+							{"xclass":"html","tag":"ul","children":[
+								{"xclass":"html","tag":"li","children":[
+									{"xclass":"html","tag":"a","href":"#panel-articles","html":"Articles"}
+								]},
+								{"xclass":"html","tag":"li","children":[
+									{"xclass":"html","tag":"a","href":"#panel-entry","html":"Entry"}
+								]}
+							]}
+						]},
+						{"xclass":"html","tag":"div","id":"panel-articles","children":[
+							{"xclass":"html","tag":"ul","id":"list-articles","data-role":"listview","children":[
+								{"xclass":"html","tag":"li","html":"Get the news"}
+							]}
+						]},
+						{"xclass":"html","tag":"div","id":"panel-entry","children":[
+							{"xclass":"html","tag":"div","id":"article-title"},
+							{"xclass":"html","tag":"div","id":"article-date"},
+							{"xclass":"html","tag":"div","id":"article-image","children":[
+								{"xclass":"html","tag":"img","id":"img-article","width":"200"}
+							]},
+							{"xclass":"html","tag":"div","id":"article-content"}
+						]}
+					]}
+				]},
+				{"xclass":"html","tag":"div","data-role":"footer","children":[
+					{"xclass":"html","tag":"a","id":"go-prev","href":"#","html":"Prev"},
+					{"xclass":"html","tag":"a","id":"go-next","css":"ui-btn-right","href":"#","html":"Next"}
+				]}
+			]}
+		]
+	},
+	"logic":{}
+}
+}

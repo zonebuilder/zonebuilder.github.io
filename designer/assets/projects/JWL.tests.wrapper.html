@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JWL Components - Wrapper test</title>
+<style type="text/css">
+body {
+	font-family: helvetica, sans-serif;
+	color: #111;
+	background-color: #f2f2f2;
+}
+p {
+	font-size: 11px;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../examples/lib/faws/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="../examples/lib/jwl/css/playerbar.css?v=0.5" />
+<link rel="stylesheet" type="text/css" href="../examples/lib/jwl/css/jsonoptions.css?v=0.5" />
+<link rel="stylesheet" type="text/css" href="../examples/lib/jwl/css/frameplayer.css?v=0.5" />
+<script type="text/javascript" src="../js/jul.js?v=1.3.5"></script>
+<script type="text/javascript">
+(function() {
+var oParent = window.opener || window.parent;
+if (!oParent.JUL || !oParent.JUL.Designer) {
+	alert('Not available outside the designer');
+	window.error11();
+}
+document.write('<' + 'script type="text/javascript">//<![CDATA[\n' + oParent.JUL.Designer.state.code + '\n//]]><' + '/script>');
+})();
+</script>
+ 
+<script type="text/javascript" src="JWL/components/playerbar.js?v=0.5"></script>
+<script type="text/javascript" src="JWL/components/jsonoptions.js?v=0.5"></script>
+<script type="text/javascript" src="JWL/resources/svglogo.js?v=0.5"></script>
+<script type="text/javascript" src="JWL/components/frameplayer.js?v=0.5"></script>
+<script type="text/javascript" src="../examples/lib/jwl/js/jwl.js?v=0.5"></script>
+<script type="text/javascript" src="../examples/lib/jwl/js/jwl-data.js?v=0.5"></script>
+</head>
+<body>
+<script type="text/javascript">
+JWL.tests.wrapper.init();
+</script>
+<p>
+  To see the pictures, please download 
+  <a target="_blank" href="https://sourceforge.net/projects/jwl-library/">the JWL release from SourceForge</a>, <br />
+  and copy 'media/frames' folder from the distribution to 'media' folder of the JUL Designer.
+</p>
+</body>
+</html>
