@@ -3,7 +3,7 @@
 	"ns":"html",
 	"prependNS":false,
 	"title":"HTML5",
-	"version":"1.1461587613426",
+	"version":"1.1474966305424",
 	"components":{
 		"HTMLElement":{
 			"restrictParent":"#",
@@ -76,6 +76,9 @@
 			"description":"Defines a clickable button","inherits":"HTMLElement","members":{
 				"disabled":{
 					"logic":false,"required":false,"description":"Specifies that a button should be disabled","template":"disabled"
+				},
+				"html":{
+					"logic":false,"required":false,"description":"Button caption","defaultValue":"Button1","template":"<string>"
 				},
 				"name":{
 					"logic":false,"required":false,"description":"Specifies a name for the button","template":"<string>"
