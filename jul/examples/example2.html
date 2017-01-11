@@ -29,13 +29,13 @@
 	}
 	</style>
 	<script type="text/javascript" src="../js/jul.min.js"></script>
-	<script type="text/javascript" src="../ample-sdk/ample/runtime.js"></script>
-	<script type="text/javascript" src="../ample-sdk/ample/languages/xul/xul.js"></script>
-	<script type="text/javascript" src="../ample-sdk/ample/languages/xhtml/xhtml.js"></script>
-	<script type="text/javascript" src="../ample-sdk/ample/languages/svg/svg.js"></script>
-	<script type="text/javascript" src="../ample-sdk/ample/languages/chart/chart.js"></script>
-	<link rel="stylesheet" type="text/css" href="../ample-sdk/ample/languages/xul/themes/default/style-prod.css" />
-	<link rel="stylesheet" type="text/css" href="../ample-sdk/ample/languages/chart/themes/default/style-prod.css" />
+	<script type="text/javascript" src="https://zonebuilder.github.io/jul/ample-sdk/ample/runtime.js"></script>
+	<script type="text/javascript" src="https://zonebuilder.github.io/jul/ample-sdk/ample/languages/xul/xul.js"></script>
+	<script type="text/javascript" src="https://zonebuilder.github.io/jul/ample-sdk/ample/languages/xhtml/xhtml.js"></script>
+	<script type="text/javascript" src="https://zonebuilder.github.io/jul/ample-sdk/ample/languages/svg/svg.js"></script>
+	<script type="text/javascript" src="https://zonebuilder.github.io/jul/ample-sdk/ample/languages/chart/chart.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://zonebuilder.github.io/jul/ample-sdk/ample/languages/xul/themes/default/style-prod.css" />
+	<link rel="stylesheet" type="text/css" href="https://zonebuilder.github.io/jul/ample-sdk/ample/languages/chart/themes/default/style-prod.css" />
 </head>
 <body>
 <div id="content">
@@ -79,7 +79,7 @@
 		]
 	};
 
-	// preoaring ab array of items for the listbox config
+	// preoaring an array of items for the listbox config
 	var aItems = [];
 		for (var n = 1; n < 11; n++) {
 			aItems.push({tag: 'listitem', children: [
@@ -256,7 +256,7 @@
 		]
 	};
 	
-	// change defaults the will be inherited by the bew parsers - all will treat configs as DOM element configs
+	// change defaults the will be inherited by the new parsers - all will treat configs as DOM element configs
 	JUL.UI.useTags = true;
 	// wait for Ample to ne ready
 	ample.ready(function() {
