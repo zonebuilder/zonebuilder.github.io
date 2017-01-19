@@ -1,6 +1,6 @@
 /*
-	JWL - The JavaScript Widget Library version 0.7
-	Copyright (c) 2016 The Zonebuilder (zone.builder@gmx.com)
+	JWL - The JavaScript Widget Library version 0.8
+	Copyright (c) 2016 - 2017 The Zonebuilder <zone.builder@gmx.com>
 	http://sourceforge.net/projects/jwl-library/
 	Licenses: GNU GPL2 or later; GNU LGPLv3 or later (http://sourceforge.net/p/jwl-library/wiki/License/)
  */
@@ -158,7 +158,7 @@ JUL.apply(JWL,  {
 		}
 	},
 	registerPrefix: 'jwl',
-	version: '0.7',
+	version: '0.8',
 	Parser: function(oConfig) {
 		JUL.UI.Parser.call(this, oConfig);
 	},
@@ -190,7 +190,10 @@ JUL.apply(JWL,  {
 		return new CNew(oConfig);
 	},
 	get: function(oEl) {
-		return typeof JWL._Base_ === 'function' ? JWL._Base_.get(oEl) : null;
+		if (typeof oEl === 'string') { oEl = document.getElementById(oEl); }
+		if (typeof JWL._Base_ === 'function'&& oEl instanceof JWL._Base_) { return oEl; }
+		if (oEl && typeof oEl.el === 'function') { oEl = oEl.el(); }
+		return oEl && typeof JWL._Base_ === 'function' ? JWL._Base_.get(oEl) || oEl : oEl || null;
 	},
 	load: function(sData, sWhat, sRoot) {
 		var oData = null;
@@ -253,7 +256,9 @@ JUL.apply(JWL,  {
 			JWL._Base_ = function() {};
 			JUL.apply(JWL._Base_.prototype, {
 				get: function(sItem) { return sItem in this ? this[sItem] : JWL._Base_.wrapUp(this._el[sItem]); },
-				set: function(sItem, oValue, bHost) { (bHost || sItem in this ? this : this._el)[sItem] = oValue; },
+				set: function(sItem, oValue, bHost) { (bHost || sItem in this ? this : this._el)[sItem] =
+					!bHost && !(sItem in this) && JWL._Base_.onRe.test(sItem) && typeof oValue === 'function' ?
+					JUL.makeCaller(this, oValue) : oValue; },
 				el: function() { return this._el; },
 				config: function() { return this._config; }
 			});
@@ -261,10 +266,12 @@ JUL.apply(JWL,  {
 				id: 1,
 				items: {},
 				attributeName: 'data-component-id',
-				map: function(oComponent) {
+				onRe: /^on[a-z]+$/,
+				map: function(oComponent, sItem) {
 					var oEl = oComponent.el();
 					if (!oEl) { return; }
-					var sItem = 'c-' + this.id++;
+					if (sItem && typeof sItem !== 'string') { sItem = sItem.getAttribute(this.attributeName); }
+					if (!sItem) { sItem = 'c-' + this.id++; }
 					this.items[sItem] = oComponent;
 					oEl.setAttribute(this.attributeName, sItem);
 				},
@@ -315,14 +322,19 @@ JUL.apply(JWL,  {
 			oConfig[this._parser.tagProperty] = sName;
 			oConfig.listeners = JUL.apply({scope: this}, oConfig.listeners || {});
 			if (oEl) {
-				oParser.creteDom(oConfig, oEl);
+				this._parser.createDom(oConfig, oEl);
 				this._el = oEl;
 			}
 			else {
 				this._el = JWL.parser.customFactory.call(this._parser, oConfig);
 				if (this._el instanceof JWL._Base_) {
-					this._el._config = this._config;
-					return this._el;
+					oEl = this._el.el();
+					oEl.setAttribute('class', (oEl.getAttribute('class') || '') + ' ' + JWL.registerPrefix + '-' +
+						(sNS === this._parser.defaultClass ? '' : sNS + '-') +
+						((oComponent.ui || {})[this._parser.cssProperty] || sName).split(' ').shift());
+					this._el = oEl;
+					JWL._Base_.map(this, oEl);
+					return;
 				}
 			}
 			JWL._Base_.map(this);
@@ -372,8 +384,10 @@ JUL.apply(JWL,  {
 					this._methodCache.other[sItem] = this._methodCache.other[sItem] || (function(sItem) {
 						return function() {
 							if (!this._el) { return undefined; }
+							var bEvent = sItem === 'addEventListener' || sItem === 'attachEvent';
 							var aArgs = [].slice.call(arguments);
 							for (var i = 0; i < aArgs.length; i++) {
+								if (bEvent && typeof aArgs[i] === 'function') { aArgs[i] = JUL.makeCaller(this, aArgs[i]); }
 								if (aArgs[i] instanceof JWL._Base_) { aArgs[i] = aArgs[i].el(); }
 							}
 							return JWL._Base_.wrapUp(this._el[sItem].apply(this._el, aArgs));
@@ -390,7 +404,12 @@ JUL.apply(JWL,  {
 					this._methodCache.setter[sItem] = this._methodCache.setter[sItem] || (function(sItem) {
 						return function(oValue) {
 							if (oValue instanceof JWL._Base_) { oValue = oValue.el(); }
-							if (this._el) { this._el[sItem] = oValue; }
+							if (this._el) {
+								if (JWL._Base_.onRe.test(sItem) && typeof oValue === 'function') {
+									oValue = JUL.makeCaller(this, oValue);
+								}
+								this._el[sItem] = oValue;
+							}
 						};
 					})(sItem);
 					try {
@@ -422,7 +441,7 @@ JUL.apply(JWL,  {
 			},
 			createdCallback: function() {
 				var oRoot = this;
-				if (typeof this.attachShadow === 'function') { oRoot = this.attachShadow(); }
+				if (typeof this.attachShadow === 'function') { oRoot = this.attachShadow({mode: 'open'}); }
 				else if (typeof this.createShadowRoot === 'function') {  oRoot = this.createShadowRoot(); }
 				var oComponent = JWL.components[this._componentName] || {};
 				if (oComponent.css) {
@@ -436,20 +455,24 @@ JUL.apply(JWL,  {
 				}
 			},
 			attachedCallback: function() {
-				var oComponent = JWL.components[this._componentName] || {};
-				if (!oComponent.ui) { return; }
 				var oRoot = this.shadowRoot || this;
 				if (oRoot.childNodes.length && oRoot.lastChild.nodeName.toLowerCase() !== 'style') { return; }
+				var oComponent = JWL.components[this._componentName] || {};
 				var sNS = this._parser.defaultClass;
 				var sName = this._componentName;
 				if (sName.indexOf(':') > -1) {
 					sNS = sName.split(':')[0];
 					sName = sName.substr(sNS.length + 1);
 				}
+				this.setAttribute('class', (this.getAttribute('class') || '') + ' ' + JWL.registerPrefix + '-' +
+					(sNS === this._parser.defaultClass ? '' : sNS + '-') +
+					((oComponent.ui || {})[this._parser.cssProperty] || sName).split(' ').shift());
+				if (!oComponent.ui) { return; }
 				var oConfig = {};
 				oConfig[this._parser.classProperty] = sNS;
 				oConfig[this._parser.tagProperty] = sName;
 				oConfig[this._parser.parentProperty] = oRoot;
+				oConfig.listeners = JUL.apply({scope: this}, oConfig.listeners || {});
 				JWL.parser.customFactory.call(this._parser, oConfig);
 			}
 		}, oComponent.prototype || {});
@@ -523,24 +546,10 @@ JWL.Parser.prototype = JWL.parser;
 JUL.ns('JWL.components.frameplayer');
 
 JUL.apply(JWL.components.frameplayer,  {
-	keepBindings: true,
-	listenersProperty: 'listeners',
-	noLogic: false,
-	ns: 'JWL.components.frameplayer',
-	suggestedFramework: 'html',
-	title: 'JWL Components - A player that displays a sequence of pictures',
-	version: '1.1470029678095',
-	init: function () {
-		JWL.parser._keepInstance = true;
-		JWL.parser.create(this.ui, this.logic, document.body);
-	},
-	parserConfig: {
-		customFactory: 'JUL.UI.createDom', defaultClass: 'html', topDown: true, useTags: true
-	},
 	ui: {
 		tag: 'div', cid: '.frameplayer', css: 'frameplayer', children: [
 			{tag: 'div', children: [
-				{tag: 'img', cid: '.frameplayer-image', height: '135', src: 'frame.jpg', width: '240'}
+				{tag: 'img', cid: '.frameplayer-image', css: 'frameplayer-image', height: '135', src: 'frame.jpg', width: '240'}
 			]},
 			{tag: 'div', css: 'left', title: 'JWL Frameplayer', children: [
 				{xclass: 'svg', tag: 'svg', height: '32', include: 'JWL.resources.svglogo.ui', width: '32', parserConfig: {
@@ -556,7 +565,36 @@ JUL.apply(JWL.components.frameplayer,  {
 			{tag: 'div', css: 'clear'}
 		]
 	},
-	logic: null,
+	logic: {
+		'.frameplayer': {
+			listeners: {
+				gotoend: function () {
+					this.gotoEnd();
+				},
+				gotostart: function () {
+					this.gotoStart();
+				},
+				optionschanged: function () {
+					this.stop();
+				},
+				pause: function () {
+					this.pause();
+				},
+				play: function () {
+					this.play();
+				},
+				stepbackward: function () {
+					this.stepBackward();
+				},
+				stepforward: function () {
+					this.stepForward();
+				},
+				stop: function () {
+					this.stop();
+				}
+			}
+		}
+	},
 	preCreate: function(oConfig, oParser) {
 		var oMap = {
 			'data-image-width': '.frameplayer-image.width',
@@ -597,7 +635,7 @@ JUL.apply(JWL.components.frameplayer,  {
 			this.cron = null;
 		},
 		play: function() {
-			var oOpts = this.el().childNodes[3].firstChild.getAttribute('data-options') || '';
+			var oOpts = JWL.get(this).querySelector('.jwl-jsonoptions').getAttribute('data-options') || '';
 			try { oOpts = JSON.parse(oOpts); } catch (e) {}
 			oOpts = JUL.apply({
 				template: 'frame.jpg',
@@ -607,7 +645,7 @@ JUL.apply(JWL.components.frameplayer,  {
 			if (this.current < oOpts.range[0]) { this.current = oOpts.range[0]; }
 			if (this.current > oOpts.range[1]) { this.current = oOpts.range[1]; }
 			var nVal = oOpts.zeropad ? (parseFloat('1e' + oOpts.range[1].toString().length) + this.current).toString().substr(1) : this.current;
-			this.el().firstChild.firstChild.setAttribute('src', oOpts.template.replace('{n}', nVal));
+			JWL.get(this).querySelector('.frameplayer-image' ).setAttribute('src', oOpts.template.replace('{n}', nVal));
 			this.current++;
 			var oThis = this;
 			if (this.cron) { clearTimeout(this.cron); }
@@ -615,10 +653,7 @@ JUL.apply(JWL.components.frameplayer,  {
 				function() { oThis.stop(); } : function() { oThis.play(); }, oOpts.interval);
 		},
 		showStop: function() {
-			var oPlay = this.el().childNodes[2].firstChild.childNodes[2];
-			var sClass = oPlay.getAttribute('class');
-			oPlay.setAttribute('class', sClass.replace('pause', 'play'));
-			oPlay.setAttribute('title', 'Play');
+			JWL.get(this).querySelector('.jwl-playerbar').showPlay();
 		},
 		stepBackward: function() {
 			this.current -= 2;
@@ -635,11 +670,10 @@ JUL.apply(JWL.components.frameplayer,  {
 			this.pause();
 			this.current = -1;
 			this.showStop();
-			this.el().firstChild.firstChild.setAttribute('src', this.el().getAttribute('data-image-src'));
+			JWL.get(this).querySelector('.frameplayer-image').setAttribute('src', this.getAttribute('data-image-src'));
 		}
 	},
-	css: ['lib/faws/css/font-awesome.min.css?v=0.7',
-	 'lib/jwl/css/playerbar.css?v=0.7', 'lib/jwl/css/jsonoptions.css?v=0.7', 'lib/jwl/css/frameplayer.css?v=0.7']
+	css: 'lib/jwl/css/frameplayer.css?v=0.8'
 });
 
 })();
@@ -652,26 +686,12 @@ JUL.apply(JWL.components.frameplayer,  {
 JUL.ns('JWL.components.jsonoptions');
 
 JUL.apply(JWL.components.jsonoptions,  {
-	keepBindings: true,
-	listenersProperty: 'listeners',
-	noLogic: false,
-	ns: 'JWL.components.jsonoptions',
-	suggestedFramework: 'html',
-	title: 'JWL Components - Options object stored as JSON',
-	version: '1.1470029657345',
-	init: function () {
-		JWL.parser._keepInstance = true;
-		JWL.parser.create(this.ui, this.logic, document.body);
-	},
-	parserConfig: {
-		customFactory: 'JUL.UI.createDom', defaultClass: 'html', topDown: true, useTags: true
-	},
 	ui: {
 		tag: 'div', cid: '.jsonoptions', css: 'jsonoptions', children: [
 			{tag: 'a', cid: '.jsonoptions-show', css: 'fa fa-gear', href: '#', title: 'Options'},
 			{tag: 'div', css: 'jsonoptions-opts-wrap', children: [
 				{tag: 'div', css: 'jsonoptions-opts', children: [
-					{tag: 'textarea', cid: '.jsonoptions-edit', cols: '30', rows: '10', wrap: 'off'},
+					{tag: 'textarea', cid: '.jsonoptions-edit', cols: '30', css: 'jsonoptions-edit', rows: '10', wrap: 'off'},
 					{tag: 'div', css: 'jsonoptions-buttons', children: [
 						{tag: 'button', cid: '.jsonoptions-ok', html: 'OK'},
 						{tag: 'button', cid: '.jsonoptions-cancel', html: 'Cancel'}
@@ -682,30 +702,26 @@ JUL.apply(JWL.components.jsonoptions,  {
 	},
 	logic: {
 		'.jsonoptions': {
-			'data-options': ''
+			'data-options': '', listeners: {
+				saveoptions: function () {
+					this.saveOptions();
+				},
+				toggleoptions: function () {
+					this.showOptions();
+				}
+			}
 		},
 		'.jsonoptions-cancel': {
 			listeners: {
 				click: function () {
-					var oOpts = this.parentNode.parentNode;
-					var sClass = oOpts.getAttribute('class');
-					oOpts.setAttribute('class', sClass.replace('shown', ''));
+					JWL.trigger(this, 'toggleoptions');
 				}
 			}
 		},
 		'.jsonoptions-ok': {
 			listeners: {
 				click: function () {
-					var oOpts = this.parentNode.parentNode;
-					var sJson = JUL.trim(oOpts.firstChild.value);
-					if (sJson) {
-						try { sJson = JSON.stringify(JSON.parse(sJson)); }
-						catch (e) { window.alert('Text must be valid JSON.\n' + (e.description || e.message)); return; }
-					}
-				oOpts.parentNode.parentNode.setAttribute('data-options', sJson);
-					var sClass = oOpts.getAttribute('class');
-					oOpts.setAttribute('class', sClass.replace('shown', ''));
-					JWL.trigger(oOpts.parentNode.parentNode, 'optionschanged');
+					JWL.trigger(this, 'saveoptions');
 				}
 			}
 		},
@@ -714,23 +730,39 @@ JUL.apply(JWL.components.jsonoptions,  {
 				click: function (oEvent) {
 					oEvent = oEvent || event;	
 					try { oEvent.preventDefault(); } catch(e) {}
-					var oOpts = this.nextSibling.firstChild;
-
-									var sClass = oOpts.getAttribute('class');
-					if (sClass.indexOf('shown') > -1) {
-						oOpts.setAttribute('class', sClass.replace('shown', ''));
-				}
-					else {
-						var sJson = this.parentNode.getAttribute('data-options') || '';
-						try { sJson = JUL.UI.obj2str(JSON.parse(sJson), true); } catch (e) {}
-						oOpts.firstChild.value = sJson;
-						oOpts.setAttribute('class', sClass + ' shown');
-					}
+					JWL.trigger(this, 'toggleoptions');
 					return false;
 				}
 			}
 		}
-	}
+	},
+	prototype: {
+		showOptions: function(bHide) {
+			var oOpts = JWL.get(this).querySelector('.jsonoptions-opts');
+			var sClass = oOpts.getAttribute('class') || '';
+			if (bHide || sClass.indexOf('shown') > -1) {
+				oOpts.setAttribute('class', sClass.replace('shown', ''));
+		}
+		else {
+			var sJson = this.getAttribute('data-options') || '';
+			try { sJson = JUL.UI.obj2str(JSON.parse(sJson), true); } catch (e) {}
+			JWL.get(this).querySelector('.jsonoptions-edit').value = sJson;
+				oOpts.setAttribute('class', sClass + ' shown');
+			}
+		},
+		saveOptions: function() {
+				var sJson = JUL.trim(JWL.get(this).querySelector('.jsonoptions-edit').value);
+				if (sJson) {
+					try { sJson = JSON.stringify(JSON.parse(sJson)); }
+					catch (e) { window.alert('Text must be valid JSON.\n' + (e.description || e.message)); return; }
+				}
+			this.setAttribute('data-options', sJson);
+			JWL.trigger(this, 'optionschanged');
+			this.showOptions(true);
+		}
+	},
+	css: ['lib/faws/css/font-awesome.min.css?v=0.8',
+	 'lib/jwl/css/jsonoptions.css?v=0.8']
 });
 
 })();
@@ -743,37 +775,36 @@ JUL.apply(JWL.components.jsonoptions,  {
 JUL.ns('JWL.components.playerbar');
 
 JUL.apply(JWL.components.playerbar,  {
-	keepBindings: true,
-	listenersProperty: 'listeners',
-	noLogic: false,
-	ns: 'JWL.components.playerbar',
-	suggestedFramework: 'html',
-	title: 'JWL Components - General purpose player bar',
-	version: '1.1470029639425',
-	init: function () {
-		JWL.parser._keepInstance = true;
-		JWL.parser.create(this.ui, this.logic, document.body);
-	},
-	parserConfig: {
-		customFactory: 'JUL.UI.createDom', defaultClass: 'html', topDown: true, useTags: true
-	},
 	ui: {
 		tag: 'div', cid: '.playerbar', css: 'playerbar', children: [
 			{tag: 'a', cid: '.playerbar-gotostart', css: 'fa fa-fast-backward', href: '#', title: 'Go to start'},
 			{tag: 'a', cid: '.playerbar-stepbackward', css: 'fa fa-step-backward', href: '#', title: 'Step backward'},
-			{tag: 'a', cid: '.playerbar-play', css: 'fa fa-play', href: '#', title: 'Play'},
+			{tag: 'a', cid: '.playerbar-play', css: 'playerbar-play fa fa-play', href: '#', title: 'Play'},
 			{tag: 'a', cid: '.playerbar-stepforward', css: 'fa fa-step-forward', href: '#', title: 'Step forward'},
 			{tag: 'a', cid: '.playerbar-gotoend', css: 'fa fa-fast-forward', href: '#', title: 'Go to end'},
 			{tag: 'a', cid: '.playerbar-stop', css: 'fa fa-stop', href: '#', title: 'Stop'}
 		]
 	},
 	logic: {
+		'.playerbar': {
+			listeners: {
+				pause: function () {
+					this.showPlay();
+				},
+				play: function () {
+					this.showPlay(true);
+				},
+				stop: function () {
+					this.showPlay();
+				}
+			}
+		},
 		'.playerbar-gotoend': {
 			listeners: {
 				click: function (oEvent) {
 					oEvent = oEvent || event;	
 					try { oEvent.preventDefault(); } catch(e) {}
-					JWL.trigger(this.parentNode, 'gotoend');
+					JWL.trigger(this, 'gotoend');
 					return false;
 				}
 			}
@@ -783,7 +814,7 @@ JUL.apply(JWL.components.playerbar,  {
 				click: function (oEvent) {
 					oEvent = oEvent || event;	
 					try { oEvent.preventDefault(); } catch(e) {}
-					JWL.trigger(this.parentNode, 'gotostart');
+					JWL.trigger(this, 'gotostart');
 					return false;
 				}
 			}
@@ -795,15 +826,11 @@ JUL.apply(JWL.components.playerbar,  {
 					try { oEvent.preventDefault(); } catch(e) {}
 					var sClass = this.getAttribute('class');
 					if (sClass.indexOf('fa-play') > -1) {
-						JWL.trigger(this.parentNode, 'play');
-						this.setAttribute('class', sClass.replace('fa-play', 'fa-pause'));
-						this.setAttribute('title', 'Pause');
+						JWL.trigger(this, 'play');
 					}
 					else {
-						JWL.trigger(this.parentNode, 'pause');
-						this.setAttribute('class', sClass.replace('fa-pause', 'fa-play'));
-						this.setAttribute('title', 'Play');
-					}
+						JWL.trigger(this, 'pause');
+				}
 					return false;
 				}
 			}
@@ -813,7 +840,7 @@ JUL.apply(JWL.components.playerbar,  {
 				click: function (oEvent) {
 					oEvent = oEvent || event;	
 					try { oEvent.preventDefault(); } catch(e) {}
-					JWL.trigger(this.parentNode, 'stepbackward');
+					JWL.trigger(this, 'stepbackward');
 					return false;
 				}
 			}
@@ -823,7 +850,7 @@ JUL.apply(JWL.components.playerbar,  {
 				click: function (oEvent) {
 					oEvent = oEvent || event;	
 					try { oEvent.preventDefault(); } catch(e) {}
-					JWL.trigger(this.parentNode, 'stepforward');
+					JWL.trigger(this, 'stepforward');
 					return false;
 				}
 			}
@@ -833,16 +860,22 @@ JUL.apply(JWL.components.playerbar,  {
 				click: function (oEvent) {
 					oEvent = oEvent || event;	
 					try { oEvent.preventDefault(); } catch(e) {}
-					JWL.trigger(this.parentNode, 'stop');
-					var oPlay = this.parentNode.childNodes[2];
-					var sClass = oPlay.getAttribute('class');
-					oPlay.setAttribute('class', sClass.replace('fa-pause', 'fa-play'));
-					oPlay.setAttribute('title', 'Play');
+					JWL.trigger(this, 'stop');
 					return false;
 				}
 			}
 		}
-	}
+	},
+	prototype: {
+		showPlay: function(bPause) {
+			var oPlay = JWL.get(this).querySelector( '.playerbar-play');
+			var sClass = oPlay.getAttribute('class');
+			oPlay.setAttribute('class', sClass.replace(bPause ? 'fa-play' : 'fa-pause', bPause ? 'fa-pause' : 'fa-play'));
+			oPlay.setAttribute('title', bPause ? 'Pause' : 'Play');
+		}
+	},
+	css: ['lib/faws/css/font-awesome.min.css?v=0.8',
+	 'lib/jwl/css/playerbar.css?v=0.8']
 });
 
 })();
@@ -856,15 +889,6 @@ JUL.ns('JWL.resources');
 
 JUL.apply(JWL.resources,  {
 	svglogo: {
-		keepBindings: false, listenersProperty: 'listeners', noLogic: true, ns: 'JWL.resources.svglogo',
-		 suggestedFramework: 'html', title: 'JWL Components - SVG Logo', version: '1.1470029695451',
-		 init: function () {
-			var oParser = new JUL.UI.Parser(this.parserConfig);
-			oParser.create(this.ui, this.logic, document.body);
-		},
-		parserConfig: {
-			customFactory: 'JUL.UI.createDom', defaultClass: 'svg', topDown: true, useTags: true
-		},
 		ui: {
 			tag: 'svg', fill: 'transparent', height: '300', viewBox: '-10 -10 20 20', width: '300', children: [
 				{tag: 'polygon', points: '-2,-1 2,-1 0,-8', stroke: 'yellow'},
