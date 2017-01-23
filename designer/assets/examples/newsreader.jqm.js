@@ -31,7 +31,8 @@ go: function() {
 	}
 	$.ajax({
 		type: 'GET',
-		url: 'http://query.yahooapis.com/v1/public/yql',
+		cache: true,
+		url: '//query.yahooapis.com/v1/public/yql',
 		data: {
 			q: "select * from xml where url='" + sUrl + "'",
 			format: 'json',
