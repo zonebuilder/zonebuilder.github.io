@@ -1,16 +1,19 @@
 {"result":
 {
+	"keepBindings":false,
 	"lastComponentId":1,
 	"listenersProperty":"listeners",
 	"noLogic":true,
 	"ns":"newsreader.jqm",
 	"suggestedFramework":"html",
 	"title":"JUL News Reader - jQuery Mobile",
-	"version":"0.1429184731569",
-	"init":"function () {\n\tvar oParser = new JUL.UI.Parser(this.parserConfig);\n\toParser.create(this.ui, this.logic, document.body);\n}",
-	"template":"<!doctype html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<title>{project_title}</title>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<link rel=\"stylesheet\" href=\"//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css\" />\n<link type=\"text/css\" href=\"../../assets/examples/{project_ns}.css\" rel=\"stylesheet\" />\n<script type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js\"></script>\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js\"></script>\n<script src=\"//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js\"></script>\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/{project_ns}.js\"></script>\n<script type=\"text/javascript\" src=\"//www.google.com/jsapi\"></script>\n</head>\n<body>\n<script type=\"text/javascript\">\n{project_ns}.init();\ngoogle.load('feeds', '1');\n</script>\n</body>\n</html>",
+	"version":"1.1485136230083",
+	"init":"=func: function () {\n\tvar oParser = new JUL.UI.Parser(this.parserConfig);\n\toParser.create(this.ui, this.logic, document.body);\n}",
+	"template":"<!doctype html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<title>{project_title}</title>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<link rel=\"stylesheet\" href=\"//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css\" />\n<link type=\"text/css\" href=\"../../assets/examples/{project_ns}.css?{ts}\" rel=\"stylesheet\" />\n<script type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js\"></script>\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js\"></script>\n<script src=\"//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js\"></script>\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/{project_ns}.js?{ts}\"></script>\n</head>\n<body>\n<script type=\"text/javascript\">\n{project_ns}.init();\n</script>\n</body>\n</html>",
 	"parserConfig":{
-		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"idProperty":"id","bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent","customFactory":"JUL.UI.createDom"
+		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"idProperty":"id",
+		"bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent",
+		"customFactory":"JUL.UI.createDom"
 	},
 	"ui":{
 		"xclass":"html","tag":"div","id":"content","children":[
@@ -21,10 +24,12 @@
 						{"xclass":"html","tag":"form","id":"form-address","action":"#","method":"GET","children":[
 							{"xclass":"html","tag":"div","css":"left","children":[
 								{"xclass":"html","tag":"label","css":"ui-hidden-accessible","for":"input-address","html":"Address"},
-								{"xclass":"html","tag":"input","id":"input-address","placeholder":"Address","value":"http://feeds.skynews.com/feeds/rss/technology.xml"}
+								{"xclass":"html","tag":"input","id":"input-address","placeholder":"Address",
+								"value":"http://feeds.skynews.com/feeds/rss/technology.xml"}
 							]},
 							{"xclass":"html","tag":"div","css":"right","children":[
-								{"xclass":"html","tag":"button","css":"ui-btn ui-btn-a ui-corner-all ui-mini","html":"Go","title":"Get the news","type":"submit"}
+								{"xclass":"html","tag":"button","css":"ui-btn ui-btn-a ui-corner-all ui-mini","html":"Go","title":"Get the news",
+								"type":"submit"}
 							]}
 						]}
 					]}
@@ -50,7 +55,7 @@
 							{"xclass":"html","tag":"div","id":"article-title"},
 							{"xclass":"html","tag":"div","id":"article-date"},
 							{"xclass":"html","tag":"div","id":"article-image","children":[
-								{"xclass":"html","tag":"img","id":"img-article","width":"200"}
+								{"xclass":"html","tag":"img","id":"img-article","width":"200","alt":"Get the news"}
 							]},
 							{"xclass":"html","tag":"div","id":"article-content"}
 						]}
