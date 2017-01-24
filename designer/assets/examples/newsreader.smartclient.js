@@ -67,7 +67,8 @@ onSelectArticle: function(sId) {
 	else {
 		hlayoutImage.hide();
 	}
-	htmlflowContent.setContents(oEntry.description[0].replace(/<a/gm, '<a target="_blank"'));
+	var sContent = [].concat(oEntry.description)[0];
+	htmlflowContent.setContents(sContent.replace(/<a/gm, '<a target="_blank"'));
 },
 findImage: function(oMedia) {
 	var oImage = false;

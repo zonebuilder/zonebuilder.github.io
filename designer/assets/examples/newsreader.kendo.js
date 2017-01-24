@@ -110,7 +110,8 @@ onSelectArticle: function() {
 		});
 		$('#article-image').show();
 	}
-	$('#article-content').html(oEntry.description[0].replace(/<a/gm, '<a target="_blank"'));
+	var sContent = [].concat(oEntry.description)[0];
+	$('#article-content').html(sContent.replace(/<a/gm, '<a target="_blank"'));
 	this.app.navigate('#view-entry');
 },
 template: function(sTemplate, oData) {

@@ -70,7 +70,8 @@ onSelectArticle: function(sId) {
 		ample.getElementById('image-article').setAttribute('src', ample.$encodeXMLCharacters(oImage.url));
 		ample.getElementById('hbox-image').setAttribute('hidden', false);
 	}
-	ample.getElementById('description-content').$getContainer().innerHTML = '<div class="content">' + oEntry.description[0].replace(/<a/gm, '<a target="_blank"') + '</div>';
+	var sContent = [].concat(oEntry.description)[0];
+	ample.getElementById('description-content').$getContainer().innerHTML = '<div class="content">' + sContent.replace(/<a/gm, '<a target="_blank"') + '</div>';
 },
 findImage: function(oMedia) {
 	var oImage = false;
