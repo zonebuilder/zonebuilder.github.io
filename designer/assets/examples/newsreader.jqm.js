@@ -109,7 +109,8 @@ onSelectArticle: function() {
 		});
 		$('#article-image').show();
 	}
-	$('#article-content').html(oEntry.description[0].replace(/<a/gm, '<a target="_blank"'));
+	var sContent = [].concat(oEntry.description)[0];
+	$('#article-content').html(sContent.replace(/<a/gm, '<a target="_blank"'));
 	$('#tabs-feed').tabs('option', 'active', 1);
 },
 template: function(sTemplate, oData) {
