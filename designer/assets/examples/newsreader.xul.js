@@ -65,7 +65,7 @@ onSelectArticle: function(sId) {
 	var oEntry = this.feed.entries[sId.substr(6)];
 	ample.query('#description-title').html('<div class="title"><a target="_blank" href="' + ample.$encodeXMLCharacters(oEntry.link) + '">' + oEntry.title + '</a></div>');
 	ample.getElementById('description-date').setAttribute('value', (new Date(oEntry.pubDate)).toLocaleString());
-	var oImage = this.findImage(oEntry.thumbnail);
+	var oImage = this.findImage(oEntry.thumbnail || oEntry.group);
 	if (oImage) {
 		ample.getElementById('image-article').setAttribute('src', ample.$encodeXMLCharacters(oImage.url));
 		ample.getElementById('hbox-image').setAttribute('hidden', false);

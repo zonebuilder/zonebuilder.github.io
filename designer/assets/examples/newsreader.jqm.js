@@ -101,7 +101,7 @@ onSelectArticle: function() {
 		title: oEntry.title
 	}));
 	$('#article-date').html((new Date(oEntry.pubDate)).toLocaleString());
-	var oImage = this.findImage(oEntry.thumbnail);
+	var oImage = this.findImage(oEntry.thumbnail || oEntry.group);
 	if (oImage) {
 		$('#img-article').attr({
 			alt: oEntry.title,

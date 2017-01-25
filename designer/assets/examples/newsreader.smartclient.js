@@ -59,7 +59,7 @@ onSelectArticle: function(sId) {
 	var oEntry = this.feed.entries[sId];
 	labelTitle.setContents('<a target="_blank" href="' + oEntry.link + '">' + oEntry.title + '</a>');
 	labelDate.setContents((new Date(oEntry.pubDate)).toLocaleString());
-	var oImage = this.findImage(oEntry.thumbnail);
+	var oImage = this.findImage(oEntry.thumbnail || oEntry.group);
 	if (oImage) {
 		imgArticle.setSrc(oImage.url);
 		hlayoutImage.show();
