@@ -7,7 +7,7 @@
 	"ns":"JWL.components.frameplayer",
 	"suggestedFramework":"html",
 	"title":"JWL Components - A player that displays a sequence of pictures",
-	"version":"1.1470634732068",
+	"version":"1.1485836975610",
 	"init":"=func: function () {\n\tJWL.parser._keepInstance = true;\n\tJWL.parser.create(this.ui, this.logic, document.body);\n}",
 	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>{project_title}</title>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/faws/css/font-awesome.min.css?{ts}\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/jwl/css/playerbar.css?{ts}\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/jwl/css/jsonoptions.css?{ts}\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/jwl/css/frameplayer.css?{ts}\" />\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/projects/JWL/components/playerbar.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/projects/JWL/components/jsonoptions.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/projects/JWL/resources/svglogo.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl-data.js?{ts}\"></script>\n</head>\n<body>\n<script type=\"text/javascript\">\n{project_ns}.init();\n</script>\n</body>\n</html>",
 	"parserConfig":{
@@ -18,7 +18,8 @@
 	"ui":{
 		"xclass":"html","tag":"div","cid":".frameplayer","css":"frameplayer","children":[
 			{"xclass":"html","tag":"div","children":[
-				{"xclass":"html","tag":"img","cid":".frameplayer-image","height":"135","src":"frame.jpg","width":"240"}
+				{"xclass":"html","tag":"img","cid":".frameplayer-image","css":"frameplayer-image","height":"135","src":"frame.jpg",
+				"width":"240"}
 			]},
 			{"xclass":"html","tag":"div","css":"left","title":"JWL Frameplayer","children":[
 				{"xclass":"svg","tag":"svg","height":"32","include":"JWL.resources.svglogo.ui","width":"32","parserConfig":{
@@ -34,6 +35,15 @@
 			{"xclass":"html","tag":"div","css":"clear"}
 		]
 	},
-	"logic":{}
+	"logic":{
+		".frameplayer":{
+			"listeners":{
+				"gotoend":"=func: function () {\n\tthis.gotoEnd();\n}","gotostart":"=func: function () {\n\tthis.gotoStart();\n}",
+				"optionschanged":"=func: function () {\n\tthis.stop();\n}","pause":"=func: function () {\n\tthis.pause();\n}",
+				"play":"=func: function () {\n\tthis.play();\n}","stepbackward":"=func: function () {\n\tthis.stepBackward();\n}",
+				"stepforward":"=func: function () {\n\tthis.stepForward();\n}","stop":"=func: function () {\n\tthis.stop();\n}"
+			}
+		}
+	}
 }
 }
