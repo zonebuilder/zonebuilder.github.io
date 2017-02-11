@@ -1,5 +1,5 @@
 /*
-	JWL - The JavaScript Widget Library version 0.8
+	JWL - The JavaScript Widget Library version 0.8.1
 	Copyright (c) 2016 - 2017 The Zonebuilder <zone.builder@gmx.com>
 	http://sourceforge.net/projects/jwl-library/
 	Licenses: GNU GPL2 or later; GNU LGPLv3 or later (http://sourceforge.net/p/jwl-library/wiki/License/)
@@ -158,7 +158,7 @@ JUL.apply(JWL,  {
 		}
 	},
 	registerPrefix: 'jwl',
-	version: '0.8',
+	version: '0.8.1',
 	Parser: function(oConfig) {
 		JUL.UI.Parser.call(this, oConfig);
 	},
@@ -673,7 +673,7 @@ JUL.apply(JWL.components.frameplayer,  {
 			JWL.get(this).querySelector('.frameplayer-image').setAttribute('src', this.getAttribute('data-image-src'));
 		}
 	},
-	css: 'lib/jwl/css/frameplayer.css?v=0.8'
+	css: 'lib/jwl/css/frameplayer.css?v=0.8.1'
 });
 
 })();
@@ -761,8 +761,8 @@ JUL.apply(JWL.components.jsonoptions,  {
 			this.showOptions(true);
 		}
 	},
-	css: ['lib/faws/css/font-awesome.min.css?v=0.8',
-	 'lib/jwl/css/jsonoptions.css?v=0.8']
+	css: ['lib/faws/css/font-awesome.min.css?v=0.8.1',
+	 'lib/jwl/css/jsonoptions.css?v=0.8.1']
 });
 
 })();
@@ -874,8 +874,8 @@ JUL.apply(JWL.components.playerbar,  {
 			oPlay.setAttribute('title', bPause ? 'Pause' : 'Play');
 		}
 	},
-	css: ['lib/faws/css/font-awesome.min.css?v=0.8',
-	 'lib/jwl/css/playerbar.css?v=0.8']
+	css: ['lib/faws/css/font-awesome.min.css?v=0.8.1',
+	 'lib/jwl/css/playerbar.css?v=0.8.1']
 });
 
 })();
