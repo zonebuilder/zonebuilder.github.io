@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
-		<title>JUL.UI | JUL 1.3.9 API Reference</title>
+		<title>JUL.UI | JUL 1.4.0 API Reference</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<meta name="mobileoptimized" content="0" />
@@ -335,6 +335,26 @@
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
 													<div class="fixedFont">
+													JUL.UI.<b><a href="../symbols/JUL.UI.html#.instantiateProperty">instantiateProperty</a></b>
+													</div>
+													<div class="description">A property that may contain a per-config list of members to instantiate</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&lt;static&gt; &nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													JUL.UI.<b><a href="../symbols/JUL.UI.html#.membersMappings">membersMappings</a></b>
+													</div>
+													<div class="description">Optional mappings between the component class name and a list of members to instantiate</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&lt;static&gt; &nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
 													JUL.UI.<b><a href="../symbols/JUL.UI.html#.membersProperties">membersProperties</a></b>
 													</div>
 													<div class="description">An array of names of the other 'members' properties in the config tree</div>
@@ -367,7 +387,7 @@
 													<div class="fixedFont">
 													JUL.UI.<b><a href="../symbols/JUL.UI.html#.referencePrefix">referencePrefix</a></b>
 													</div>
-													<div class="description">Config member strings starting with this prefix will be resolved at parse time using the namespace after the prefix.</div>
+													<div class="description">It allows JUL.UI.obj2str() to output the enclosed expression unquoted.</div>
 												</td>
 											</tr>
 										
@@ -551,6 +571,17 @@
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
+													<div class="fixedFont">JUL.UI.<b><a href="../symbols/JUL.UI.html#.getMembers">getMembers</a></b>(oConfig)
+													</div>
+													<div class="description">Gets a list of members to instantiate that may depend on the supplied config node.</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item10'
+											>
+												<td class="attributes">&lt;static&gt; &nbsp;</td>
+												<td class="nameDescription">
 													<div class="fixedFont">JUL.UI.<b><a href="../symbols/JUL.UI.html#.include">include</a></b>(oData, fMerger)
 													</div>
 													<div class="description">Does explicit object inheritance based on a predefined object property</div>
@@ -558,7 +589,7 @@
 											</tr>
 										
 											<tr
-												 class='item10'
+												 class='item11'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -569,7 +600,7 @@
 											</tr>
 										
 											<tr
-												 class='item11'
+												 class='item12'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -1101,6 +1132,50 @@
 								
 								<div class="hr"></div>
 							
+								<div class="fixedFont heading" id=".instantiateProperty">
+									<span class='lighter'>
+									&lt;static&gt; 
+									</span>
+									
+									<span class="light">{String}</span>
+									
+									<span class="light">JUL.UI.</span><b>instantiateProperty</b>							
+								</div>
+								
+								<div class="description">
+									A property that may contain a per-config list of members to instantiate
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id=".membersMappings">
+									<span class='lighter'>
+									&lt;static&gt; 
+									</span>
+									
+									<span class="light">{Object}</span>
+									
+									<span class="light">JUL.UI.</span><b>membersMappings</b>							
+								</div>
+								
+								<div class="description">
+									Optional mappings between the component class name and a list of members to instantiate
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
 								<div class="fixedFont heading" id=".membersProperties">
 									<span class='lighter'>
 									&lt;static&gt; 
@@ -1178,8 +1253,8 @@
 								</div>
 								
 								<div class="description">
-									Config member strings starting with this prefix will be resolved at parse time using the namespace after the prefix.
-		Eg. '#ref: JUL.UI.createDom' will resolve to JUL.UI.createDom method.
+									It allows JUL.UI.obj2str() to output the enclosed expression unquoted.
+		It also applies to JUL.UI.creatDom() when setting the element attributes.
 									
 									
 									
@@ -1837,6 +1912,68 @@
 									<li 
 										 class='item9'
 									>
+										<div class="fixedFont heading" id=".getMembers">
+											<span class='lighter'>
+											&lt;static&gt; 
+											</span>
+											
+											<span class="light">{Array}</span>
+											
+											<span class="light">JUL.UI.</span><b>getMembers</b>(oConfig)
+										</div>
+										
+										<div class="description">
+											Gets a list of members to instantiate that may depend on the supplied config node.
+		It takes into account all members settings and mappings.
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+											<dl class="detailList params">
+												<dt class="heading">Parameters:</dt>
+												
+													<dt>
+														<span class="light fixedFont">{Object}</span> <b>oConfig</b>
+														<i>Optional</i>
+													</dt>
+													<dd>Configuration object</dd>
+												
+											</dl>
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{Array}</span> List of member names to instantiate (for the given config)</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item10'
+									>
 										<div class="fixedFont heading" id=".include">
 											<span class='lighter'>
 											&lt;static&gt; 
@@ -1905,7 +2042,7 @@
 									</li>
 								
 									<li 
-										 class='item10'
+										 class='item11'
 									>
 										<div class="fixedFont heading" id=".obj2str">
 											<span class='lighter'>
@@ -1983,7 +2120,7 @@
 									</li>
 								
 									<li 
-										 class='item11'
+										 class='item12'
 									>
 										<div class="fixedFont heading" id=".xml2jul">
 											<span class='lighter'>
