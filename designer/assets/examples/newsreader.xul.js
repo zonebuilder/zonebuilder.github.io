@@ -50,6 +50,7 @@ fillArticles: function() {
 	if (!this.feed || !this.feed.entries) { return; }
 	for (var i = 0; i < this.feed.entries.length; i++) {
 		var oEntry = this.feed.entries[i];
+		oEntry.title = oEntry.title[0] === '<' ? oEntry.title.split('>')[1].split('<')[0] : oEntry.title;
 		this.parser.create({tag: 'listitem', id: 'entry-' + i, children: [
 				{tag: 'listcell', label: oEntry.title, tooltiptext: oEntry.title}
 			]}, null, oBody);
@@ -70,7 +71,7 @@ onSelectArticle: function(sId) {
 		ample.getElementById('image-article').setAttribute('src', ample.$encodeXMLCharacters(oImage.url));
 		ample.getElementById('hbox-image').setAttribute('hidden', false);
 	}
-	var sContent = [].concat(oEntry.description)[0];
+	var sContent = [].concat(oEntry.description)[0] || '';
 	ample.getElementById('description-content').$getContainer().innerHTML = '<div class="content">' + sContent.replace(/<a/gm, '<a target="_blank"') + '</div>';
 },
 findImage: function(oMedia) {

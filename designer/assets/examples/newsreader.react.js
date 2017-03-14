@@ -1,30 +1,8 @@
-/* start interface logic */
-jQuery(document).ready(function($) {
-	$('#form-address').on('submit', function(oEvent) {
-		oEvent.preventDefault();
-		newsreader.kendo.go();
-	});
-	$('#list-articles').on('click', 'li.entry>a', function(oEvent) {
-		oEvent.preventDefault();
-		newsreader.kendo.current = parseInt($(this).attr('id').substr(6));
-		newsreader.kendo.onSelectArticle();
-	});
-	$('#go-next').on('click', function(oEvent) {
-		oEvent.preventDefault();
-		newsreader.kendo.goNext();
-	});
-	$('#go-prev').on('click', function(oEvent) {
-		oEvent.preventDefault();
-		newsreader.kendo.goNext(true);
-	});
-});
-/* end interface logic */
-
 (function($) {
-JUL.apply(newsreader.kendo, {
+JUL.apply(newsreader.react, {
 /* begin business logic */
 go: function() {
-	var sUrl = JUL.trim($('#input-address').val());
+	var sUrl = JUL.trim($('#textfield-address').val());
 	if (!(/^https?:\/\//).test(sUrl)) {
 		alert('Address not valid!');
 		return;
@@ -41,11 +19,11 @@ go: function() {
 		},
 		dataType: 'jsonp',
 		jsonp: 'callback',
-		jsonpCallback: 'newsreader.kendo.load'
+		jsonpCallback: 'newsreader.react.load'
 	});
 },
 load: function(oResult) {
-  	if (oResult.error) {
+	  if (oResult.error) {
 	  	alert(oResult.error.message);
 	  	return;
 	  }
@@ -57,31 +35,38 @@ load: function(oResult) {
 			  	return (new Date(b.pubDate)) - (new Date(a.pubDate));
 			});
 	  }
-	  newsreader.kendo.feed = oResult.feed;
+	  newsreader.react.feed = oResult.feed;
 	  	var sTitle = 'JUL News Reader';
 	  if (oResult.feed && oResult.feed.title) {
 	  	sTitle = oResult.feed.title.substr(0, 70);
 	}
-		$('#caption').html(sTitle).attr('title', sTitle);
-	  newsreader.kendo.fillArticles();
+	$('#appbar-main h1').html(sTitle).attr('title', sTitle);
+	  newsreader.react.fillArticles();
 },
 fillArticles: function() {
-	$('#list-articles').data('kendoMobileListView').destroy();
-	$('#list-articles>li.entry').remove();
-	this.app.navigate('#view-articles');
+	var oPanel = document.getElementById('panel-articles');
+	ReactDOM.unmountComponentAtNode(oPanel);
+	this.tabsEntries.ref().setState({selectedIndex: 0});
 	delete this.current;
 	this.onSelectArticle();
 	if (!this.feed || !this.feed.entries) { return; }
+	var oConfig = {tag: 'List', children: []};
+	var fClick = function() {
+		newsreader.react.current = parseInt(this.id.substr(6));
+		newsreader.react.onSelectArticle();
+	};
 	for (var i = 0; i < this.feed.entries.length; i++) {
 		var oEntry = this.feed.entries[i];
 		oEntry.title = oEntry.title[0] === '<' ? oEntry.title.split('>')[1].split('<')[0] : oEntry.title;
-		$('#list-articles').append(this.template('<li class="entry"><a id="{id}" href="#" title="{title}">{title}</a></li>', {
+		oConfig.children.push({
+			tag: 'ListItem',
 			id: 'entry-' + (i + 1),
-			title: oEntry.title
-		}));
+			key: (i + 1).toString(),
+			primaryText: oEntry.title,
+			onTouchTap: fClick
+		});
 	}
-	$('#list-articles').kendoMobileListView();
-	//$('#list-articles').data("kendoMobileListView").refresh();
+	ReactDOM.render(this.parser.create({tag: 'MuiThemeProvider', children: oConfig}), oPanel);
 },
 goNext: function(bPrev) {
 	if (!this.feed || !this.feed.entries) { return; }
@@ -113,7 +98,8 @@ onSelectArticle: function() {
 	}
 	var sContent = [].concat(oEntry.description)[0] || '';
 	$('#article-content').html(sContent.replace(/<a/gm, '<a target="_blank"'));
-	this.app.navigate('#view-entry');
+			this.tabsEntries.ref().setState({selectedIndex: 1});
+
 },
 template: function(sTemplate, oData) {
 	return sTemplate.replace(/\{(\w+)\}/g, function(sMatch, sItem) {

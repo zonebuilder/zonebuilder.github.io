@@ -1,30 +1,8 @@
-/* start interface logic */
-jQuery(document).ready(function($) {
-	$('#form-address').on('submit', function(oEvent) {
-		oEvent.preventDefault();
-		newsreader.kendo.go();
-	});
-	$('#list-articles').on('click', 'li.entry>a', function(oEvent) {
-		oEvent.preventDefault();
-		newsreader.kendo.current = parseInt($(this).attr('id').substr(6));
-		newsreader.kendo.onSelectArticle();
-	});
-	$('#go-next').on('click', function(oEvent) {
-		oEvent.preventDefault();
-		newsreader.kendo.goNext();
-	});
-	$('#go-prev').on('click', function(oEvent) {
-		oEvent.preventDefault();
-		newsreader.kendo.goNext(true);
-	});
-});
-/* end interface logic */
-
 (function($) {
-JUL.apply(newsreader.kendo, {
+JUL.apply(newsreader.openui5, {
 /* begin business logic */
 go: function() {
-	var sUrl = JUL.trim($('#input-address').val());
+	var sUrl = JUL.trim(sap.ui.getCore().byId('textfield-address').getValue());
 	if (!(/^https?:\/\//).test(sUrl)) {
 		alert('Address not valid!');
 		return;
@@ -41,11 +19,11 @@ go: function() {
 		},
 		dataType: 'jsonp',
 		jsonp: 'callback',
-		jsonpCallback: 'newsreader.kendo.load'
+		jsonpCallback: 'newsreader.openui5.load'
 	});
 },
 load: function(oResult) {
-  	if (oResult.error) {
+	  if (oResult.error) {
 	  	alert(oResult.error.message);
 	  	return;
 	  }
@@ -57,38 +35,35 @@ load: function(oResult) {
 			  	return (new Date(b.pubDate)) - (new Date(a.pubDate));
 			});
 	  }
-	  newsreader.kendo.feed = oResult.feed;
+	  newsreader.openui5.feed = oResult.feed;
 	  	var sTitle = 'JUL News Reader';
 	  if (oResult.feed && oResult.feed.title) {
 	  	sTitle = oResult.feed.title.substr(0, 70);
 	}
-		$('#caption').html(sTitle).attr('title', sTitle);
-	  newsreader.kendo.fillArticles();
+	sap.ui.getCore().byId('dialog-main').setTitle(sTitle);
+	  newsreader.openui5.fillArticles();
 },
 fillArticles: function() {
-	$('#list-articles').data('kendoMobileListView').destroy();
-	$('#list-articles>li.entry').remove();
-	this.app.navigate('#view-articles');
+	var oList = sap.ui.getCore().byId('listbox-entries');
+	oList.setItems([], true);
+	sap.ui.getCore().byId('layoutarea-entries').setVisible(true);
+	sap.ui.getCore().byId('menuitem-show-list').setEnabled(false);
+	sap.ui.getCore().byId('menuitem-hide-list').setEnabled(true);
 	delete this.current;
 	this.onSelectArticle();
 	if (!this.feed || !this.feed.entries) { return; }
+	var aItems = [];
 	for (var i = 0; i < this.feed.entries.length; i++) {
 		var oEntry = this.feed.entries[i];
 		oEntry.title = oEntry.title[0] === '<' ? oEntry.title.split('>')[1].split('<')[0] : oEntry.title;
-		$('#list-articles').append(this.template('<li class="entry"><a id="{id}" href="#" title="{title}">{title}</a></li>', {
-			id: 'entry-' + (i + 1),
-			title: oEntry.title
-		}));
+		aItems.push({
+			xclass: 'ListItem',
+			key: 'entry-' + (i + 1),
+			text: oEntry.title,
+			tooltip: oEntry.title
+		});
 	}
-	$('#list-articles').kendoMobileListView();
-	//$('#list-articles').data("kendoMobileListView").refresh();
-},
-goNext: function(bPrev) {
-	if (!this.feed || !this.feed.entries) { return; }
-	var n = this.feed.entries.length;
-	if (this.current) { this.current = 1 + (n + (this.current - 1 + (bPrev ? -1 : 1)) % n) % n; }
-	else { this.current = bPrev ? n : 1; }
-	this.onSelectArticle();
+	oList.setItems(this.parser.create(aItems), true);
 },
 onSelectArticle: function() {
 	$('#article-title').html('');
@@ -113,7 +88,6 @@ onSelectArticle: function() {
 	}
 	var sContent = [].concat(oEntry.description)[0] || '';
 	$('#article-content').html(sContent.replace(/<a/gm, '<a target="_blank"'));
-	this.app.navigate('#view-entry');
 },
 template: function(sTemplate, oData) {
 	return sTemplate.replace(/\{(\w+)\}/g, function(sMatch, sItem) {

@@ -49,7 +49,9 @@ load: function(oResult) {
 fillArticles: function() {
 	if (!this.feed || !this.feed.entries) { return; }
 	for (var i = 0; i < this.feed.entries.length; i++) {
-		this.feed.entries[i].id = i;
+		var oEntry = this.feed.entries[i];
+		oEntry.id = i;
+		oEntry.title = oEntry.title[0] === '<' ? oEntry.title.split('>')[1].split('<')[0] : oEntry.title;
 	}
 	datasourceArticles.setTestData(this.feed.entries);
 	listgridArticles.invalidateCache();
@@ -67,7 +69,7 @@ onSelectArticle: function(sId) {
 	else {
 		hlayoutImage.hide();
 	}
-	var sContent = [].concat(oEntry.description)[0];
+	var sContent = [].concat(oEntry.description)[0] || '';
 	htmlflowContent.setContents(sContent.replace(/<a/gm, '<a target="_blank"'));
 },
 findImage: function(oMedia) {
