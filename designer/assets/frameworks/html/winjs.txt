@@ -1,0 +1,29 @@
+{"result":
+{
+	"augments":"html",
+	"groupByLevel":false,
+	"ns":"html.winjs",
+	"nsAlias":"html",
+	"prependNS":false,
+	"title":"WinJS HTML5",
+	"version":"1.1487828563145",
+	"components":{
+		"HTMLElement":{
+			"description":"Abstract base element","members":{
+				"data-win-bind":{
+					"logic":false,"required":false,"description":"Binds a property of an element to a property of a data source",
+					"hidden":false
+				},
+				"data-win-control":{
+					"logic":false,"required":false,
+					"description":"Makes a div element host the specified Windows Library for JavaScript control","hidden":false
+				},
+				"data-win-options":{
+					"logic":false,"required":false,
+					"description":"Sets the specified properties and values for a Windows Library for JavaScript control","hidden":false
+				}
+			}
+		}
+	}
+}
+}

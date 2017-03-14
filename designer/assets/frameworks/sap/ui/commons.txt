@@ -1,0 +1,531 @@
+{"result":
+{
+	"groupByLevel":false,
+	"ns":"sap.ui.commons",
+	"prependNS":false,
+	"title":"OpenUI5 Commons",
+	"version":"1.1489422548432",
+	"getBoundingRect":"=func: function () {\n\tvar oDom = this.getDomRef();\n\tif (!oDom) { return null; }\n\tvar oRect = oDom.getBoundingClientRect();\n\treturn {\n\t\tleft: oRect.left,\n\t\ttop: oRect.top,\n\t\twidth: oRect.right - oRect.left,\n\t\theight: oRect.bottom - oRect.top\n};\n}",
+	"components":{
+		"BorderLayout":{
+			"description":"Based upon the border layout as it comes with the Java standard","inherits":"Control",
+			"restrictParent":["document","Dialog","BorderLayoutArea","MatrixLayoutCell","Panel","Tab"],
+			"members":{
+				"begin":{
+					"logic":false,"required":false,"hidden":false,"description":"Represents the Begin area","defaultValue":[],
+					"template":"<array>"
+				},
+				"bottom":{
+					"logic":false,"required":false,"hidden":false,"description":"Represents the Bottom area","defaultValue":[],
+					"template":"<array>"
+				},
+				"center":{
+					"logic":false,"required":false,"hidden":false,"description":"Represents the Center area","defaultValue":[],
+					"template":"<array>"
+				},
+				"end":{
+					"logic":false,"required":false,"hidden":false,"description":"Represents the End area","defaultValue":[],
+					"template":"<array>"
+				},
+				"height":{
+					"logic":false,"required":false,"hidden":false,"description":"Defines the overall height of the layout",
+					"template":"<string>"
+				},
+				"top":{
+					"logic":false,"required":false,"hidden":false,"description":"Represents the Top area","defaultValue":[],
+					"template":"<array>"
+				},
+				"width":{
+					"logic":false,"required":false,"hidden":false,"description":"Defines the overall width of the layout",
+					"template":"<string>"
+				}
+			}
+		},
+		"BorderLayoutArea":{
+			"description":"The BorderLayoutArea represents one area of a BorderLayout","inherits":"Element",
+			"restrictParent":"BorderLayout","members":{
+				"content":{
+					"logic":false,"required":false,"hidden":false,"description":"Controls within the area","defaultValue":[],
+					"template":"<array>"
+				},
+				"size":{
+					"logic":false,"required":false,"hidden":false,"description":"Defines the height or the width","template":"<string>"
+				},
+				"visible":{
+					"logic":false,"required":false,"hidden":false,"description":"Invisible controls are not rendered","defaultValue":true,
+					"template":"<boolean>"
+				}
+			}
+		},
+		"Button":{
+			"description":"Enables users to trigger actions","inherits":"Control","restrictParent":["document","Dialog",
+			"BorderLayoutArea","MatrixLayoutCell","Panel","Tab","Toolbar"],
+			"members":{
+				"enabled":{
+					"logic":false,"required":false,"hidden":false,"description":"Boolean property to enable the control","defaultValue":true,
+					"template":"<boolean>"
+				},
+				"height":{
+					"logic":false,"required":false,"hidden":false,"description":"Specifies the button height","template":"<string>"
+				},
+				"icon":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"Icon to be displayed as graphical element within the button","template":"<string>"
+				},
+				"text":{
+					"logic":false,"required":false,"hidden":false,"description":"Button text displayed at runtime","template":"<string>"
+				},
+				"width":{
+					"logic":false,"required":false,"hidden":false,"description":"Control width as common CSS-size","template":"<string>"
+				}
+			},
+			"events":{
+				"press":{
+					"hidden":false,"description":"Event is fired when the user presses the control","template":"<function>"
+				}
+			}
+		},
+		"Control":{
+			"description":"Base Class for Controls","inherits":"Element","restrictParent":"#","members":{
+				"visible":{
+					"logic":false,"required":false,"hidden":false,"description":"Control is visible","defaultValue":true,
+					"template":"<boolean>"
+				}
+			}
+		},
+		"Dialog":{
+			"description":"An interactive window appearing on request displaying information to the user","inherits":"Control",
+			"restrictParent":"document","members":{
+				"buttons":{
+					"logic":false,"required":false,"hidden":false,"description":"Aggregation of the content of the dialog","defaultValue":[],
+					"template":"<array>"
+				},
+				"content":{
+					"logic":false,"required":false,"hidden":false,"description":"Aggregation of the content of the dialog","defaultValue":[],
+					"template":"<array>"
+				},
+				"height":{
+					"logic":false,"required":false,"hidden":false,"description":"Outer height of dialog window","template":"<string>"
+				},
+				"modal":{
+					"logic":false,"required":false,"hidden":false,"description":"Specifies whether the dialog should be modal, or not",
+					"defaultValue":false,"template":"<boolean>"
+				},
+				"resizable":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"Specifies whether the dialog window can be resized by the user","defaultValue":true,
+					"template":"<boolean>"
+				},
+				"title":{
+					"logic":false,"required":false,"hidden":false,"description":"Dialog title displayed in the header","template":"<string>"
+				},
+				"width":{
+					"logic":false,"required":false,"hidden":false,"description":"Outer width of dialog window","template":"<string>"
+				}
+			},
+			"events":{
+				"closed":{
+					"hidden":false,"description":"Event is fired when the dialog has been closed","template":"<function>"
+				}
+			}
+		},
+		"Element":{
+			"description":"Base Class for Elements.","restrictParent":"#","members":{
+				"id":{
+					"logic":false,"required":false,"hidden":false,"description":"ID for the new control","template":"<string>"
+				},
+				"tooltip":{
+					"logic":false,"required":false,"hidden":false,"description":"Tooltip string","template":"<string>"
+				}
+			}
+		},
+		"HTML":{
+			"description":"Embeds standard HTML in a SAPUI5 control tree","inherits":"Control","restrictParent":["document","Dialog",
+			"BorderLayoutArea","MatrixLayoutCell","Panel","Tab","Toolbar"],
+			"members":{
+				"content":{
+					"logic":false,"required":false,"hidden":false,"description":"HTML content to be displayed","template":"<string>"
+				}
+			}
+		},
+		"Image":{
+			"description":"A wrapper around the IMG tag","inherits":"Control","restrictParent":["document","Dialog",
+			"BorderLayoutArea","MatrixLayoutCell","Panel","Tab","Toolbar"],
+			"members":{
+				"alt":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"The alternative text that is displayed in case the Image is not available","template":"<string>"
+				},
+				"height":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"When the empty value is kept, the original size is not changed","template":"<string>"
+				},
+				"src":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"Relative or absolute path to URL where the image file is stored","template":"<string>"
+				},
+				"width":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"When the empty value is kept, the original size is not changed","template":"<string>"
+				}
+			},
+			"events":{
+				"press":{
+					"hidden":false,"description":"Event is fired when the user clicks on the control","template":"<function>"
+				}
+			}
+		},
+		"Item":{
+			"description":"A control base type","inherits":"Element","restrictParent":"#","members":{
+				"enables":{
+					"logic":false,"required":false,"hidden":false,"description":"Enabled items can be selected","defaultValue":true,
+					"template":"<boolean>"
+				},
+				"key":{
+					"logic":false,"required":false,"hidden":false,"description":"Can be used as input for subsequent actions",
+					"template":"<string>"
+				},
+				"text":{
+					"logic":false,"required":false,"hidden":false,"description":"The text to be displayed for the item",
+					"template":"<string>"
+				}
+			}
+		},
+		"Label":{
+			"description":"The control is used for labeling other controls","inherits":"Control","restrictParent":["document",
+			"Dialog","BorderLayoutArea","MatrixLayoutCell","Panel","Tab","Toolbar"],
+			"members":{
+				"icon":{
+					"logic":false,"required":false,"hidden":false,"description":"Determines the icon to be displayed in the control",
+					"template":"<string>"
+				},
+				"text":{
+					"logic":false,"required":false,"hidden":false,"description":"Determines the text to be displayed","template":"<string>"
+				},
+				"width":{
+					"logic":false,"required":false,"hidden":false,"description":"Determines the control width as common CSS-size",
+					"template":"<string>"
+				}
+			}
+		},
+		"ListBox":{
+			"description":"Provides a list of items from which users can choose an item","inherits":"Control",
+			"restrictParent":["document","Dialog","BorderLayoutArea","MatrixLayoutCell","Panel","Tab"],
+			"members":{
+				"allowMultiSelect":{
+					"logic":false,"required":false,"hidden":false,"description":"Determines whether multiple selection is allowed",
+					"defaultValue":false,"template":"<boolean>"
+				},
+				"editable":{
+					"logic":false,"required":false,"hidden":false,"description":"Determines whether the ListBox is interactive or not",
+					"defaultValue":true,"template":"<boolean>"
+				},
+				"enabled":{
+					"logic":false,"required":false,"hidden":false,"description":"Determines whether the ListBox is enabled or not",
+					"defaultValue":true,"template":"<boolean>"
+				},
+				"height":{
+					"logic":false,"required":false,"hidden":false,"description":"Control height as common CSS-size","template":"<string>"
+				},
+				"width":{
+					"logic":false,"required":false,"hidden":false,"description":"Control width as common CSS-size","template":"<string>"
+				}
+			},
+			"events":{
+				"select":{
+					"hidden":false,"description":"Event is fired when selection is changed by user interaction","template":"<function>"
+				}
+			}
+		},
+		"ListItem":{
+			"description":"An item that is used in lists or list-similar controls ","inherits":"Item",
+			"restrictParent":["DropdownBox","ListBox"],
+			"members":{
+				"icon":{
+					"logic":false,"required":false,"hidden":false,"description":"The icon belonging to this list item instance",
+					"template":"<string>"
+				}
+			}
+		},
+		"MatrixLayout":{
+			"description":"A matrix layout arranges controls in a grid structure, using rows which need not have the same number of cells.     It uses predefined cell classes that guarantee appropriate distances between cells in the grid. The ",
+			"inherits":"Control","restrictParent":["document","Dialog","BorderLayoutArea","MatrixLayoutCell","Panel","Tab"],
+			"members":{
+				"columns":{
+					"logic":false,"required":false,"hidden":false,"description":"Number of columns","defaultValue":0,"template":"<number>"
+				},
+				"height":{
+					"logic":false,"required":false,"hidden":false,"description":"CSS height of the matrix layout","template":"<string>"
+				},
+				"rows":{
+					"logic":false,"required":false,"hidden":false,"description":"The matrix layout's individual rows","defaultValue":[],
+					"template":"<array>"
+				},
+				"width":{
+					"logic":false,"required":false,"hidden":false,"description":"CSS width of the matrix layout","template":"<string>"
+				},
+				"widths":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"Widths of the columns. Use an array to define the widths of the columns","defaultValue":[],
+					"template":"<array>"
+				}
+			}
+		},
+		"MatrixLayoutCell":{
+			"description":"Non-control element used as part of a matrix layout's inner structure","inherits":"Element",
+			"restrictParent":"MatrixLayoutRow","members":{
+				"colSpan":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"Determines how many columns of the underlying grid structure are occupied by this matrix layout cell",
+					"defaultValue":1,"template":"<bumber>"
+				},
+				"content":{
+					"logic":false,"required":false,"hidden":false,"description":"The matrix layout cell's content","defaultValue":[],
+					"template":"<array>"
+				},
+				"rowSpan":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"Determines how many rows of the underlying grid structure are occupied by this matrix layout cell",
+					"defaultValue":1,"template":"<number>"
+				}
+			}
+		},
+		"MatrixLayoutRow":{
+			"description":"Non-control element used as part of a matrix layout's inner structure","inherits":"Element",
+			"restrictParent":"MatrixLayout","members":{
+				"cells":{
+					"logic":false,"required":false,"hidden":false,"description":"The matrix layout row's individual cells","defaultValue":[],
+					"template":"<array>"
+				},
+				"height":{
+					"logic":false,"required":false,"hidden":false,"description":"Height of the row","template":"<string>"
+				}
+			}
+		},
+		"Menu":{
+			"description":"A menu is an interactive element which provides a choice of different actions to the user",
+			"inherits":"Control","restrictParent":"MenuItem","members":{
+				"enabled":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"When a menu is disabled none of its items can be selected by the user","defaultValue":true,
+					"template":"<boolean>"
+				},
+				"items":{
+					"logic":false,"required":false,"hidden":false,"description":"The available actions to be displayed as items of the menu",
+					"defaultValue":[],"template":"<array>"
+				}
+			},
+			"events":{
+				"itemSelect":{
+					"hidden":false,
+					"description":"Fired on the root menu of a menu hierarchy whenever a user selects an item within the menu or within one of its direct or indirect submenus",
+					"template":"<function>"
+				}
+			}
+		},
+		"MenuBar":{
+			"description":"Represents a user interface area which is the entry point for menus with their menu items",
+			"inherits":"Control","restrictParent":["document","Dialog","BorderLayoutArea","MatrixLayoutCell","Panel","Tab"],
+			"members":{
+				"enabled":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"When the MenuBar is not enabled, automatically all single menu items are also displayed as 'disabled",
+					"defaultValue":true,"template":"<boolean>"
+				},
+				"items":{
+					"logic":false,"required":false,"hidden":false,"description":"Aggregation of menu items","defaultValue":[],
+					"template":"<array>"
+				},
+				"width":{
+					"logic":false,"required":false,"hidden":false,"description":"Specifies the width of the MenuBar","template":"<string>"
+				}
+			}
+		},
+		"MenuItem":{
+			"description":"Standard item to be used inside a menu","inherits":"MenuItemBase","restrictParent":["MenuBar","Menu"],
+			"members":{
+				"icon":{
+					"logic":false,"required":false,"hidden":false,"template":"<string>"
+				},
+				"text":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"Defines Defines the icon of the sap.ui.core.IconPool or an image which should be displayed on the itemthe text which should be displayed on the item",
+					"template":"<string>"
+				}
+			}
+		},
+		"MenuItemBase":{
+			"description":"Abstract base class for menu item which provides common properties and events for all concrete item implementations",
+			"inherits":"Element","restrictParent":"#","members":{
+				"enabled":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"When an item is disabled the item can not be selected by the user","defaultValue":true,
+					"template":"<boolean>"
+				},
+				"submenu":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"An optional submenu of the item which is opened when the item is selected by the user","defaultValue":[],
+					"template":"<array>"
+				},
+				"visible":{
+					"logic":true,"required":false,"hidden":false,"description":"Invisible items do not appear in the menu",
+					"defaultValue":true,"template":"<boolean>"
+				}
+			},
+			"events":{
+				"select":{
+					"hidden":false,"description":"Fired when the item is selected by the user","template":"<function>"
+				}
+			}
+		},
+		"Panel":{
+			"description":"Represents a container with scroll functionality, that can be used for text and controls",
+			"inherits":"Control","restrictParent":["document","Dialog","BorderLayoutArea","MatrixLayoutCell","Panel","Tab"],
+			"members":{
+				"collapsed":{
+					"logic":false,"required":false,"hidden":false,"description":"Determines whether the Panel will be initially collapsed",
+					"defaultValue":false,"template":"<boolean>"
+				},
+				"content":{
+					"logic":false,"required":false,"hidden":false,"description":"Aggregates the controls that are contained in the Panel",
+					"defaultValue":[],"template":"<array>"
+				},
+				"enabled":{
+					"logic":false,"required":false,"hidden":false,"description":"Represents the state of the of the Panel",
+					"defaultValue":true,"template":"<boolean>"
+				},
+				"height":{
+					"logic":false,"required":false,"hidden":false,"description":"Determines the height of the Panel in CSS size",
+					"template":"<string>"
+				},
+				"text":{
+					"logic":false,"required":false,"hidden":false,"description":"Returns the text that is rendered in the Panel header",
+					"template":"<string>"
+				},
+				"width":{
+					"logic":false,"required":false,"hidden":false,"description":"Determines the width of the Panel in CSS size",
+					"template":"<string>"
+				}
+			}
+		},
+		"Tab":{
+			"description":"Represents a single tab in a TabStrip control","inherits":"Panel","restrictParent":"TabStrip","members":{
+				"closable":{
+					"logic":false,"required":false,"hidden":false,"description":"Specifies whether the tab contains a close button",
+					"defaultValue":false,"template":"<boolean>"
+				},
+				"selected":{
+					"logic":false,"required":false,"hidden":false,"description":"Defines whether the tab is the active one",
+					"defaultValue":false,"template":"<boolean>"
+				}
+			}
+		},
+		"TabStrip":{
+			"description":"TabStrip represents a container for tab controls","inherits":"Control","restrictParent":["document",
+			"Dialog","BorderLayoutArea","MatrixLayoutCell","Panel","Tab"],
+			"members":{
+				"height":{
+					"logic":false,"required":false,"hidden":false,"description":"Specifies the height of the tab bar and content area",
+					"template":"<string>"
+				},
+				"selectedImdex":{
+					"logic":false,"required":false,"hidden":false,"description":"Specifies the index of the currently selected tab",
+					"defaultValue":0,"template":"<number>"
+				},
+				"tabs":{
+					"logic":false,"required":false,"hidden":false,"description":"The tabs contained in the TabStrip","defaultValue":[],
+					"template":"<array>"
+				},
+				"width":{
+					"logic":false,"required":false,"hidden":false,"description":"Specifies the width of the bar and content area",
+					"template":"<strng>"
+				}
+			},
+			"events":{
+				"close":{
+					"hidden":false,"description":"Fires when the user closes a tab","template":"<function>"
+				},
+				"select":{
+					"hidden":false,"description":"Fires when the user selects a tab","template":"<function>"
+				}
+			}
+		},
+		"TextField":{
+			"description":"Renders a input field for text input","inherits":"Control","restrictParent":["document","Dialog",
+			"BorderLayoutArea","MatrixLayoutCell","Panel","Tab","Toolbar"],
+			"members":{
+				"editable":{
+					"logic":false,"required":false,"hidden":false,"description":"Switches edit state of the control","defaultValue":true,
+					"template":"<boolean>"
+				},
+				"enabled":{
+					"logic":false,"required":false,"hidden":false,"description":"Switches enabled state of the control","defaultValue":true,
+					"template":"<boolean>"
+				},
+				"name":{
+					"logic":false,"required":false,"hidden":false,"description":"The name property to be used in the HTML code",
+					"template":"<string>"
+				},
+				"placeholder":{
+					"logic":false,"required":false,"hidden":false,"description":"Placeholder for the text field","template":"<string>"
+				},
+				"value":{
+					"logic":false,"required":false,"hidden":false,"description":"Text inside the TextField","template":"<string>"
+				},
+				"width":{
+					"logic":false,"required":false,"hidden":false,"description":"Width of text field. When it is set (CSS-size",
+					"template":"<string>"
+				}
+			},
+			"events":{
+				"change":{
+					"hidden":false,"description":"This event if fired during typing into the TextField","template":"<function>"
+				}
+			}
+		},
+		"TextView":{
+			"description":"Is used to display some continous text","inherits":"Control","restrictParent":["document","Dialog",
+			"BorderLayoutArea","MatrixLayoutCell","Panel","Tab"],
+			"members":{
+				"enabled":{
+					"logic":false,"required":false,"hidden":false,"description":"Switches the enabled state of the control",
+					"defaultValue":true,"template":"<boolean>"
+				},
+				"text":{
+					"logic":false,"required":false,"hidden":false,"description":"Text to be displayed","template":"<string>"
+				},
+				"width":{
+					"logic":false,"required":false,"hidden":false,"description":"Width of the TextView","template":"<string>"
+				}
+			}
+		},
+		"Title":{
+			"description":"Represents a title element that can be used for aggregation with other controls","inherits":"Element",
+			"restrictParent":["document","Dialog","BorderLayoutArea","MatrixLayoutCell","Panel","Tab"],
+			"members":{
+				"Icon":{
+					"logic":false,"required":false,"hidden":false,"description":"Defines the URL for icon display","template":"<string>"
+				},
+				"text":{
+					"logic":false,"required":false,"hidden":false,"description":"Defines the title text","template":"<string>"
+				}
+			}
+		},
+		"Toolbar":{
+			"description":"A horizontal row of items","inherits":"Control","restrictParent":["document","Dialog","BorderLayoutArea",
+			"MatrixLayoutCell","Panel","Tab"],
+			"members":{
+				"items":{
+					"logic":false,"required":false,"hidden":false,"description":"Aggregating the tool bar items","defaultValue":[],
+					"template":"<array>"
+				},
+				"width":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"When there is not enough space for the toolbar to display all items, the rightmost items are overflowing into a drop-down menu",
+					"template":"<string>"
+				}
+			}
+		}
+	}
+}
+}

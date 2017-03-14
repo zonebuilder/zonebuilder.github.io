@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JUL News Reader - Material-UI (ReactJS)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto:400,300,500:latin%7CMaterial+Icons" />
+<link rel="stylesheet" type="text/css" href="../../assets/examples/newsreader.react.css?1489507990" />
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="https://zonebuilder.github.io/material-ui/material-ui.min.js"></script>
+<script type="text/javascript" src="../../assets/js/jul.js?1489488990"></script>
+<script type="text/javascript">
+(function() {
+var oParent = window.opener || window.parent;
+if (!oParent.JUL || !oParent.JUL.Designer) {
+	alert('Not available outside the designer');
+	window.error11();
+}
+document.write('<' + 'script type="text/javascript">//<![CDATA[\n' + oParent.JUL.Designer.state.code + '\n//]]><' + '/script>');
+})();
+</script>
+ 
+<script type="text/javascript" src="../../assets/examples/newsreader.react.js?1489507990"></script>
+</head>
+<body>
+<div id="content"></div>
+<script type="text/javascript">
+newsreader.react.init();
+</script>
+</body>
+</html>

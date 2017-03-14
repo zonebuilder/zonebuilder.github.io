@@ -1,0 +1,38 @@
+{"result":
+{
+	"augments":"html",
+	"groupByLevel":false,
+	"ns":"html.react",
+	"nsAlias":"html",
+	"prependNS":false,
+	"title":"ReactJS HTML5",
+	"version":"1.1489430850857",
+	"components":{
+		"Component":{
+			"description":"ReactComponent base class","inherits":"HTMLElement","restrictParent":"#","members":{
+				"html":{
+					"logic":false,"required":false,"hidden":true,"description":"Hide this to not show inherited"
+				},
+				"title":{
+					"logic":false,"required":false,"hidden":true,"description":"Hide this to not show inherited"
+				}
+			}
+		},
+		"HTMLElement":{
+			"getBoundingRect":"=func: function () {\n\tvar oNode = document.getElementById('iframe-test').contentWindow.ReactDOM.findDOMNode(this.ref());\n\tif (!oNode || typeof oNode.getBoundingClientRect !== 'function') { return null; }\n\tvar oRect = oNode.getBoundingClientRect();\n\treturn {\n\t\tleft: oRect.left,\n\t\ttop: oRect.top,\n\t\twidth: oRect.right - oRect.left,\n\t\theight: oRect.bottom - oRect.top\n};\n}","members":{
+				"className":{
+					"logic":false,"required":false,"hidden":false,"description":"Specifies one or more CSS class names for an element",
+					"template":"<string>"
+				},
+				"css":{
+					"logic":false,"required":false,"hidden":true,"description":"Hide this to not show inherited"
+				},
+				"style":{
+					"logic":false,"required":false,"hidden":false,"description":"JavaScript style object properties","defaultValue":{},
+					"template":"<object>"
+				}
+			}
+		}
+	}
+}
+}

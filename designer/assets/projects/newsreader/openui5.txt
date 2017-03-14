@@ -1,0 +1,103 @@
+{"result":
+{
+	"keepBindings":false,
+	"lastComponentId":63,
+	"listenersProperty":"listeners",
+	"noLogic":false,
+	"ns":"newsreader.openui5",
+	"suggestedFramework":"sap.ui.commons",
+	"title":"JUL News Reader - OpenUI5",
+	"version":"1.1489422648954",
+	"init":"=func: function () {\n\tthis.parser = new JUL.UI.Parser(this.parserConfig);\n\tthis.wnd = this.parser.create(this.ui, this.logic);\n\tthis.wnd._handleOpened = function(){};\n}",
+	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<title>{project_ns}</title>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/{project_ns}.css?{ts}\" />\n<script type=\"text/javascript\" id=\"sap-ui-bootstrap\"\n\tsrc=\"https://openui5.hana.ondemand.com/1.38.19/resources/sap-ui-core.js\"\n\tdata-sap-ui-theme=\"sap_bluecrystal\"\n\tdata-sap-ui-libs=\"sap.ui.commons,sap.ui.unified\"\n></script>\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/{project_ns}.js?{ts}\"></script>\n</head>\n<body class=\"sapUiBody\">\n<script type=\"text/javascript\">\n{project_ns}.init();\nsap.ui.getCore().attachInit(function() {\n\t{project_ns}.wnd.open();\n});\n</script>\n</body>\n</html>",
+	"parserConfig":{
+		"classProperty":"xclass","defaultClass":"Object","childrenProperty":"items","membersProperties":[],"idProperty":"id",
+		"bindingProperty":"cid","useTags":false,"tagProperty":"tag","topDown":false,
+		"customFactory":"=func: function (oConfig) {\n\tvar sClass = oConfig[this.classProperty];\n\tdelete oConfig[this.classProperty];\n\tvar sNS = 'sap.ui.commons';\n\tif (['HTML', 'Icon', 'ListItem', 'Title'].indexOf(sClass) > -1) { sNS = 'sap.ui.core'; }\n\tif (['Menu', 'MenuItem'].indexOf(sClass) > -1) { sNS = 'sap.ui.unified'; }\n\tif (sClass.indexOf('Layout') > -1) { sNS = 'sap.ui.commons.layout'; }\n\tvar oListeners = oConfig.listeners || {};\n\tdelete oConfig.listeners;\n\tvar oWidget = new (JUL.get(sNS + '.' + sClass))(oConfig);\n\tfor (var sItem in oListeners) {\n\t\tif (oListeners.hasOwnProperty(sItem)) {\n\t\t\toWidget['attach' + sItem[0].toUpperCase() + sItem.substr(1)](oListeners[sItem]);\n\t\t}\n\t}\n\treturn oWidget;\n}","membersMappings":{
+			"BorderLayout":["top","bottom","begin","end","center"],
+			"BorderLayoutArea":"content","Dialog":["content","buttons"],
+			"MatrixLayout":"rows","MatrixLayoutRow":"cells","MenuItem":"submenu","TabStrip":"tabs"
+		}
+	},
+	"ui":{
+		"xclass":"Dialog","id":"dialog-main","height":"480px","title":"JUL News Reader","width":"720px","content":[
+			{"xclass":"BorderLayout","top":[
+				{"xclass":"BorderLayoutArea","size":"70px","content":[
+					{"xclass":"MenuBar","items":[
+						{"xclass":"MenuItem","text":"File","submenu":[
+							{"xclass":"Menu","items":[
+								{"xclass":"MenuItem","id":"menuitem-exit","text":"Exit"}
+							]}
+						]},
+						{"xclass":"MenuItem","text":"View","submenu":[
+							{"xclass":"Menu","items":[
+								{"xclass":"MenuItem","id":"menuitem-show-list","enabled":false,"text":"Show article list"},
+								{"xclass":"MenuItem","id":"menuitem-hide-list","text":"Hide article list"}
+							]}
+						]},
+						{"xclass":"MenuItem","text":"Options","submenu":[
+							{"xclass":"Menu","items":[
+								{"xclass":"MenuItem","id":"menuitem-start-refresh","text":"Autorefresh every minute"},
+								{"xclass":"MenuItem","id":"menuitem-stop-refresh","enabled":false,"text":"Stop autorefresh"}
+							]}
+						]}
+					]},
+					{"xclass":"Toolbar","items":[
+						{"xclass":"Label","cid":"Label-44","htmlFor":"textfield-address","text":"Address"},
+						{"xclass":"TextField","id":"textfield-address","value":"http://feeds.skynews.com/feeds/rss/technology.xml","width":"85%"},
+						{"xclass":"Button","id":"button-go","text":"Go","tooltip":"Get the news"}
+					]}
+				]}
+			],
+			"begin":{
+				"xclass":"BorderLayoutArea","id":"layoutarea-entries","size":"240px","content":[
+					{"xclass":"ListBox","id":"listbox-entries","height":"99%","width":"100%"}
+				]
+			},
+			"center":{
+				"xclass":"BorderLayoutArea","content":[
+					{"xclass":"HTML",
+					"content":"<div id=\"panel-entry\"><div id=\"article-title\"></div><div id=\"article-date\"></div><div id=\"article-image\"><img id=\"img-article\" alt=\"Get the news\" width=\"200\" /></div><div id=\"article-content\"></div></div>"}
+				]
+			}}
+		]
+	},
+	"logic":{
+		"button-go":{
+			"listeners":{
+				"press":"=func: function () {\n\tnewsreader.openui5.go();\n}"
+			}
+		},
+		"listbox-entries":{
+			"listeners":{
+				"select":"=func: function (oEvent) {\n\tvar oItem = oEvent.getParameters().selectedItem;\n\tif (!oItem) { return; }\n\tnewsreader.openui5.current = parseInt(oItem.getKey().substr(6));\n\tnewsreader.openui5.onSelectArticle();\n}"
+			}
+		},
+		"menuitem-exit":{
+			"listeners":{
+				"select":"=func: function () {\n\tsap.ui.getCore().byId('dialog-main').close();\n}"
+			}
+		},
+		"menuitem-hide-list":{
+			"listeners":{
+				"select":"=func: function () {\n\tsap.ui.getCore().byId('layoutarea-entries').setVisible(false);\n\tthis.setEnabled(false);\n\tsap.ui.getCore().byId('menuitem-show-list').setEnabled(true);\n}"
+			}
+		},
+		"menuitem-show-list":{
+			"listeners":{
+				"select":"=func: function () {\n\tsap.ui.getCore().byId('layoutarea-entries').setVisible(true);\n\tthis.setEnabled(false);\n\tsap.ui.getCore().byId('menuitem-hide-list').setEnabled(true);\n}"
+			}
+		},
+		"menuitem-start-refresh":{
+			"listeners":{
+				"select":"=func: function () {\n\tif (newsreader.openui5.refreshTimer) { clearInterval(newsreader.openui5.refreshTimer); }\n\tnewsreader.openui5.refreshTimer = setInterval('newsreader.openui5.go()', 60000);\n\tthis.setEnabled(false);\n\tsap.ui.getCore().byId('menuitem-stop-refresh').setEnabled(true);\n}"
+			}
+		},
+		"menuitem-stop-refresh":{
+			"listeners":{
+				"select":"=func: function () {\n\tif (newsreader.openui5.refreshTimer) { clearInterval(newsreader.openui5.refreshTimer); }\n\tdelete newsreader.openui5.refreshTimer;\n\tthis.setEnabled(false);\n\tsap.ui.getCore().byId('menuitem-start-refresh').setEnabled(true);\n}"
+			}
+		}
+	}
+}
+}

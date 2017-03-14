@@ -1,0 +1,86 @@
+{"result":
+{
+	"keepBindings":false,
+	"lastComponentId":39,
+	"listenersProperty":"listeners",
+	"noLogic":false,
+	"ns":"newsreader.react",
+	"suggestedFramework":"html.mui",
+	"title":"JUL News Reader - Material-UI (ReactJS)",
+	"version":"1.1489477915141",
+	"init":"=func: function () {\n\tthis.parser = new JUL.UI.Parser(this.parserConfig);\n\tvar oRoot = this.parser.create(this.ui, this.logic);\n\tif (oRoot) { ReactDOM.render(oRoot, document.getElementById('content'));  }\n}",
+	"template":"<!doctype html>\n<html>\n<head>\n<meta charset=\"utf-8\">\n<title>{project_title}</title>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1\" />\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/icon?family=Roboto:400,300,500:latin%7CMaterial+Icons\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/{project_ns}.css?{ts}\" />\n<script type=\"text/javascript\" src=\"//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js\"></script>\n<script type=\"text/javascript\" src=\"https://zonebuilder.github.io/material-ui/material-ui.min.js\"></script>\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/{project_ns}.js?{ts}\"></script>\n</head>\n<body>\n<div id=\"content\"></div>\n<script type=\"text/javascript\">\n{project_ns}.init();\n</script>\n</body>\n</html>",
+	"parserConfig":{
+		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"idProperty":"id",
+		"bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":false,"parentProperty":"parent",
+		"customFactory":"=func: function (oConfig) {\n\tvar aArgs = [];\n\tvar sClass = (oConfig[this.classProperty] === this.defaultClass ? '' : oConfig.classProperty + ':') + oConfig[this.tagProperty];\n\taArgs.push(/^[A-Z]/.test(sClass) ? MaterialUI[sClass] : sClass);\n\taArgs.push(oConfig);\n\tdelete oConfig[this.classProperty];\n\tdelete oConfig[this.tagProperty];\n\tif (oConfig[this.htmlProperty]) {\n\t\toConfig.dangerouslySetInnerHTML = {__html: oConfig[this.htmlProperty]};\n\t\tdelete oConfig[this.htmlProperty];\n\t}\n\taArgs = aArgs.concat(oConfig[this.childrenProperty] || []);\n\tdelete oConfig[this.childrenProperty];\n\tvar oListeners = oConfig.listeners || {};\n\tdelete oConfig.listeners;\n\tvar oNodeRef = null;\n\tfor (var sItem in oListeners) {\n\t\tif (oListeners.hasOwnProperty(sItem)) {\n\t\t\tvar fListener = JUL.get(oListeners[sItem]);\n\t\t\tif (typeof fListener !== 'function') { continue; }\n\t\t\toConfig[sItem] = (function(fCall) {\n\t\t\t\treturn function() { return fCall.apply(oNodeRef, [].slice.call(arguments)); };\n\t\t\t})(fListener);\n\t\t}\n\t}\n\t// create templating node attributes\n\tvar aExclude = [this.idProperty, 'className', 'style'];\n\tfor (sItem in oConfig) {\n\t\tif (oConfig.hasOwnProperty(sItem) && typeof oConfig[sItem] === 'string' && aExclude.indexOf(sItem) < 0 &&\n\t\t\toConfig[sItem].substr(0, 2) === '{<' && oConfig[sItem].substr(-2) === '>}') {\n\t\t\toConfig[sItem] = this.create(this.xml2jul(oConfig[sItem].slice(1, -1)));\n\t\t}\n\t}\n\t// get the element / component reference\n\toConfig.ref = function(oNode) {\n\t\tif (!arguments.length) { return oNodeRef; } \n\t\toNodeRef = oNode;\n\t}\n\treturn React.createElement.apply(React, aArgs);\n}",
+		"csProperty":"css","htmlProperty":"html","membersMappings":{}
+	},
+	"ui":{
+		"xclass":"html","tag":"MuiThemeProvider","children":[
+			{"xclass":"html","tag":"Paper","children":[
+				{"xclass":"html","tag":"AppBar","title":"JUL News Reader","titleStyle":{
+					"textAlign":"center"
+				},
+				"iconElementRight":"{<IconButton><FontIcon className=\"material-icons\">home</FontIcon></IconButton>}",
+				"id":"appbar-main"},
+				{"xclass":"html","tag":"Toolbar","children":[
+					{"xclass":"html","tag":"label","html":"Address","style":{
+						"marginRight":10,"lineHeight":"300%"
+					},
+					"htmlFor":"textfield-address"},
+					{"xclass":"html","tag":"TextField","id":"textfield-address","style":{
+						"width":"100%"
+					},
+					"defaultValue":"http://feeds.skynews.com/feeds/rss/technology.xml"},
+					{"xclass":"html","tag":"FlatButton","id":"flatbutton-go","label":"Go","title":"Get the news"}
+				]},
+				{"xclass":"html","tag":"Tabs","id":"newsreader.react.tabsEntries","children":[
+					{"xclass":"html","tag":"Tab","label":"Articles","children":[
+						{"xclass":"html","tag":"div","id":"panel-articles"}
+					]},
+					{"xclass":"html","tag":"Tab","label":"Entry","value":"tab-entry","children":[
+						{"xclass":"html","tag":"div","id":"panel-entry","children":[
+							{"xclass":"html","tag":"div","id":"article-title"},
+							{"xclass":"html","tag":"div","id":"article-date"},
+							{"xclass":"html","tag":"div","id":"article-image","children":[
+								{"xclass":"html","tag":"img","id":"img-article","width":"200","alt":"Get the news"}
+							],
+							"style":{
+								"display":"none"
+							}},
+							{"xclass":"html","tag":"div","id":"article-content"}
+						]}
+					]}
+				]},
+				{"xclass":"html","tag":"BottomNavigation","children":[
+					{"xclass":"html","tag":"RaisedButton","label":"Previous","id":"raisedbuttom-prev"},
+					{"xclass":"html","tag":"RaisedButton","label":"Next","id":"raisedbuttom-next"}
+				]}
+			]}
+		]
+	},
+	"logic":{
+		"flatbutton-go":{
+			"listeners":{
+				"onTouchTap":"=func: function () {\n\tnewsreader.react.go();\n}"
+			}
+		},
+		"raisedbuttom-next":{
+			"listeners":{
+				"onTouchTap":"=func: function () {\n\tnewsreader.react.goNext();\n}"
+			}
+		},
+		"raisedbuttom-prev":{
+			"listeners":{
+				"onTouchTap":"=func: function () {\n\tnewsreader.react.goNext(true);\n}"
+			}
+		},
+		"textfield-address":{
+			"listeners":{
+				"onKeyPress":"=func: function (oEvent) {\n\tif (oEvent.key === 'Enter') { newsreader.react.go(); }\n}"
+			}
+		}
+	}
+}
+}

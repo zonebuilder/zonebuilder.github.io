@@ -1,0 +1,171 @@
+{"result":
+{
+	"augments":"html.react",
+	"groupByLevel":true,
+	"ns":"html.mui",
+	"nsAlias":"html",
+	"prependNS":false,
+	"title":"Material-UI HTML5",
+	"version":"1.1489474903659",
+	"components":{
+		"AppBar":{
+			"description":"The app bar, formerly known as the action bar in Android, is a special kind of toolbar that’s used for branding, navigation, search, and actions",
+			"inherits":"Component","members":{
+				"iconElementLeft":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"The custom element to be displayed on the left side of the app bar such as an SvgIcon",
+					"template":"<string>"
+				},
+				"iconElementRight":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"Similiar to the iconElementLeft prop except that this element is displayed on the right of the app bar",
+					"template":"<string>"
+				},
+				"title":{
+					"logic":false,"required":false,"hidden":false,"description":"The title to display on the app bar","template":"<string>"
+				}
+			}
+		},
+		"Avatar":{
+			"description":"Avatars can be used to represent people or object","inherits":"Component","members":{
+				"icon":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"This is the SvgIcon or FontIcon to be used inside the avatar","template":"<string>"
+				},
+				"size":{
+					"logic":false,"required":false,"hidden":false,"description":"This is the size of the avatar in pixels","defaultValue":40,
+					"template":"<number>"
+				},
+				"src":{
+					"logic":false,"required":false,"hidden":false,"description":"If passed in, this component will render an img element",
+					"template":"<string>"
+				}
+			}
+		},
+		"BottomNavigation":{
+			"description":"The bottom navigation is a special kind of toolbar that’s used for navigation","inherits":"Component"
+		},
+		"FlatButton":{
+			"description":"Flat Buttons are used for general functions and reduce the amount of layering on the screen, making it more readable",
+			"inherits":"Component","members":{
+				"disabled":{
+					"logic":false,"required":false,"hidden":false,"description":"Disables the button if set to true","defaultValue":false,
+					"template":"<boolean>"
+				},
+				"href":{
+					"logic":false,"required":false,"hidden":false,"description":"The URL to link to when the button is clicked",
+					"template":"<string>"
+				},
+				"icon":{
+					"logic":false,"required":false,"hidden":false,"description":"Use this property to display an icon","template":"<string>"
+				},
+				"label":{
+					"logic":false,"required":false,"hidden":false,"description":"Label for the button","template":"<string>"
+				}
+			}
+		},
+		"List":{
+			"description":"Lists are used to present multiple items vertically as a single continuous element",
+			"inherits":"Component"
+		},
+		"ListItem":{
+			"description":"An item inside a list","inherits":"Component","restrictParent":"List","members":{
+				"disabled":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"If true, the element will not be clickable and will not display hover effects","defaultValue":false,
+					"template":"<boolean>"
+				},
+				"leftIcon":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"This is the  SvgIcon  or  FontIcon  to be displayed on the left side","template":"<string>"
+				},
+				"primaryText":{
+					"logic":false,"required":false,"hidden":false,"description":"This is the block element that contains the primary text",
+					"template":"<string>"
+				},
+				"rightIcon":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"This is the  SvgIcon  or  FontIcon  to be displayed on the right side","template":"<string>"
+				},
+				"secondaryText":{
+					"logic":false,"required":false,"hidden":false,"description":"This is the block element that contains the secondary text",
+					"template":"<string>"
+				}
+			}
+		},
+		"MuiThemeProvider":{
+			"description":"Root container required in order to apply a theme for Material-UI components","inherits":"Component"
+		},
+		"Paper":{
+			"description":"A Paper element is a basic container that can give depth to the page","inherits":"Component"
+		},
+		"RaisedButton":{
+			"description":"This button is used to add dimension to mostly flat layouts and emphasizes important functions on your page",
+			"inherits":"Component","members":{
+				"disabled":{
+					"logic":false,"required":false,"hidden":false,"description":"If true, the button will be disabled","defaultValue":false,
+					"template":"<boolean>"
+				},
+				"href":{
+					"logic":false,"required":false,"hidden":false,"description":"The URL to link to when the button is clicked",
+					"template":"<string>"
+				},
+				"icon":{
+					"logic":false,"required":false,"hidden":false,"description":"An icon to be displayed within the button",
+					"template":"<string>"
+				},
+				"label":{
+					"logic":false,"required":false,"hidden":false,"description":"The label to be displayed within the button",
+					"template":"<string>"
+				}
+			}
+		},
+		"Tab":{
+			"description":"A tab of a Tabs component","inherits":"Component","restrictParent":"Tabs","members":{
+				"icon":{
+					"logic":false,"required":false,"hidden":false,"description":"Sets the icon of the tab","template":"<string>"
+				},
+				"label":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"Sets the text value of the tab item to the string specified","template":"<string>"
+				}
+			}
+		},
+		"Tabs":{
+			"description":"Tabs make it easy to explore and switch between different views or functional aspects ",
+			"inherits":"Component","members":{
+				"initialSelectedIndex":{
+					"logic":false,"required":false,"hidden":false,"description":"Specify initial visible tab index","defaultValue":0,
+					"template":"<number>"
+				}
+			}
+		},
+		"TextField":{
+			"description":"Text fields allow users to input text","inherits":"Component","members":{
+				"defaultValue":{
+					"logic":false,"required":false,"hidden":false,"description":"The text string to use for the default value",
+					"template":"<string>"
+				},
+				"disabled":{
+					"logic":false,"required":false,"hidden":false,"description":"Disables the text field if set to true",
+					"defaultValue":false,"template":"<boolean>"
+				},
+				"multLline":{
+					"logic":false,"required":false,"hidden":false,"description":"If true, a textarea element will be rendered",
+					"defaultValue":false,"template":"<boolean>"
+				},
+				"name":{
+					"logic":false,"required":false,"hidden":false,"description":"Name applied to the input","template":"<string>"
+				},
+				"type":{
+					"logic":false,"required":false,"hidden":false,
+					"description":"Specifies the type of input to display such as \"password\" or \"text\"","template":"text|password"
+				}
+			}
+		},
+		"Toolbar":{
+			"description":"Toolbars are collections of components stacked horizontally against each other","inherits":"Component"
+		}
+	}
+}
+}

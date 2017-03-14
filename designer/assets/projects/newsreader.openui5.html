@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>newsreader.openui5</title>
+<link rel="stylesheet" type="text/css" href="../../assets/examples/newsreader.openui5.css?1489507088" />
+<script type="text/javascript" id="sap-ui-bootstrap"
+	src="https://openui5.hana.ondemand.com/1.38.19/resources/sap-ui-core.js"
+	data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-libs="sap.ui.commons,sap.ui.unified"
+></script>
+<script type="text/javascript" src="../../assets/js/jul.js?1489488990"></script>
+<script type="text/javascript">
+(function() {
+var oParent = window.opener || window.parent;
+if (!oParent.JUL || !oParent.JUL.Designer) {
+	alert('Not available outside the designer');
+	window.error11();
+}
+document.write('<' + 'script type="text/javascript">//<![CDATA[\n' + oParent.JUL.Designer.state.code + '\n//]]><' + '/script>');
+})();
+</script>
+ 
+<script type="text/javascript" src="../../assets/examples/newsreader.openui5.js?1489507088"></script>
+</head>
+<body class="sapUiBody">
+<script type="text/javascript">
+newsreader.openui5.init();
+sap.ui.getCore().attachInit(function() {
+	newsreader.openui5.wnd.open();
+});
+</script>
+</body>
+</html>

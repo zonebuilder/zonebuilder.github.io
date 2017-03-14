@@ -2,13 +2,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>JUL News Reader - jQuery Mobile</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<link type="text/css" href="../../assets/examples/newsreader.jqm.css?1489505217" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JUL News Reader - WinJS</title>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/winjs/4.4.0/css/ui-light.min.css" />
+<link rel="stylesheet" href="../../assets/examples/newsreader.winjs.css?1489508137" />
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/winjs/4.4.0/js/base.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/winjs/4.4.0/js/ui.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="../../assets/js/jul.js?1489488990"></script>
 <script type="text/javascript">
 (function() {
@@ -21,11 +22,12 @@ document.write('<' + 'script type="text/javascript">//<![CDATA[\n' + oParent.JUL
 })();
 </script>
  
-<script type="text/javascript" src="../../assets/examples/newsreader.jqm.js?1489505217"></script>
+<script type="text/javascript" src="../../assets/examples/newsreader.winjs.js?1489508137"></script>
 </head>
-<body>
+<body class="win-type-body">
 <script type="text/javascript">
-newsreader.jqm.init();
+newsreader.winjs.init();
+WinJS.UI.processAll();
 </script>
 </body>
 </html>

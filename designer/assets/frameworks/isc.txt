@@ -3,77 +3,100 @@
 	"ns":"isc",
 	"prependNS":false,
 	"title":"SmartClient LGPL",
+	"version":"1.1462042252233",
 	"components":{
 		"Button":{
-			"description":"The Button widget class implements interactive, style-based button widgets.","inherits":"StatefulCanvas","restrictParent":["Window","HLayout","VLayout","ToolStrip"],
+			"description":"The Button widget class implements interactive, style-based button widgets.","inherits":"StatefulCanvas",
+			"restrictParent":["Window","HLayout","VLayout","ToolStrip"],
 			"members":{
 				"radioGroup":{
-					"required":false,"description":"String identifier for this canvas's mutually exclusive selection group","template":"<string>","logic":false
+					"required":false,"description":"String identifier for this canvas's mutually exclusive selection group",
+					"template":"<string>","logic":false
 				},
 				"selected":{
-					"required":false,"description":"Whether this component is selected","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,"description":"Whether this component is selected","defaultValue":false,"template":"<boolean>",
+					"logic":false
 				},
 				"title":{
-					"required":false,"defaultValue":"Button1","template":"<string>","description":"The title HTML to display in this button","logic":false
+					"required":false,"defaultValue":"Button1","template":"<string>","description":"The title HTML to display in this button",
+					"logic":false
 				}
 			},
 			"events":{
 				"action":{
-					"description":"This property contains the default 'action' for the Button to fire when activated","template":"function() { ... }"
+					"description":"This property contains the default 'action' for the Button to fire when activated",
+					"template":"function() { ... }"
 				}
 			}
 		},
 		"Canvas":{
-			"description":"Base class for all SmartClient visual components","restrictParent":"#","getBoundingRect":"function () {\n\treturn {\n\t\tleft: this.getPageLeft(),\n\t\ttop: this.getPageTop(),\n\t\twidth: this.getPageRight() - this.getPageLeft(),\n\t\theight: this.getPageBottom() - this.getPageTop()\n\t};\n}","members":{
+			"description":"Base class for all SmartClient visual components","restrictParent":"#",
+			"getBoundingRect":"=func: function () {\n\treturn {\n\t\tleft: this.getPageLeft(),\n\t\ttop: this.getPageTop(),\n\t\twidth: this.getPageRight() - this.getPageLeft(),\n\t\theight: this.getPageBottom() - this.getPageTop()\n\t};\n}","members":{
 				"ID":{
-					"required":false,"description":"Global identifier for referring to a widget in JavaScript","template":"<string>","logic":false
+					"required":false,"description":"Global identifier for referring to a widget in JavaScript","template":"<string>",
+					"logic":false
 				},
 				"accessKey":{
-					"required":false,"description":"If specified this governs the HTML accessKey for the widget","template":"<string>","logic":false
+					"required":false,"description":"If specified this governs the HTML accessKey for the widget","template":"<string>",
+					"logic":false
 				},
 				"children":{
-					"logic":false,"required":false,"description":"Array of all Canvii that are immediate children of this Canvas","defaultValue":[],"template":"<array>"
+					"logic":false,"required":false,"description":"Array of all Canvii that are immediate children of this Canvas",
+					"defaultValue":[],"template":"<array>"
 				},
 				"contents":{
-					"required":false,"description":"The contents of a canvas or label widget. Any HTML string is acceptable","template":"<string>","logic":false
+					"required":false,"description":"The contents of a canvas or label widget. Any HTML string is acceptable",
+					"template":"<string>","logic":false
 				},
 				"disabled":{
-					"required":false,"description":"If set to true, the widget will be disabled","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,"description":"If set to true, the widget will be disabled","defaultValue":false,"template":"<boolean>",
+					"logic":false
 				},
 				"height":{
-					"required":false,"description":"Size for this component's vertical dimension","defaultValue":0,"template":"<number|string>","logic":false
+					"required":false,"description":"Size for this component's vertical dimension","defaultValue":0,
+					"template":"<number|string>","logic":false
 				},
 				"left":{
-					"required":false,"description":"Number of pixels the left side of the widget is offset to the right from its default drawing context","defaultValue":0,"template":"<number|string>","logic":false
+					"required":false,
+					"description":"Number of pixels the left side of the widget is offset to the right from its default drawing context",
+					"defaultValue":0,"template":"<number|string>","logic":false
 				},
 				"prompt":{
-					"required":false,"description":"Prompt displayed in hover canvas if showHover is true","template":"<string>","logic":false
+					"required":false,"description":"Prompt displayed in hover canvas if showHover is true","template":"<string>",
+					"logic":false
 				},
 				"showResizeBar":{
-					"required":false,"description":"Whether a resizeBar is actually shown also depends on the defaultResizeBars attribute of the layout, and whether this Canvas is the last layout member","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,
+					"description":"Whether a resizeBar is actually shown also depends on the defaultResizeBars attribute of the layout, and whether this Canvas is the last layout member",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"styleName":{
 					"required":false,"description":"The CSS class applied to this widget as a whole","template":"<string>","logic":false
 				},
 				"top":{
-					"required":false,"description":"Number of pixels the top of the widget is offset down from its default drawing context","defaultValue":0,"template":"<number|string>","logic":false
+					"required":false,"description":"Number of pixels the top of the widget is offset down from its default drawing context",
+					"defaultValue":0,"template":"<number|string>","logic":false
 				},
 				"visibility":{
-					"required":false,"description":"Controls widget visibility when the widget is initialized","template":"inherit|visible|hidden","logic":false
+					"required":false,"description":"Controls widget visibility when the widget is initialized",
+					"template":"inherit|visible|hidden","logic":false
 				},
 				"width":{
-					"required":false,"description":"Size for this component's horizontal dimension","defaultValue":0,"template":"<number|string>","logic":false
+					"required":false,"description":"Size for this component's horizontal dimension","defaultValue":0,
+					"template":"<number|string>","logic":false
 				}
 			},
 			"events":{
 				"click":{
-					"description":"Executed when the left mouse is clicked (pressed and then released) on this widget","template":"function() { ... }"
+					"description":"Executed when the left mouse is clicked (pressed and then released) on this widget",
+					"template":"function() { ... }"
 				},
 				"doubleClick":{
 					"description":"Executed when the left mouse button is clicked twice in rapid succession","template":"function() { ... }"
 				},
 				"focusChanged":{
-					"description":"Notification function fired when this widget receives or loses keyboard focus","template":"function(hasFocus) { ... }"
+					"description":"Notification function fired when this widget receives or loses keyboard focus",
+					"template":"function(hasFocus) { ... }"
 				},
 				"keyPress":{
 					"description":"Executed when a key is pressed and released on a focusable widget","template":"function() { ... }"
@@ -85,66 +108,87 @@
 					"description":"Executed when the right mouse down is pressed on this widget","template":"function() { ... }"
 				},
 				"visibiltyChanged":{
-					"description":"Notification fired when this canvas becomes visible or hidden to the user","template":"function(isVisible) { ... }"
+					"description":"Notification fired when this canvas becomes visible or hidden to the user",
+					"template":"function(isVisible) { ... }"
 				}
 			}
 		},
 		"DataSource":{
-			"description":" DataSource is data-provider-independent description of a set of objects that will be loaded, edited and saved within the user interface of your application","restrictParent":["ListGrid","TreeGrid"],
+			"description":" DataSource is data-provider-independent description of a set of objects that will be loaded, edited and saved within the user interface of your application",
+			"restrictParent":["ListGrid","TreeGrid"],
 			"members":{
 				"clientOnly":{
-					"required":false,"description":"clientOnly DataSource simulates the behavior of a remote data store by manipulating a static dataset in memory as DSRequests are executed on it","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,
+					"description":"clientOnly DataSource simulates the behavior of a remote data store by manipulating a static dataset in memory as DSRequests are executed on it",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"dataFormat":{
-					"required":false,"template":"xml|json|custom","description":"Indicates the format to be used for HTTP requests and responses when fulfilling DSRequests","logic":false
+					"required":false,"template":"xml|json|custom",
+					"description":"Indicates the format to be used for HTTP requests and responses when fulfilling DSRequests","logic":false
 				},
 				"dataURL":{
 					"required":false,"description":"Default URL to contact to fulfill all DSRequests","template":"<string>","logic":false
 				},
 				"fields":{
-					"required":false,"description":"The list of fields that compose records from this DataSource","defaultValue":[],"template":"<array>","logic":false
+					"required":false,"description":"The list of fields that compose records from this DataSource","defaultValue":[],
+					"template":"<array>","logic":false
 				},
 				"recordXPath":{
-					"required":false,"description":"Indicates the format to be used for HTTP requests and responses when fulfilling DSRequestsFor an XML or JSON DataSource, XPath expression used to retrieve the objects that will become DataSource records","template":"xml|json|custom<string>","logic":false
+					"required":false,
+					"description":"Indicates the format to be used for HTTP requests and responses when fulfilling DSRequestsFor an XML or JSON DataSource, XPath expression used to retrieve the objects that will become DataSource records",
+					"template":"xml|json|custom<string>","logic":false
 				},
 				"testData":{
-					"required":false,"description":"For a client-only DataSource, a set of records to use as a dataset, specified as an Array of JavaScript Objects","defaultValue":[],"template":"<array>","logic":false
+					"required":false,
+					"description":"For a client-only DataSource, a set of records to use as a dataset, specified as an Array of JavaScript Objects",
+					"defaultValue":[],"template":"<array>","logic":false
 				}
 			}
 		},
 		"DynamicForm":{
-			"description":"The DynamicForm manages a collection of FormItems which represent user input controls","inherits":"Canvas","restrictParent":["Window","HLayout","VLayout","ToolStrip"],
+			"description":"The DynamicForm manages a collection of FormItems which represent user input controls",
+			"inherits":"Canvas","restrictParent":["Window","HLayout","VLayout","ToolStrip"],
 			"members":{
 				"colWidths":{
-					"required":false,"description":"An array of widths for the columns of items in this form's layout grid","defaultValue":[],"template":"<array>","logic":false
+					"required":false,"description":"An array of widths for the columns of items in this form's layout grid","defaultValue":[],
+					"template":"<array>","logic":false
 				},
 				"fields":{
-					"required":false,"description":"An array of field objects, specifying the order, layout, and types of each field in the DynamicForm","defaultValue":[],"template":"<array>","logic":false
+					"required":false,
+					"description":"An array of field objects, specifying the order, layout, and types of each field in the DynamicForm",
+					"defaultValue":[],"template":"<array>","logic":false
 				},
 				"numCols":{
-					"required":false,"description":"number of columns of titles and items in this form's layout grid","defaultValue":0,"template":"<number>","logic":false
+					"required":false,"description":"number of columns of titles and items in this form's layout grid","defaultValue":0,
+					"template":"<number>","logic":false
 				}
 			},
 			"events":{
 				"itemChange":{
-					"description":"Handler fired when there is a change() event fired on a FormItem within this form. \nFires after the change() handler on the FormItem itself, and only if the item","template":"function(oItem, oNew, oOld) { ... }"
+					"description":"Handler fired when there is a change() event fired on a FormItem within this form. \nFires after the change() handler on the FormItem itself, and only if the item",
+					"template":"function(oItem, oNew, oOld) { ... }"
 				},
 				"submit":{
-					"description":"submit() is automatically called when a SubmitItem included in the form is clicked, or, if saveOnEnter is set, when the \"Enter\" key is pressed in a text input","template":"function(fCallback, oRequestProperties) { ... }"
+					"description":"submit() is automatically called when a SubmitItem included in the form is clicked, or, if saveOnEnter is set, when the \"Enter\" key is pressed in a text input",
+					"template":"function(fCallback, oRequestProperties) { ... }"
 				}
 			}
 		},
 		"HLayout":{
-			"description":"A subclass of Layout that applies a sizing policy along the horizontal axis, interpreting percent and \"*\" sizes as proportions of the width of the layout","inherits":"Layout","restrictParent":["document","Window","HLayout","VLayout","HStack","VStack"]
+			"description":"A subclass of Layout that applies a sizing policy along the horizontal axis, interpreting percent and \"*\" sizes as proportions of the width of the layout",
+			"inherits":"Layout","restrictParent":["document","Window","HLayout","VLayout","HStack","VStack"]
 		},
 		"HStack":{
-			"description":"A subclass of Layout that simply stacks members on the horizontal axis without trying to manage their width","inherits":"Layout","restrictParent":["document","Window","HLayout","VLayout"]
+			"description":"A subclass of Layout that simply stacks members on the horizontal axis without trying to manage their width",
+			"inherits":"Layout","restrictParent":["document","Window","HLayout","VLayout"]
 		},
 		"HTMLFlow":{
-			"description":"Use the HTMLFlow component to display HTML content that should expand to its natural size without scrolling","inherits":"Canvas","restrictParent":["Window","HLayout","VLayout","ToolStrip"],
+			"description":"Use the HTMLFlow component to display HTML content that should expand to its natural size without scrolling",
+			"inherits":"Canvas","restrictParent":["Window","HLayout","VLayout","ToolStrip"],
 			"members":{
 				"contents":{
-					"required":false,"description":"The contents of a canvas or label widget","defaultValue":"HTMLFlow1","template":"<string>","logic":false
+					"required":false,"description":"The contents of a canvas or label widget","defaultValue":"HTMLFlow1",
+					"template":"<string>","logic":false
 				},
 				"contentsURL":{
 					"required":false,"description":"URL to load content from","template":"<string>","logic":false
@@ -157,7 +201,8 @@
 			}
 		},
 		"Img":{
-			"description":"The Img widget class implements a simple widget that displays a single image","inherits":"StatefulCanvas","restrictParent":["Window","HLayout","VLayout"],
+			"description":"The Img widget class implements a simple widget that displays a single image","inherits":"StatefulCanvas",
+			"restrictParent":["Window","HLayout","VLayout"],
 			"members":{
 				"src":{
 					"required":false,"description":"The base filename for the image","template":"<string>","logic":false
@@ -165,29 +210,37 @@
 			}
 		},
 		"ImgButton":{
-			"description":"A Img that behaves like a button, going through up/down/over state transitions in response to user events","inherits":"Img","restrictParent":"ToolStrip","members":{
+			"description":"A Img that behaves like a button, going through up/down/over state transitions in response to user events",
+			"inherits":"Img","restrictParent":"ToolStrip","members":{
 				"actionType":{
 					"required":false,"description":"Behavior on state changes","template":"button|checkbox|radio","logic":false
 				},
 				"autoFit":{
-					"required":false,"description":"If true, ignore the specified size of this widget and always size just large enough to accommodate the title","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,
+					"description":"If true, ignore the specified size of this widget and always size just large enough to accommodate the title",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"icon":{
-					"required":false,"description":"Specify as the partial URL to an image, relative to the imgDir of this component","template":"<string>","logic":false
+					"required":false,"description":"Specify as the partial URL to an image, relative to the imgDir of this component",
+					"template":"<string>","logic":false
 				},
 				"radioGroup":{
-					"required":false,"description":"String identifier for this canvas's mutually exclusive selection group","template":"<string>","logic":false
+					"required":false,"description":"String identifier for this canvas's mutually exclusive selection group",
+					"template":"<string>","logic":false
 				},
 				"selected":{
-					"required":false,"description":"Whether this component is selected. For some components, selection affects appearance.","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,"description":"Whether this component is selected. For some components, selection affects appearance.",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				}
 			}
 		},
 		"Label":{
-			"description":"Labels display a small amount of alignable text with optional icon and autoFit","inherits":"Button","restrictParent":["Window","HLayout","VLayout","ToolStrip"],
+			"description":"Labels display a small amount of alignable text with optional icon and autoFit","inherits":"Button",
+			"restrictParent":["Window","HLayout","VLayout","ToolStrip"],
 			"members":{
 				"contents":{
-					"required":false,"defaultValue":"Label1","template":"<string>","description":"The contents of a canvas or label widget","logic":false
+					"required":false,"defaultValue":"Label1","template":"<string>","description":"The contents of a canvas or label widget",
+					"logic":false
 				},
 				"title":{
 					"required":false,"description":"Not used for labels","template":"<string>","logic":false
@@ -195,29 +248,40 @@
 			}
 		},
 		"Layout":{
-			"description":"Arranges a set of \"member\" Canvases in horizontal or vertical stacks, applying a layout policy to determine member heights and widths","inherits":"Canvas","restrictParent":"#","members":{
+			"description":"Arranges a set of \"member\" Canvases in horizontal or vertical stacks, applying a layout policy to determine member heights and widths",
+			"inherits":"Canvas","restrictParent":"#","members":{
 				"align":{
-					"required":false,"description":"Alignment of all members in this Layout on the length axis","template":"left|right|top|bottom|center","logic":false
+					"required":false,"description":"Alignment of all members in this Layout on the length axis",
+					"template":"left|right|top|bottom|center","logic":false
 				},
 				"defaultLayoutAlign":{
-					"required":false,"description":"Specifies the default alignment for layout members on the breadth axis (horizontal axis","template":"left|right|top|bottom|center","logic":false
+					"required":false,"description":"Specifies the default alignment for layout members on the breadth axis (horizontal axis",
+					"template":"left|right|top|bottom|center","logic":false
 				},
 				"members":{
-					"logic":false,"required":false,"description":"An array of canvases that will be contained within this layout","defaultValue":[],"template":"<array>"
+					"logic":false,"required":false,"description":"An array of canvases that will be contained within this layout",
+					"defaultValue":[],"template":"<array>"
 				},
 				"vertical":{
-					"required":false,"defaultValue":false,"description":"Should this layout appear with members stacked vertically or horizontally","template":"<boolean>","logic":false
+					"required":false,"defaultValue":false,
+					"description":"Should this layout appear with members stacked vertically or horizontally","template":"<boolean>",
+					"logic":false
 				}
 			}
 		},
 		"ListGrid":{
-			"description":"ListGrid is a DataBoundComponent that displays a list of objects in a grid, where each row represents one object and each cell in the row represents one property","inherits":"VLayout","restrictParent":["Window","HLayout","VLayout","HStack","VStack"],
+			"description":"ListGrid is a DataBoundComponent that displays a list of objects in a grid, where each row represents one object and each cell in the row represents one property",
+			"inherits":"VLayout","restrictParent":["Window","HLayout","VLayout","HStack","VStack"],
 			"members":{
 				"data":{
-					"required":false,"description":"When using a DataSource, rather than directly provide data, you will typically call ListGrid.fetchData() instead, which will automatically establish data as a ResultSet","defaultValue":[],"template":"<array>","logic":true
+					"required":false,
+					"description":"When using a DataSource, rather than directly provide data, you will typically call ListGrid.fetchData() instead, which will automatically establish data as a ResultSet",
+					"defaultValue":[],"template":"<array>","logic":true
 				},
 				"dataSource":{
-					"required":false,"description":"The DataSource that this component should bind to for default fields and for performing DataSource requests","template":"<object>","logic":true
+					"required":false,
+					"description":"The DataSource that this component should bind to for default fields and for performing DataSource requests",
+					"template":"<object>","logic":true
 				},
 				"fields":{
 					"required":false,"defaultValue":[],"template":"<array>","logic":false
@@ -225,14 +289,17 @@
 			},
 			"events":{
 				"recordClick":{
-					"description":"Executed when the listGrid receives a 'click' event on an enabled, non-separator record","template":"function(oViewer, oRecord, nRecord, oField, nField, oValue, oRawValue) { ... }"
+					"description":"Executed when the listGrid receives a 'click' event on an enabled, non-separator record",
+					"template":"function(oViewer, oRecord, nRecord, oField, nField, oValue, oRawValue) { ... }"
 				}
 			}
 		},
 		"Menu":{
-			"description":"The Menu widget class implements interactive menu widgets, with optional icons, submenus, and shortcut keys","inherits":"ListGrid","restrictParent":"MenuBar","members":{
+			"description":"The Menu widget class implements interactive menu widgets, with optional icons, submenus, and shortcut keys",
+			"inherits":"ListGrid","restrictParent":"MenuBar","members":{
 				"data":{
-					"required":false,"description":"An array of menuItem objects, specifying the menu items this menu should show","defaultValue":[],"template":"<array>","logic":false
+					"required":false,"description":"An array of menuItem objects, specifying the menu items this menu should show",
+					"defaultValue":[],"template":"<array>","logic":false
 				},
 				"title":{
 					"required":false,"description":"The menu title","template":"<string>","defaultValue":"Menu1","logic":false
@@ -240,28 +307,36 @@
 			},
 			"events":{
 				"itemClick":{
-					"description":"Executed when a menu item with no click handler is clicked by the user. This itemClick handler must be specified as a function","template":"function(oItem, nCol) { ... }"
+					"description":"Executed when a menu item with no click handler is clicked by the user. This itemClick handler must be specified as a function",
+					"template":"function(oItem, nCol) { ... }"
 				}
 			}
 		},
 		"MenuBar":{
-			"description":" MenuBar is a bar of buttons used to show a set of menus","inherits":"Toolbar","restrictParent":["Window","HLayout","VLayout"],
+			"description":" MenuBar is a bar of buttons used to show a set of menus","inherits":"Toolbar","restrictParent":["Window",
+			"HLayout","VLayout"],
 			"members":{
 				"menus":{
-					"logic":false,"required":false,"description":"An array of menu object initializers or instantiated menu objects","defaultValue":[],"template":"<array>"
+					"logic":false,"required":false,"description":"An array of menu object initializers or instantiated menu objects",
+					"defaultValue":[],"template":"<array>"
 				}
 			}
 		},
 		"StatefulCanvas":{
-			"description":"A component that has a set of possible states, and which presents itself differently according to which state it is in","inherits":"Canvas","restrictParent":"#","members":{
+			"description":"A component that has a set of possible states, and which presents itself differently according to which state it is in",
+			"inherits":"Canvas","restrictParent":"#","members":{
 				"align":{
-					"required":false,"description":"Horizontal alignment of this component's title","template":"left|cemter|right","logic":false
+					"required":false,"description":"Horizontal alignment of this component's title","template":"left|cemter|right",
+					"logic":false
 				},
 				"autoFit":{
-					"required":false,"description":"If true, ignore the specified size of this widget and always size just large enough to accommodate the title","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,
+					"description":"If true, ignore the specified size of this widget and always size just large enough to accommodate the title",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"icon":{
-					"required":false,"description":"Optional icon to be shown with the button title text","template":"<string>","logic":false
+					"required":false,"description":"Optional icon to be shown with the button title text","template":"<string>",
+					"logic":false
 				},
 				"title":{
 					"required":false,"description":"The title HTML to display in this button","template":"<string>","logic":false
@@ -269,70 +344,95 @@
 			}
 		},
 		"ToolStrip":{
-			"description":"Base class for creating toolstrips like those found in browsers and office applications: a mixed set of controls including icon buttons, radio button groups, menus, comboBoxes, spacers, status displays and drop-down selects","inherits":"Layout","restrictParent":["Window","HLayout","VLayout"]
+			"description":"Base class for creating toolstrips like those found in browsers and office applications: a mixed set of controls including icon buttons, radio button groups, menus, comboBoxes, spacers, status displays and drop-down selects",
+			"inherits":"Layout","restrictParent":["Window","HLayout","VLayout"]
 		},
 		"ToolStripButton":{
-			"description":"Simple subclass of StretchImgButton with appearance appropriate for a ToolStrip button","inherits":"Button","restrictParent":"ToolStrip","members":{
+			"description":"Simple subclass of StretchImgButton with appearance appropriate for a ToolStrip button",
+			"inherits":"Button","restrictParent":"ToolStrip","members":{
 				"title":{
-					"required":false,"description":"The title HTML to display in this button","defaultValue":"B1","template":"<string>","logic":false
+					"required":false,"description":"The title HTML to display in this button","defaultValue":"B1","template":"<string>",
+					"logic":false
 				}
 			}
 		},
 		"Toolbar":{
-			"description":"A Toolbar creates a vertical or horizontal strip of similar components (typically Buttons) and provides managed resizing and reordering behavior over those components","inherits":"Layout","restrictParent":["Window","HLayout","VLayout"]
+			"description":"A Toolbar creates a vertical or horizontal strip of similar components (typically Buttons) and provides managed resizing and reordering behavior over those components",
+			"inherits":"Layout","restrictParent":["Window","HLayout","VLayout"]
 		},
 		"VLayout":{
-			"description":"A subclass of Layout that applies a sizing policy along the vertical axis, interpreting percent and \"*\" sizes as proportions of the height of the layout","inherits":"Layout","restrictParent":["document","Window","HLayout","VLayout","HStack","VStack"]
+			"description":"A subclass of Layout that applies a sizing policy along the vertical axis, interpreting percent and \"*\" sizes as proportions of the height of the layout",
+			"inherits":"Layout","restrictParent":["document","Window","HLayout","VLayout","HStack","VStack"]
 		},
 		"VStack":{
-			"description":"A subclass of Layout that simply stacks members on the vertical axis without trying to manage their height","inherits":"Layout","restrictParent":["document","Window","HLayout","VLayout"]
+			"description":"A subclass of Layout that simply stacks members on the vertical axis without trying to manage their height",
+			"inherits":"Layout","restrictParent":["document","Window","HLayout","VLayout"]
 		},
 		"Window":{
-			"description":"A general purpose Window class for implementing dialogs, portlets, alerts, prompts, wizards and desktop-like windowing interfaces","inherits":"Layout","restrictParent":"document","members":{
+			"description":"A general purpose Window class for implementing dialogs, portlets, alerts, prompts, wizards and desktop-like windowing interfaces",
+			"inherits":"Layout","restrictParent":"document","members":{
 				"autoCenter":{
-					"required":false,"description":"If true, this Window widget will automatically be centered on the page when shown","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,"description":"If true, this Window widget will automatically be centered on the page when shown",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"autoSize":{
-					"required":false,"description":"If true, the window is resized automatically to accommodate the contents of the body","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,"description":"If true, the window is resized automatically to accommodate the contents of the body",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"canDragResize":{
-					"required":false,"description":"window be drag-resized? If true the window may be drag resized from its edges, and if showing, via the resizer icon in the footer","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,
+					"description":"window be drag-resized? If true the window may be drag resized from its edges, and if showing, via the resizer icon in the footer",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"contentLayout":{
-					"required":false,"description":"The layout policy that should be used for widgets within the Window body","template":"horizaontal|vertical|none","logic":false
+					"required":false,"description":"The layout policy that should be used for widgets within the Window body",
+					"template":"horizaontal|vertical|none","logic":false
 				},
 				"isModal":{
-					"required":false,"description":"If true, when shown this Window will intercept and block events to all other existing components on the page","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,
+					"description":"If true, when shown this Window will intercept and block events to all other existing components on the page",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"items":{
 					"logic":false,"required":false,"description":"The contents of the Window body","defaultValue":[],"template":"<array>"
 				},
 				"showCloseButton":{
-					"required":false,"description":"If true, show a close button in the header, which will dismiss this window by calling Window.closeClick()","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,
+					"description":"If true, show a close button in the header, which will dismiss this window by calling Window.closeClick()",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"showFooter":{
-					"required":false,"description":"true, show a footer for this Window, including resizer, statusBar, etc","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,"description":"true, show a footer for this Window, including resizer, statusBar, etc",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"showMaximizeButton":{
-					"required":false,"description":"If true, show a maximize button in the header - clicking it maximizes the Window","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,"description":"If true, show a maximize button in the header - clicking it maximizes the Window",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"showMinimizeButton":{
-					"required":false,"description":"If true, show a minimize button in the header--clicking it minimizes the Window","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,"description":"If true, show a minimize button in the header--clicking it minimizes the Window",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"showModalMask":{
-					"required":false,"description":"If true, displays a translucent mask over the rest of the page when a modal window is displayed","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,
+					"description":"If true, displays a translucent mask over the rest of the page when a modal window is displayed",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"showResizer":{
-					"required":false,"description":"If true, show a button in the lower right corner that allows users to resize the Window","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,"description":"If true, show a button in the lower right corner that allows users to resize the Window",
+					"defaultValue":false,"template":"<boolean>","logic":false
 				},
 				"showTitle":{
-					"required":false,"description":"Show a title (typically just text) on the header for this window","defaultValue":false,"template":"<boolean>","logic":false
+					"required":false,"description":"Show a title (typically just text) on the header for this window","defaultValue":false,
+					"template":"<boolean>","logic":false
 				},
 				"status":{
-					"required":false,"description":"Text to show in the status bar of the window (if one is visible)","template":"<string>","logic":false
+					"required":false,"description":"Text to show in the status bar of the window (if one is visible)","template":"<string>",
+					"logic":false
 				},
 				"title":{
-					"required":false,"description":"Title for this Window, shown in the header (if drawn)","template":"<string>","defaultValue":"Window1","logic":false
+					"required":false,"description":"Title for this Window, shown in the header (if drawn)","template":"<string>",
+					"defaultValue":"Window1","logic":false
 				}
 			},
 			"events":{
