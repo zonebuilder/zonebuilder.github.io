@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
-		<title>JUL.UI | JUL 1.4.0 API Reference</title>
+		<title>JUL.UI | JUL 1.4.5 API Reference</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<meta name="mobileoptimized" content="0" />
@@ -512,7 +512,7 @@
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont">JUL.UI.<b><a href="../symbols/JUL.UI.html#.create">create</a></b>(oTree, oBindings, oParent)
+													<div class="fixedFont">JUL.UI.<b><a href="../symbols/JUL.UI.html#.create">create</a></b>(oTree, oBindings, oParent, bSparse)
 													</div>
 													<div class="description">Creates a tree of runtime objects specified by a config tree<br>
 		Object instances are created bottom-up by default with children instances put in the parent config, 
@@ -1586,7 +1586,7 @@
 											
 											<span class="light">{Object}</span>
 											
-											<span class="light">JUL.UI.</span><b>create</b>(oTree, oBindings, oParent)
+											<span class="light">JUL.UI.</span><b>create</b>(oTree, oBindings, oParent, bSparse)
 										</div>
 										
 										<div class="description">
@@ -1622,6 +1622,14 @@
 														<i>Optional</i>
 													</dt>
 													<dd>Optional parent object of the root instance when instantiating top-down</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Boolean}</span> <b>bSparse</b>
+														<i>Optional</i>
+													</dt>
+													<dd>This allows parsing a ‘sparse’ tree, i.e. a tree where some component nodes are not direct children of other components.
+		Every node which has a class or a tag set will be instantiated, regardless of its membership.
+		The ‘defaultClass’ property of the parser does not apply in this mode.</dd>
 												
 											</dl>
 										
