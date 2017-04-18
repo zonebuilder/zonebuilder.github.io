@@ -13,7 +13,7 @@
 	"parserConfig":{
 		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"idProperty":"id",
 		"bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent",
-		"customFactory":"JUL.UI.createDom","csProperty":"css","htmlProperty":"html","membersMappings":{}
+		"customFactory":"JUL.UI.createDom","membersMappings":{}
 	},
 	"ui":[
 		{"xclass":"html","tag":"div","id":"content","children":[
