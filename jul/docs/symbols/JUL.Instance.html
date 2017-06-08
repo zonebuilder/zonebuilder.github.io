@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
-		<title>JUL.UI.Parser | JUL 1.4.9 API Reference</title>
+		<title>JUL.Instance | JUL 1.4.9 API Reference</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<meta name="mobileoptimized" content="0" />
@@ -66,12 +66,12 @@
 			<header>
 				<h1 class="classTitle">
 					
-					Class <span>JUL.UI.Parser</span>
+					Class <span>JUL.Instance</span>
 				</h1>
 				
 				<div class="intro">
 					<p class="description summary">
-						Used to build parser objects for config trees
+						A class for creating instances of the main JUL object
 					</p>
 						
 					
@@ -79,10 +79,8 @@
 							
 							
 							
-								<li>Defined in: <a href="../symbols/src/JUL.UI.js.html">JUL.UI.js</a></li>
+								<li>Defined in: <a href="../symbols/src/JUL.js.html">JUL.js</a></li>
 							
-							<li>Extends <span class="fixedFont">
-								<a href="../symbols/JUL.UI.html">JUL.UI</a></span></li>
 							
 						</ul>
 					
@@ -92,7 +90,7 @@
 			
 				<section>
 					<div class="props">
-						<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class JUL.UI.Parser.">
+						<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class JUL.Instance.">
 							<caption class="sectionTitle">Class Summary</caption>
 							<thead>
 								<tr>
@@ -105,9 +103,9 @@
 									<td class="attributes">&nbsp;</td>
 									<td class="nameDescription" >
 										<div class="fixedFont">
-											<b><a href="../symbols/JUL.UI.Parser.html#constructor">JUL.UI.Parser</a></b>(oConfig)
+											<b><a href="../symbols/JUL.Instance.html#constructor">JUL.Instance</a></b>(oConfig)
 										</div>
-										<div class="description">Creates a new JUL.UI parser that inherits all JUL.UI members</div>
+										<div class="description">Creates instances of the JUL global, which can be used as local variables.</div>
 									</td>
 								</tr>
 							</tbody>
@@ -138,11 +136,16 @@
 							</h2>
 							
 							<div class="fixedFont">
-								<b>JUL.UI.Parser</b>(oConfig)
+								<b>JUL.Instance</b>(oConfig)
 							</div>
 							
 							<div class="description">
-								Creates a new JUL.UI parser that inherits all JUL.UI members
+								Creates instances of the JUL global, which can be used as local variables.
+		E.g. <code>var oInstance = new JUL.Instance({nsRoot: myLocalVar});</code>
+		Special members of an instance:<ul>
+		<li>ui - instance of JUL.UI.Parser with JUL.UI defaults applied</li>
+		<li>ref - the same as JUL.Ref() factory</li>
+		<li>parser - shortcut to this.ui.Parser() factory</li></ul>
 								
 							</div>
 							
@@ -156,7 +159,7 @@
 											<span class="light fixedFont">{Object}</span>  <b>oConfig</b>
 											<i>Optional</i>
 										</dt>
-										<dd>Parser config object to override inherited members</dd>
+										<dd>Configuration object</dd>
 									
 								</dl>
 							

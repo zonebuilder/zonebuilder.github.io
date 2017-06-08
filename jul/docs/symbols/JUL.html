@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
-		<title>JUL | JUL 1.4.5 API Reference</title>
+		<title>JUL | JUL 1.4.9 API Reference</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<meta name="mobileoptimized" content="0" />
@@ -37,6 +37,8 @@
 			<ul class="classList" id="ClassList">
 				
 					<li><a href="../symbols/JUL.html">JUL</a></li>
+				
+					<li><a href="../symbols/JUL.Instance.html">JUL<span class='break'> </span>.<span class='break'> </span>Instance</a></li>
 				
 					<li><a href="../symbols/JUL.Ref.html">JUL<span class='break'> </span>.<span class='break'> </span>Ref</a></li>
 				
@@ -134,6 +136,16 @@
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
 													<div class="fixedFont">
+													JUL.<b><a href="../symbols/JUL.html#.nsRoot">nsRoot</a></b>
+													</div>
+													<div class="description">This allows setting a default root namespace instead of the global one</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&lt;static&gt; &nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
 													JUL.<b><a href="../symbols/JUL.html#.version">version</a></b>
 													</div>
 													<div class="description">JUL version</div>
@@ -177,7 +189,7 @@
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont">JUL.<b><a href="../symbols/JUL.html#.apply">apply</a></b>(oSource, oAdd, bDontReplace)
+													<div class="fixedFont">JUL.<b><a href="../symbols/JUL.html#.apply">apply</a></b>(oSource, oAdd, bDontReplace, aFilterOut, aFilterIn)
 													</div>
 													<div class="description">Applies an object or an array of objects to a given object</div>
 												</td>
@@ -293,6 +305,28 @@
 							</h2>
 							
 							
+								<div class="fixedFont heading" id=".nsRoot">
+									<span class='lighter'>
+									&lt;static&gt; 
+									</span>
+									
+									<span class="light">{Object}</span>
+									
+									<span class="light">JUL.</span><b>nsRoot</b>							
+								</div>
+								
+								<div class="description">
+									This allows setting a default root namespace instead of the global one
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
 								<div class="fixedFont heading" id=".version">
 									<span class='lighter'>
 									&lt;static&gt; 
@@ -343,7 +377,7 @@
 											
 											<span class="light">{Object}</span>
 											
-											<span class="light">JUL.</span><b>apply</b>(oSource, oAdd, bDontReplace)
+											<span class="light">JUL.</span><b>apply</b>(oSource, oAdd, bDontReplace, aFilterOut, aFilterIn)
 										</div>
 										
 										<div class="description">
@@ -374,9 +408,21 @@
 												
 													<dt>
 														<span class="light fixedFont">{Boolean}</span> <b>bDontReplace</b>
-														<i>Optional</i>
+														
 													</dt>
 													<dd>Set it to true to don't replace existing members</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Array}</span> <b>aFilterOut</b>
+														<i>Optional</i>
+													</dt>
+													<dd>If not null, the keys in this array will not be applied over</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Array}</span> <b>aFilterIn</b>
+														<i>Optional</i>
+													</dt>
+													<dd>If not null, only the keys in this array will be applied over</dd>
 												
 											</dl>
 										
