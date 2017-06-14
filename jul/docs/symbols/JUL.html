@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
-		<title>JUL | JUL 1.4.9 API Reference</title>
+		<title>JUL | JUL 1.5 API Reference</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<meta name="mobileoptimized" content="0" />
@@ -187,6 +187,17 @@
 											<tr
 												 class='item0'
 											>
+												<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">JUL.<b><a href="../symbols/JUL.html#._getAutoInstance">_getAutoInstance</a></b>(oNSRoot)
+													</div>
+													<div class="description">Gets the JUL instance getter function for a given namespace root, with caching</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item1'
+											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
 													<div class="fixedFont">JUL.<b><a href="../symbols/JUL.html#.apply">apply</a></b>(oSource, oAdd, bDontReplace, aFilterOut, aFilterIn)
@@ -196,7 +207,7 @@
 											</tr>
 										
 											<tr
-												 class='item1'
+												 class='item2'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -207,7 +218,18 @@
 											</tr>
 										
 											<tr
-												 class='item2'
+												 class='item3'
+											>
+												<td class="attributes">&lt;static&gt; &nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">JUL.<b><a href="../symbols/JUL.html#.getInstance">getInstance</a></b>(oChild)
+													</div>
+													<div class="description">Gets the JUL instance associated with a child object (e.g.</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item4'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -218,7 +240,7 @@
 											</tr>
 										
 											<tr
-												 class='item3'
+												 class='item5'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -229,7 +251,7 @@
 											</tr>
 										
 											<tr
-												 class='item4'
+												 class='item6'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -240,7 +262,7 @@
 											</tr>
 										
 											<tr
-												 class='item5'
+												 class='item7'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -370,6 +392,67 @@
 									<li 
 										 class='item0'
 									>
+										<div class="fixedFont heading" id="._getAutoInstance">
+											<span class='lighter'>
+											&lt;private&gt; &lt;static&gt; 
+											</span>
+											
+											<span class="light">{Function}</span>
+											
+											<span class="light">JUL.</span><b>_getAutoInstance</b>(oNSRoot)
+										</div>
+										
+										<div class="description">
+											Gets the JUL instance getter function for a given namespace root, with caching
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+											<dl class="detailList params">
+												<dt class="heading">Parameters:</dt>
+												
+													<dt>
+														<span class="light fixedFont">{Object}</span> <b>oNSRoot</b>
+														<i>Optional</i>
+													</dt>
+													<dd>Namespace root</dd>
+												
+											</dl>
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{Function}</span> Instance getter</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item1'
+									>
 										<div class="fixedFont heading" id=".apply">
 											<span class='lighter'>
 											&lt;static&gt; 
@@ -453,7 +536,7 @@
 									</li>
 								
 									<li 
-										 class='item1'
+										 class='item2'
 									>
 										<div class="fixedFont heading" id=".get">
 											<span class='lighter'>
@@ -520,7 +603,68 @@
 									</li>
 								
 									<li 
-										 class='item2'
+										 class='item3'
+									>
+										<div class="fixedFont heading" id=".getInstance">
+											<span class='lighter'>
+											&lt;static&gt; 
+											</span>
+											
+											<span class="light">{Object}</span>
+											
+											<span class="light">JUL.</span><b>getInstance</b>(oChild)
+										</div>
+										
+										<div class="description">
+											Gets the JUL instance associated with a child object (e.g. a parser, a reference)
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+											<dl class="detailList params">
+												<dt class="heading">Parameters:</dt>
+												
+													<dt>
+														<span class="light fixedFont">{Object}</span> <b>oChild</b>
+														
+													</dt>
+													<dd>Child object</dd>
+												
+											</dl>
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{Object}</span> JUL instance or null if not available</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item4'
 									>
 										<div class="fixedFont heading" id=".makeCaller">
 											<span class='lighter'>
@@ -594,7 +738,7 @@
 									</li>
 								
 									<li 
-										 class='item3'
+										 class='item5'
 									>
 										<div class="fixedFont heading" id=".ns">
 											<span class='lighter'>
@@ -667,7 +811,7 @@
 									</li>
 								
 									<li 
-										 class='item4'
+										 class='item6'
 									>
 										<div class="fixedFont heading" id=".trim">
 											<span class='lighter'>
@@ -740,7 +884,7 @@
 									</li>
 								
 									<li 
-										 class='item5'
+										 class='item7'
 									>
 										<div class="fixedFont heading" id=".typeOf">
 											<span class='lighter'>
