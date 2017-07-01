@@ -4,7 +4,7 @@
 	"preferredFramework":"html",
 	"title":"JWL Components",
 	"version":"1.1485809475693",
-	"init":"=func: function () {\n\tfor (var sItem in this.modules) {\n\t\tif (this.modules.hasOwnProperty(sItem)) {\n\t\t\tvar sNS = this.modules[sItem].ns;\n\t\t\tif (sNS.substr(0, 1) === '.') { sNS = this.ns + sNS; }\n\t\t\tvar oModule = JUL.get(sNS);\n\t\t\tif (!oModule) { continue; }\n\t\t\tvar oParser = new JUL.UI.Parser(oModule.parserConfig);\n\t\t\toParser.create(oModule.ui, oModule.logic);\n\t\t}\n\t}\n}",
+	"init":"=func: function () {\n\tfor (var sItem in this.modules) {\n\t\tif (this.modules.hasOwnProperty(sItem)) {\n\t\t\tvar sNS = this.modules[sItem].ns;\n\t\t\tif (sNS.substr(0, 1) === '.') { sNS = this.ns + sNS; }\n\t\t\tvar oModule = jul.get(sNS);\n\t\t\tif (!oModule) { continue; }\n\t\t\tvar oParser = new jul.ui.Parser(oModule.parserConfig);\n\t\t\toParser.create(oModule.ui, oModule.logic);\n\t\t}\n\t}\n}",
 	"modules":{
 		"playerbar":{
 			"ns":".playerbar","description":"General purpose player bar"

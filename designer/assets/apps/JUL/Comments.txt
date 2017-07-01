@@ -4,7 +4,7 @@
 	"preferredFramework":"xul",
 	"title":"JUL Comment System",
 	"version":"1.1463257738753",
-	"init":"=func: function () {\n\tfor (var sItem in this.modules) {\n\t\tif (this.modules.hasOwnProperty(sItem)) {\n\t\t\tvar sNS = this.modules[sItem].ns;\n\t\t\tif (sNS.substr(0, 1) === '.') { sNS = this.ns + sNS; }\n\t\t\tvar oModule = JUL.get(sNS);\n\t\t\tif (!oModule) { continue; }\n\t\t\toModule.app = this;\n\t\t\toModule.parser = new JUL.UI.Parser(this.defaultParser);\n\t\t\toModule.parser.module = oModule;\n\t\t\tvar oPanel = oModule.parser.create(oModule.ui, oModule.logic);\n\t\t\tif (oPanel) { ample.documentElement.appendChild(oPanel); }\n\t\t}\n\t}\n\t//this.onInit();\n}",
+	"init":"=func: function () {\n\tfor (var sItem in this.modules) {\n\t\tif (this.modules.hasOwnProperty(sItem)) {\n\t\t\tvar sNS = this.modules[sItem].ns;\n\t\t\tif (sNS.substr(0, 1) === '.') { sNS = this.ns + sNS; }\n\t\t\tvar oModule = jul.get(sNS);\n\t\t\tif (!oModule) { continue; }\n\t\t\toModule.app = this;\n\t\t\toModule.parser = new jul.ui.Parser(this.defaultParser);\n\t\t\toModule.parser.module = oModule;\n\t\t\tvar oPanel = oModule.parser.create(oModule.ui, oModule.logic);\n\t\t\tif (oPanel) { ample.documentElement.appendChild(oPanel); }\n\t\t}\n\t}\n\t//this.onInit();\n}",
 	"modules":{
 		"project":{
 			"ns":".project","description":"Main page"

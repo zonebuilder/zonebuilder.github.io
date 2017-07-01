@@ -8,7 +8,7 @@
 	"suggestedFramework":"html",
 	"title":"JUL News Reader - Kendo UI Mobile",
 	"version":"1.1489162816708",
-	"init":"=func: function () {\n\tvar oParser = new JUL.UI.Parser(this.parserConfig);\n\toParser.create(this.ui, this.logic, document.body);\n}",
+	"init":"=func: function () {\n\tvar oParser = new jul.ui.Parser(this.parserConfig);\n\toParser.create(this.ui, this.logic, document.body);\n}",
 	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<title>{project_title}</title>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"//da7xgjtj801h2.cloudfront.net/2014.3.1119/styles/kendo.mobile.all.min.css\" />\n<link type=\"text/css\" href=\"../../assets/examples/{project_ns}.css?{ts}\" rel=\"stylesheet\" />\n<script type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js\"></script>\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js\"></script>\n<script src=\"//da7xgjtj801h2.cloudfront.net/2014.3.1119/js/kendo.mobile.min.js\"></script>\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/{project_ns}.js?{ts}\"></script>\n</head>\n<body>\n<script type=\"text/javascript\">\n{project_ns}.init();\n(function($) {\n\t{project_ns}.app = new kendo.mobile.Application($('#content'), {\n\t\tskin: 'flat',\n\t\tbrowserHistory: false\n\t});\n})(jQuery);\n</script>\n</body>\n</html>",
 	"parserConfig":{
 		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"idProperty":"id",

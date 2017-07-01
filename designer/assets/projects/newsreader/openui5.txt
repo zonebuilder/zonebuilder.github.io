@@ -8,7 +8,7 @@
 	"suggestedFramework":"sap.ui.commons",
 	"title":"JUL News Reader - OpenUI5",
 	"version":"1.1489422648954",
-	"init":"=func: function () {\n\tthis.parser = new JUL.UI.Parser(this.parserConfig);\n\tthis.wnd = this.parser.create(this.ui, this.logic);\n\tthis.wnd._handleOpened = function(){};\n}",
+	"init":"=func: function () {\n\tthis.parser = new jul.ui.Parser(this.parserConfig);\n\tthis.wnd = this.parser.create(this.ui, this.logic);\n\tthis.wnd._handleOpened = function(){};\n}",
 	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<title>{project_ns}</title>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/{project_ns}.css?{ts}\" />\n<script type=\"text/javascript\" id=\"sap-ui-bootstrap\"\n\tsrc=\"https://openui5.hana.ondemand.com/1.38.19/resources/sap-ui-core.js\"\n\tdata-sap-ui-theme=\"sap_bluecrystal\"\n\tdata-sap-ui-libs=\"sap.ui.commons,sap.ui.unified\"\n></script>\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/{project_ns}.js?{ts}\"></script>\n</head>\n<body class=\"sapUiBody\">\n<script type=\"text/javascript\">\n{project_ns}.init();\nsap.ui.getCore().attachInit(function() {\n\t{project_ns}.wnd.open();\n});\n</script>\n</body>\n</html>",
 	"parserConfig":{
 		"classProperty":"xclass","defaultClass":"Object","childrenProperty":"items","membersProperties":[],"idProperty":"id",

@@ -8,7 +8,7 @@
 	"suggestedFramework":"html",
 	"title":"JWL Components - SVG Logo",
 	"version":"1.1484797448211",
-	"init":"=func: function () {\n\tvar oParser = new JUL.UI.Parser(this.parserConfig);\n\toParser.create(this.ui, this.logic, document.body);\n}",
+	"init":"=func: function () {\n\tvar oParser = new jul.ui.Parser(this.parserConfig);\n\toParser.create(this.ui, this.logic, document.body);\n}",
 	"template":"<!DOCTYPE html>\n<html>\n<head>\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n\t<title>{project_title}</title>\n\t<!-- Custom includes -->\n\t{jul_script}\n\t{project_script}\n\t<script type=\"text/javascript\">\n\t// chnge as needed\n\twindow.onload = function() {\n\t\t// create UI\n\t\t{project_ns}.init();\n\t};\n\t</script>\n</head>\n<body>\n\t<!-- Custom body -->\n</body>\n</html>\n",
 	"parserConfig":{
 		"classProperty":"xclass","defaultClass":"svg","childrenProperty":"children","membersProperties":[],"idProperty":"id",
