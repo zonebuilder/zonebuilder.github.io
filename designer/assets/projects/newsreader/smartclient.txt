@@ -15,7 +15,7 @@
 		"children","dataSource"],
 		"idProperty":"ID","bindingProperty":"cid","useTags":false,"tagProperty":"tag","topDown":false,"parentProperty":"parent",
 		"customFactory":"=func: function (oConfig) {\n\tif (oConfig.listeners) {\n\t\tJUL.apply(oConfig, oConfig.listeners);\n\t\tdelete oConfig.listeners;\n\t}\n\tif (['Object', 'Tab'].indexOf(oConfig.xclass) > -1) { return oConfig; }\n\telse { return isc[oConfig.xclass].create(oConfig); }\n}",
-		"csProperty":"css","htmlProperty":"html","membersMappings":{}
+		"membersMappings":{}
 	},
 	"ui":{
 		"xclass":"Window","ID":"windowMain","autoCenter":true,"canDragResize":true,"height":480,"title":"JUL News Reader",
