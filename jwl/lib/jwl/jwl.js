@@ -1,5 +1,5 @@
 /*
-	JWL - The JavaScript Widget Library version 0.8.2
+	JWL - The JavaScript Widget Library version 0.8.3
 	Copyright (c) 2016 - 2017 The Zonebuilder <zone.builder@gmx.com>
 	http://sourceforge.net/projects/jwl-library/
 	Licenses: GNU GPL2 or later; GNU LGPLv3 or later (http://sourceforge.net/p/jwl-library/wiki/License/)
@@ -10,15 +10,17 @@
 */
 /* jshint browser: true, curly: true, eqeqeq: true, evil: true, expr: true, funcscope: true, immed: true, latedef: true, loopfunc: true,  
 	onevar: true, newcap: true, noarg: true, node: true, strict: true, trailing: true, undef: true, unused: vars, wsh: true */
-/* globals JUL, JWL: true */
+/* globals JUL */
 
-(function() {
+(function(global, module) {
 'use strict';
+var jul = new JUL.Instance({nsRoot: module && module.exports ? {JWL: module.exports} : global || null});
+var JWL = jul.ns('JWL');
 
 
-JUL.ns('JWL');
+jul.ns('JWL');
 
-JUL.apply(JWL,  {
+jul.apply(jul.get('JWL'),  {
 	parserConfig: {
 		defaultClass: 'html',
 		topDown: true,
@@ -28,15 +30,15 @@ JUL.apply(JWL,  {
 			if (oConfig[this.classProperty] !== this.defaultClass) { sTag = oConfig[this.classProperty] + ':' + sTag; } 
 			var oComponent = JWL.components[sTag];
 			if (!oComponent) {
-				var fCreator = this._creator ? JUL.get(this._creator) : null;
+				var fCreator = this._creator ? jul.get(this._creator) : null;
 				return typeof fCreator === 'function' ? fCreator.call(this, oConfig) : this.createDom(oConfig);
 			}
 			oConfig._componentIndex = sTag;
 			var fPreCreate = oConfig.preCreate || oComponent.preCreate;
-			if (fPreCreate) { fPreCreate = JUL.get(fPreCreate); }
+			if (fPreCreate) { fPreCreate = jul.get(fPreCreate); }
 			delete oConfig.preCreate;
 			var fPostCreate = oConfig.postCreate || oComponent.postCreate;
-			if (fPostCreate) { fPostCreate = JUL.get(fPostCreate); }
+			if (fPostCreate) { fPostCreate = jul.get(fPostCreate); }
 			if (fPostCreate) { oConfig.postCreate = fPostCreate; }
 			var oHost = oConfig[this.parentProperty] ? oConfig[this.parentProperty].host || oConfig[this.parentProperty] : null;
 			if (oHost && oHost._componentName && oHost._derived) {
@@ -158,9 +160,12 @@ JUL.apply(JWL,  {
 		}
 	},
 	registerPrefix: 'jwl',
-	version: '0.8.2',
+	version: '0.8.3',
 	Parser: function(oConfig) {
-		JUL.UI.Parser.call(this, oConfig);
+		if (!(this instanceof JWL.Parser)) {
+			return new JWL.Parser(oConfig);
+		}
+		jul.ui.Parser.call(this, oConfig);
 	},
 	custom: function(oConfig) {
 			var sName = oConfig[this.tagProperty];
@@ -168,7 +173,7 @@ JUL.apply(JWL,  {
 			var oComponent = JWL.components[sName];
 			if (oComponent) {
 				JWL._customCache = JWL._customCache || {};
-				var sKey = oConfig[this.className] + ':' + oConfig[this.tagProperty];
+				var sKey = oConfig[this.classProperty] + ':' + oConfig[this.tagProperty];
 				if (typeof JWL._customCache[sKey] !== 'function') {
 					try {
 						JWL._customCache[sKey] = JWL.register(sName, false, '', this);
@@ -185,7 +190,7 @@ JUL.apply(JWL,  {
 	factory: function(oConfig) {
 		var sName = oConfig[this.tagProperty];
 		var sNS = oConfig[this.classProperty];
-		var CNew = JUL.get('JWL.' + sNS.toUpperCase() + '.' + sName[0].toUpperCase() + sName.substr(1));
+		var CNew = jul.get('JWL.' + sNS.toUpperCase() + '.' + sName[0].toUpperCase() + sName.substr(1));
 		if (typeof CNew !== 'function') { CNew = JWL.makeClass(sNS + ':' + sName, false, this); }
 		return new CNew(oConfig);
 	},
@@ -203,7 +208,7 @@ JUL.apply(JWL,  {
 		catch (e) {}
 		if (oData && sRoot) { oData = JUL.get(sRoot, oData); }
 		if (!oData || typeof oData !== 'object') { return null; }
-		return JUL.ns('JWL.components' + (sWhat ? '.' + sWhat : ''), oData);
+		return jul.ns('JWL.components' + (sWhat ? '.' + sWhat : ''), oData);
 	},
 	loadCss: function(sComponent) {
 		var oComponent = this.components[sComponent] || {};
@@ -426,7 +431,7 @@ JUL.apply(JWL,  {
 		}
 		JUL.apply(fClass.prototype, oComponent.prototype || {});
 		var sWhat = 'JWL.' + sNS.toUpperCase() + '.' + sName[0].toUpperCase() + sName.substr(1);
-		return JUL.ns(sNewNS || sWhat, fClass);
+		return jul.ns(sNewNS || sWhat, fClass);
 	},
 	register: function(sName, bDerived, sNewName, oParser) {
 		oParser = oParser || this.parser;
@@ -532,20 +537,22 @@ JUL.apply(JWL,  {
 	}
 });
 
-JUL.ns('JWL.components');
-JWL.parser = new JUL.UI.Parser(JWL.parserConfig);
+jul.ns('JWL.components');
+JWL.parser = new jul.ui.Parser(JWL.parserConfig);
 JWL.Parser.prototype = JWL.parser;
 
-})();
+})(typeof global !== 'undefined' ? global : window, typeof module !== 'undefined' ? module : null);
 
 
-(function() {
+(function(global, module) {
 'use strict';
+var jul = new JUL.Instance({nsRoot: module && module.exports ? {JWL: module.exports} : global || null});
+var JWL = jul.ns('JWL');
 
 
-JUL.ns('JWL.components.frameplayer');
+jul.ns('JWL.components.frameplayer');
 
-JUL.apply(JWL.components.frameplayer,  {
+jul.apply(jul.get('JWL.components.frameplayer'),  {
 	ui: {
 		tag: 'div', cid: '.frameplayer', css: 'frameplayer', children: [
 			{tag: 'div', children: [
@@ -673,19 +680,21 @@ JUL.apply(JWL.components.frameplayer,  {
 			JWL.get(this).querySelector('.frameplayer-image').setAttribute('src', this.getAttribute('data-image-src'));
 		}
 	},
-	css: 'lib/jwl/css/frameplayer.css?v=0.8.2'
+	css: 'lib/jwl/css/frameplayer.css?v=0.8.3'
 });
 
-})();
+})(typeof global !== 'undefined' ? global : window, typeof module !== 'undefined' ? module : null);
 
 
-(function() {
+(function(global, module) {
 'use strict';
+var jul = new JUL.Instance({nsRoot: module && module.exports ? {JWL: module.exports} : global || null});
+var JWL = jul.ns('JWL');
 
 
-JUL.ns('JWL.components.jsonoptions');
+jul.ns('JWL.components.jsonoptions');
 
-JUL.apply(JWL.components.jsonoptions,  {
+jul.apply(jul.get('JWL.components.jsonoptions'),  {
 	ui: {
 		tag: 'div', cid: '.jsonoptions', css: 'jsonoptions', children: [
 			{tag: 'a', cid: '.jsonoptions-show', css: 'fa fa-gear', href: '#', title: 'Options'},
@@ -761,20 +770,22 @@ JUL.apply(JWL.components.jsonoptions,  {
 			this.showOptions(true);
 		}
 	},
-	css: ['lib/faws/css/font-awesome.min.css?v=0.8.2',
-	 'lib/jwl/css/jsonoptions.css?v=0.8.2']
+	css: ['lib/faws/css/font-awesome.min.css?v=0.8.3',
+	 'lib/jwl/css/jsonoptions.css?v=0.8.3']
 });
 
-})();
+})(typeof global !== 'undefined' ? global : window, typeof module !== 'undefined' ? module : null);
 
 
-(function() {
+(function(global, module) {
 'use strict';
+var jul = new JUL.Instance({nsRoot: module && module.exports ? {JWL: module.exports} : global || null});
+var JWL = jul.ns('JWL');
 
 
-JUL.ns('JWL.components.playerbar');
+jul.ns('JWL.components.playerbar');
 
-JUL.apply(JWL.components.playerbar,  {
+jul.apply(jul.get('JWL.components.playerbar'),  {
 	ui: {
 		tag: 'div', cid: '.playerbar', css: 'playerbar', children: [
 			{tag: 'a', cid: '.playerbar-gotostart', css: 'fa fa-fast-backward', href: '#', title: 'Go to start'},
@@ -874,20 +885,21 @@ JUL.apply(JWL.components.playerbar,  {
 			oPlay.setAttribute('title', bPause ? 'Pause' : 'Play');
 		}
 	},
-	css: ['lib/faws/css/font-awesome.min.css?v=0.8.2',
-	 'lib/jwl/css/playerbar.css?v=0.8.2']
+	css: ['lib/faws/css/font-awesome.min.css?v=0.8.3',
+	 'lib/jwl/css/playerbar.css?v=0.8.3']
 });
 
-})();
+})(typeof global !== 'undefined' ? global : window, typeof module !== 'undefined' ? module : null);
 
 
-(function() {
+(function(global, module) {
 'use strict';
+var jul = new JUL.Instance({nsRoot: module && module.exports ? {JWL: module.exports} : global || null});
 
 
-JUL.ns('JWL.resources');
+jul.ns('JWL.resources');
 
-JUL.apply(JWL.resources,  {
+jul.apply(jul.get('JWL.resources'),  {
 	svglogo: {
 		ui: {
 			tag: 'svg', fill: 'transparent', height: '300', viewBox: '-10 -10 20 20', width: '300', children: [
@@ -901,5 +913,5 @@ JUL.apply(JWL.resources,  {
 	}
 });
 
-})();
+})(typeof global !== 'undefined' ? global : window, typeof module !== 'undefined' ? module : null);
 
