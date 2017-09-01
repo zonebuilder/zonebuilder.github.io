@@ -126,7 +126,7 @@
 						{"xclass":"xul","tag":"splitter"},
 						{"xclass":"xul","tag":"vbox","children":[
 							{"xclass":"xul","tag":"description","value":"Preview","css":"caption","id":"description-preview"},
-							{"xclass":"xul","tag":"textbox","flex":1,"width":"100%","multiline":true,"readonly":true,"id":"textbox-preview"}
+							{"xclass":"xul","tag":"textbox","flex":1,"width":"100%","css":"code","multiline":true,"readonly":true,"id":"textbox-preview"}
 						],
 						"width":370,"id":"vbox-preview"}
 					],
@@ -143,7 +143,7 @@
 							{"xclass":"xul","tag":"button","label":"Remove","id":"button-file-remove"}
 						],
 						"width":"100%"},
-						{"xclass":"xul","tag":"textbox","multiline":true,"readonly":true,"flex":1,"width":"100%","id":"textbox-code"}
+						{"xclass":"xul","tag":"textbox","css":"code","multiline":true,"readonly":true,"flex":1,"width":"100%","id":"textbox-code"}
 					],
 					"height":260,"id":"vbox-code"}
 				]}

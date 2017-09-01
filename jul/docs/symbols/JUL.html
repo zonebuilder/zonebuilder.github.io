@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
-		<title>JUL | JUL 1.5.2 API Reference</title>
+		<title>JUL | JUL 1.5.3 API Reference</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<meta name="mobileoptimized" content="0" />
@@ -255,9 +255,9 @@
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont">JUL.<b><a href="../symbols/JUL.html#.trim">trim</a></b>(sText, sWhat, _bFromMap)
+													<div class="fixedFont">JUL.<b><a href="../symbols/JUL.html#.trim">trim</a></b>(sText, sWhat, bLeftOrRight)
 													</div>
-													<div class="description">Trims white spaces around a string</div>
+													<div class="description">Trims a string at one or both ends</div>
 												</td>
 											</tr>
 										
@@ -820,11 +820,11 @@
 											
 											<span class="light">{String}</span>
 											
-											<span class="light">JUL.</span><b>trim</b>(sText, sWhat, _bFromMap)
+											<span class="light">JUL.</span><b>trim</b>(sText, sWhat, bLeftOrRight)
 										</div>
 										
 										<div class="description">
-											Trims white spaces around a string
+											Trims a string at one or both ends
 											
 											
 											
@@ -845,15 +845,15 @@
 												
 													<dt>
 														<span class="light fixedFont">{String}</span> <b>sWhat</b>
-														
-													</dt>
-													<dd>Optional string to trim at both ends</dd>
-												
-													<dt>
-														<span class="light fixedFont">{Boolean}</span> <b>_bFromMap</b>
 														<i>Optional</i>
 													</dt>
-													<dd>Internal use, it avoids side-effect when called from Array.prototype.map</dd>
+													<dd>String pattern to match at the ends, it defaults to whitespace</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Boolean}</span> <b>bLeftOrRight</b>
+														<i>Optional</i>
+													</dt>
+													<dd>If true trims left, if false trims right, if not specified trims at both ends</dd>
 												
 											</dl>
 										

@@ -16,7 +16,7 @@
 	},
 	"ui":{
 		"xclass":"xul","tag":"dialog","title":"Edit","id":"dialog-edit","height":280,"hidden":true,"width":650,"children":[
-			{"xclass":"xul","tag":"textbox","id":"textbox-edit","flex":1,"multiline":true,"width":"100%"}
+			{"xclass":"xul","tag":"textbox","id":"textbox-edit","flex":1,"css":"code","multiline":true,"width":"100%"}
 		]
 	},
 	"logic":{

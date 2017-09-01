@@ -1,5 +1,5 @@
 /*
-	JWL - The JavaScript Widget Library version 0.8.3
+	JWL - The JavaScript Widget Library version 0.8.4
 	Copyright (c) 2016 - 2017 The Zonebuilder <zone.builder@gmx.com>
 	http://sourceforge.net/projects/jwl-library/
 	Licenses: GNU GPL2 or later; GNU LGPLv3 or later (http://sourceforge.net/p/jwl-library/wiki/License/)
@@ -14,6 +14,7 @@
 
 (function(global, module) {
 'use strict';
+if (module && module.exports && typeof require === 'function') { require('jul'); }
 var jul = new JUL.Instance({nsRoot: module && module.exports ? {JWL: module.exports} : global || null});
 var JWL = jul.ns('JWL');
 
@@ -160,7 +161,7 @@ jul.apply(jul.get('JWL'),  {
 		}
 	},
 	registerPrefix: 'jwl',
-	version: '0.8.3',
+	version: '0.8.4',
 	Parser: function(oConfig) {
 		if (!(this instanceof JWL.Parser)) {
 			return new JWL.Parser(oConfig);
@@ -546,6 +547,7 @@ JWL.Parser.prototype = JWL.parser;
 
 (function(global, module) {
 'use strict';
+if (module && module.exports && typeof require === 'function') { require('jul'); }
 var jul = new JUL.Instance({nsRoot: module && module.exports ? {JWL: module.exports} : global || null});
 var JWL = jul.ns('JWL');
 
@@ -556,7 +558,8 @@ jul.apply(jul.get('JWL.components.frameplayer'),  {
 	ui: {
 		tag: 'div', cid: '.frameplayer', css: 'frameplayer', children: [
 			{tag: 'div', children: [
-				{tag: 'img', cid: '.frameplayer-image', css: 'frameplayer-image', height: '135', src: 'frame.jpg', width: '240'}
+				{tag: 'img', cid: '.frameplayer-image', alt: 'frame', css: 'frameplayer-image', height: '135', src: 'frame.jpg',
+				 width: '240'}
 			]},
 			{tag: 'div', css: 'left', title: 'JWL Frameplayer', children: [
 				{xclass: 'svg', tag: 'svg', height: '32', include: 'JWL.resources.svglogo.ui', width: '32', parserConfig: {
@@ -607,6 +610,7 @@ jul.apply(jul.get('JWL.components.frameplayer'),  {
 			'data-image-width': '.frameplayer-image.width',
 			'data-image-height': '.frameplayer-image.height',
 			'data-image-src': '.frameplayer-image.src',
+			'data-image-alt': '.frameplayer-image.alt',
 			'data-options': '.frameplayer-jsonoptions.data-options'
 		};
 		var sItem;
@@ -652,7 +656,10 @@ jul.apply(jul.get('JWL.components.frameplayer'),  {
 			if (this.current < oOpts.range[0]) { this.current = oOpts.range[0]; }
 			if (this.current > oOpts.range[1]) { this.current = oOpts.range[1]; }
 			var nVal = oOpts.zeropad ? (parseFloat('1e' + oOpts.range[1].toString().length) + this.current).toString().substr(1) : this.current;
-			JWL.get(this).querySelector('.frameplayer-image' ).setAttribute('src', oOpts.template.replace('{n}', nVal));
+			var oImg = JWL.get(this).querySelector('.frameplayer-image' );
+			var sSrc = oOpts.template.replace('{n}', nVal);
+			oImg.setAttribute('src', sSrc);
+			oImg.setAttribute('alt', sSrc.split('/').pop().split('.')[0]);
 			this.current++;
 			var oThis = this;
 			if (this.cron) { clearTimeout(this.cron); }
@@ -677,10 +684,12 @@ jul.apply(jul.get('JWL.components.frameplayer'),  {
 			this.pause();
 			this.current = -1;
 			this.showStop();
-			JWL.get(this).querySelector('.frameplayer-image').setAttribute('src', this.getAttribute('data-image-src'));
+			var oImg = JWL.get(this).querySelector('.frameplayer-image');
+			oImg.setAttribute('src', this.getAttribute('data-image-src'));
+			oImg.setAttribute('alt', this.getAttribute('data-image-alt'));
 		}
 	},
-	css: 'lib/jwl/css/frameplayer.css?v=0.8.3'
+	css: 'lib/jwl/css/frameplayer.css?v=0.8.4'
 });
 
 })(typeof global !== 'undefined' ? global : window, typeof module !== 'undefined' ? module : null);
@@ -688,6 +697,7 @@ jul.apply(jul.get('JWL.components.frameplayer'),  {
 
 (function(global, module) {
 'use strict';
+if (module && module.exports && typeof require === 'function') { require('jul'); }
 var jul = new JUL.Instance({nsRoot: module && module.exports ? {JWL: module.exports} : global || null});
 var JWL = jul.ns('JWL');
 
@@ -770,8 +780,8 @@ jul.apply(jul.get('JWL.components.jsonoptions'),  {
 			this.showOptions(true);
 		}
 	},
-	css: ['lib/faws/css/font-awesome.min.css?v=0.8.3',
-	 'lib/jwl/css/jsonoptions.css?v=0.8.3']
+	css: ['lib/faws/css/font-awesome.min.css?v=0.8.4',
+	 'lib/jwl/css/jsonoptions.css?v=0.8.4']
 });
 
 })(typeof global !== 'undefined' ? global : window, typeof module !== 'undefined' ? module : null);
@@ -779,6 +789,7 @@ jul.apply(jul.get('JWL.components.jsonoptions'),  {
 
 (function(global, module) {
 'use strict';
+if (module && module.exports && typeof require === 'function') { require('jul'); }
 var jul = new JUL.Instance({nsRoot: module && module.exports ? {JWL: module.exports} : global || null});
 var JWL = jul.ns('JWL');
 
@@ -885,8 +896,8 @@ jul.apply(jul.get('JWL.components.playerbar'),  {
 			oPlay.setAttribute('title', bPause ? 'Pause' : 'Play');
 		}
 	},
-	css: ['lib/faws/css/font-awesome.min.css?v=0.8.3',
-	 'lib/jwl/css/playerbar.css?v=0.8.3']
+	css: ['lib/faws/css/font-awesome.min.css?v=0.8.4',
+	 'lib/jwl/css/playerbar.css?v=0.8.4']
 });
 
 })(typeof global !== 'undefined' ? global : window, typeof module !== 'undefined' ? module : null);
@@ -894,6 +905,7 @@ jul.apply(jul.get('JWL.components.playerbar'),  {
 
 (function(global, module) {
 'use strict';
+if (module && module.exports && typeof require === 'function') { require('jul'); }
 var jul = new JUL.Instance({nsRoot: module && module.exports ? {JWL: module.exports} : global || null});
 
 
