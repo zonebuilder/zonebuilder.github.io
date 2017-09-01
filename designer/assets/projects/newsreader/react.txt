@@ -7,7 +7,7 @@
 	"ns":"newsreader.react",
 	"suggestedFramework":"html.mui",
 	"title":"JUL News Reader - Material-UI (ReactJS)",
-	"version":"1.1489477915141",
+	"version":"1.1502695085418",
 	"init":"=func: function () {\n\tthis.parser = new jul.ui.Parser(this.parserConfig);\n\tvar oRoot = this.parser.create(this.ui, this.logic);\n\tif (oRoot) { ReactDOM.render(oRoot, document.getElementById('content'));  }\n}",
 	"template":"<!doctype html>\n<html>\n<head>\n<meta charset=\"utf-8\">\n<title>{project_title}</title>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1\" />\n<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/icon?family=Roboto:400,300,500:latin%7CMaterial+Icons\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/{project_ns}.css?{ts}\" />\n<script type=\"text/javascript\" src=\"//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js\"></script>\n<script type=\"text/javascript\" src=\"https://zonebuilder.github.io/material-ui/material-ui.min.js\"></script>\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/{project_ns}.js?{ts}\"></script>\n</head>\n<body>\n<div id=\"content\"></div>\n<script type=\"text/javascript\">\n{project_ns}.init();\n</script>\n</body>\n</html>",
 	"parserConfig":{

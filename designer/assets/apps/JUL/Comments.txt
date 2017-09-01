@@ -3,7 +3,7 @@
 	"ns":"JUL.Comments",
 	"preferredFramework":"xul",
 	"title":"JUL Comment System",
-	"version":"1.1463257738753",
+	"version":"1.1502961404562",
 	"init":"=func: function () {\n\tfor (var sItem in this.modules) {\n\t\tif (this.modules.hasOwnProperty(sItem)) {\n\t\t\tvar sNS = this.modules[sItem].ns;\n\t\t\tif (sNS.substr(0, 1) === '.') { sNS = this.ns + sNS; }\n\t\t\tvar oModule = jul.get(sNS);\n\t\t\tif (!oModule) { continue; }\n\t\t\toModule.app = this;\n\t\t\toModule.parser = new jul.ui.Parser(this.defaultParser);\n\t\t\toModule.parser.module = oModule;\n\t\t\tvar oPanel = oModule.parser.create(oModule.ui, oModule.logic);\n\t\t\tif (oPanel) { ample.documentElement.appendChild(oPanel); }\n\t\t}\n\t}\n\t//this.onInit();\n}",
 	"modules":{
 		"project":{
@@ -22,8 +22,9 @@
 	"defaultParser":{
 		"classProperty":"xclass","defaultClass":"xul","childrenProperty":"children","membersProperties":[],"idProperty":"id",
 		"bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent",
-		"customFactory":"=func: function(oConfig) {\n\tif (oConfig.listeners) { oConfig.listeners.scope = this.module; }\n\treturn this.createDom(oConfig);\n}"
+		"customFactory":"=func: function (oConfig) {\n\tif (oConfig.listeners) { oConfig.listeners.scope = this.module; }\n\treturn this.createDom(oConfig);\n}",
+		"membersMappings":{}
 	},
-	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<title>{app_title}</title>\n<link type=\"text/css\" href=\"/jcs/amplesdk-mainta-0.9.4/ample/languages/xhtml/themes/default/style-prod.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"/jcs/amplesdk-mainta-0.9.4/ample/languages/xul/themes/default/style-prod.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"../examples/jcs/main.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"../examples/jcs/skin.css\" rel=\"stylesheet\" />\n<script type=\"text/javascript\" src=\"/jcs/amplesdk-mainta-0.9.4/ample/runtime.js\"></script>\n<script type=\"text/javascript\" src=\"/jcs/amplesdk-mainta-0.9.4/ample/languages/xhtml/xhtml.js\"></script>\n<script type=\"text/javascript\" src=\"/jcs/amplesdk-mainta-0.9.4/ample/languages/xul/xul.js\"></script>\n<script type=\"text/javascript\" src=\"/designer/source/js/jul.js\"></script>\n{app_script}\n{modules_scripts}\n</head>\n<body>\n<script type=\"text/javascript\">\nample.$init();\n{app_ns}.init();\n</script>\n</body>\n</html>"
+	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<title>{app_title}</title>\n<link type=\"text/css\" href=\"https://zonebuilder.github.io/jul/ample-sdk/ample/languages/xhtml/themes/default/style-prod.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"https://zonebuilder.github.io/jul/ample-sdk/ample/languages/xul/themes/default/style-prod.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"../../assets/examples/jcs/main.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"../../assets/examples/jcs/skin.css\" rel=\"stylesheet\" />\n<script type=\"text/javascript\" src=\"https://zonebuilder.github.io/jul/ample-sdk/ample/runtime.js\"></script>\n<script type=\"text/javascript\" src=\"https://zonebuilder.github.io/jul/ample-sdk/ample/languages/xhtml/xhtml.js\"></script>\n<script type=\"text/javascript\" src=\"https://zonebuilder.github.io/jul/ample-sdk/ample/languages/xul/xul.js\"></script>\n{jul_script}\n{app_script}\n{modules_scripts}\n</head>\n<body>\n<script type=\"text/javascript\">\nample.$init();\n{app_ns}.init();\n</script>\n</body>\n</html>"
 }
 }

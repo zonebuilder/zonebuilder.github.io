@@ -1,18 +1,19 @@
 {"result":
 {
-	"lastComponentId":25,
+	"keepBindings":false,
+	"lastComponentId":30,
 	"listenersProperty":"listeners",
 	"noLogic":false,
 	"ns":"JUL.Comments.project",
 	"suggestedFramework":"xul",
 	"title":"JUL Comment System - Main page",
-	"version":"1.1463257738752",
+	"version":"1.1502961319399",
 	"init":"=func: function () {\n\tthis.parser = new jul.ui.Parser(this.parserConfig);\n\tthis.page = this.parser.create(this.ui, this.logic);\n\tif (this.page) { ample.documentElement.appendChild(this.page); }\n}",
-	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<title>{project_title}</title>\n<link type=\"text/css\" href=\"/jcs/amplesdk-mainta-0.9.4/ample/languages/xhtml/themes/default/style-prod.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"/jcs/amplesdk-mainta-0.9.4/ample/languages/xul/themes/default/style-prod.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"../examples/jcs/main.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"../examples/jcs/skin.css\" rel=\"stylesheet\" />\n<script type=\"text/javascript\" src=\"/jcs/amplesdk-mainta-0.9.4/ample/runtime.js\"></script>\n<script type=\"text/javascript\" src=\"/jcs/amplesdk-mainta-0.9.4/ample/languages/xhtml/xhtml.js\"></script>\n<script type=\"text/javascript\" src=\"/jcs/amplesdk-mainta-0.9.4/ample/languages/xul/xul.js\"></script>\n<script type=\"text/javascript\" src=\"/designer/source/js/jul.js\"></script>\n{project_script}\n</head>\n<body>\n<script type=\"text/javascript\">\nample.$init();\n{project_ns}.init();\n</script>\n</body>\n</html>",
+	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<title>{project_title}</title>\n<link type=\"text/css\" href=\"https://zonebuilder.github.io/jul/ample-sdk/ample/languages/xhtml/themes/default/style-prod.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"https://zonebuilder.github.io/jul/ample-sdk/ample/languages/xul/themes/default/style-prod.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"../../assets/examples/jcs/main.css\" rel=\"stylesheet\" />\n<link type=\"text/css\" href=\"../../assets/examples/jcs/skin.css\" rel=\"stylesheet\" />\n<script type=\"text/javascript\" src=\"https://zonebuilder.github.io/jul/ample-sdk/ample/runtime.js\"></script>\n<script type=\"text/javascript\" src=\"https://zonebuilder.github.io/jul/ample-sdk/ample/languages/xhtml/xhtml.js\"></script>\n<script type=\"text/javascript\" src=\"https://zonebuilder.github.io/jul/ample-sdk/ample/languages/xul/xul.js\"></script>\n{jul_script}\n{project_script}\n</head>\n<body>\n<script type=\"text/javascript\">\nample.$init();\n{project_ns}.init();\n</script>\n</body>\n</html>",
 	"parserConfig":{
 		"classProperty":"xclass","defaultClass":"xul","childrenProperty":"children","membersProperties":[],"idProperty":"id",
 		"bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent",
-		"customFactory":"JUL.UI.createDom"
+		"customFactory":"JUL.UI.createDom","membersMappings":{}
 	},
 	"ui":{
 		"xclass":"xul","tag":"page","children":[
@@ -59,13 +60,21 @@
 						{"xclass":"xul","tag":"textbox","flex":1,"id":"textbox-object"},
 						{"xclass":"xul","tag":"button","label":"Find","id":"button-find"}
 					]},
+					{"xclass":"xul","tag":"toolbar","children":[
+						{"xclass":"xul","tag":"toolbargrippy"},
+						{"xclass":"xul","tag":"toolbarbutton","label":"+/**{ }*/","tooltiptext":"Auto-generate comments for selected items",
+						"id":"tbutton-generate-comments"},
+						{"xclass":"xul","tag":"toolbarbutton","label":"-/**{ }*/","tooltiptext":"Remove comments from selected items",
+						"id":"tbutton-remove-comments"},
+						{"xclass":"xul","tag":"toolbarbutton","label":"Undo","id":"tbutton-undo-tree"}
+					]},
 					{"xclass":"xul","tag":"tree","flex":1,"children":[
 						{"xclass":"xul","tag":"treecols","children":[
 							{"xclass":"xul","tag":"treecol","label":"Name","width":400,"primary":true}
 						]},
 						{"xclass":"xul","tag":"treebody"}
 					],
-					"id":"tree-dom","seltype":"single"},
+					"id":"tree-dom"},
 					{"xclass":"xul","tag":"hbox","children":[
 						{"xclass":"xul","tag":"toolbargrippy"},
 						{"xclass":"xul","tag":"checkbox","label":"separate file, put outside","id":"checkbox-separate-file",
@@ -126,7 +135,8 @@
 						{"xclass":"xul","tag":"splitter"},
 						{"xclass":"xul","tag":"vbox","children":[
 							{"xclass":"xul","tag":"description","value":"Preview","css":"caption","id":"description-preview"},
-							{"xclass":"xul","tag":"textbox","flex":1,"width":"100%","css":"code","multiline":true,"readonly":true,"id":"textbox-preview"}
+							{"xclass":"xul","tag":"textbox","flex":1,"width":"100%","multiline":true,"readonly":true,"id":"textbox-preview",
+							"css":"code"}
 						],
 						"width":370,"id":"vbox-preview"}
 					],
@@ -143,7 +153,8 @@
 							{"xclass":"xul","tag":"button","label":"Remove","id":"button-file-remove"}
 						],
 						"width":"100%"},
-						{"xclass":"xul","tag":"textbox","css":"code","multiline":true,"readonly":true,"flex":1,"width":"100%","id":"textbox-code"}
+						{"xclass":"xul","tag":"textbox","multiline":true,"readonly":true,"flex":1,"width":"100%","id":"textbox-code",
+						"css":"code"}
 					],
 					"height":260,"id":"vbox-code"}
 				]}
@@ -202,7 +213,7 @@
 		},
 		"button-go":{
 			"listeners":{
-				"command":"=func: function (oEvent, oElement) {\n\talert(this.ns + ' ' + oEvent + ' ' +  oElement); return;\nvar sUrl = JUL.trim(ample.getElementById('textbox-address').getAttribute('value'));\n\tif (!sUrl) { return; }\n\tJUL.Comments.project.loadSite(sUrl);\n}"
+				"command":"=func: function () {\nvar sUrl = JUL.trim(ample.getElementById('textbox-address').getAttribute('value'));\n\tif (!sUrl) { return; }\n\tJUL.Comments.project.loadSite(sUrl);\n}"
 			}
 		},
 		"button-paste-field":{
@@ -270,6 +281,11 @@
 				"command":"=func: function () {\n\tJUL.Comments.project.onEditProject();\n}"
 			}
 		},
+		"tbutton-generate-comments":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onGenerateComments();\n}"
+			}
+		},
 		"tbutton-help-about":{
 			"listeners":{
 				"command":"=func: function () {\n\tJUL.Comments.project.onHelpAbout();\n}"
@@ -290,9 +306,19 @@
 				"command":"=func: function () {\n\tJUL.Comments.project.onOpenProject();\n}"
 			}
 		},
+		"tbutton-remove-comments":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onRemoveComments();\n}"
+			}
+		},
 		"tbutton-save-project":{
 			"listeners":{
 				"command":"=func: function () {\n\tJUL.Comments.project.onSaveProject();\n}"
+			}
+		},
+		"tbutton-undo-tree":{
+			"listeners":{
+				"command":"=func: function () {\n\tJUL.Comments.project.onUndoTree();\n}"
 			}
 		},
 		"textbox-address":{
