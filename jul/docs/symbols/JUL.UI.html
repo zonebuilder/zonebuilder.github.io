@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
-		<title>JUL.UI | JUL 1.5.6 API Reference</title>
+		<title>JUL.UI | JUL 1.6 API Reference</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<meta name="mobileoptimized" content="0" />
@@ -137,9 +137,29 @@
 												<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
 													<div class="fixedFont">
+													JUL.UI.<b><a href="../symbols/JUL.UI.html#._createElement">_createElement</a></b>
+													</div>
+													<div class="description">Reference to a createElement() function used in Virtual DOM</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
 													JUL.UI.<b><a href="../symbols/JUL.UI.html#._domDocument">_domDocument</a></b>
 													</div>
 													<div class="description">May be set to a custom document object to use createDom() for various DOM implementations</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&lt;private&gt; &lt;static&gt; &nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													JUL.UI.<b><a href="../symbols/JUL.UI.html#._domParser">_domParser</a></b>
+													</div>
+													<div class="description">It can be set to a user defined DOM Parser instance</div>
 												</td>
 											</tr>
 										
@@ -627,7 +647,7 @@
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont">JUL.UI.<b><a href="../symbols/JUL.UI.html#.xml2jul">xml2jul</a></b>(oXml, bReturnString)
+													<div class="fixedFont">JUL.UI.<b><a href="../symbols/JUL.UI.html#.xml2jul">xml2jul</a></b>(oXml, bReturnString, bTextNodes)
 													</div>
 													<div class="description">Converts a XML DOM to a JUL.UI config tree or to JavaScript code</div>
 												</td>
@@ -688,6 +708,28 @@
 							</h2>
 							
 							
+								<div class="fixedFont heading" id="._createElement">
+									<span class='lighter'>
+									&lt;private&gt; &lt;static&gt; 
+									</span>
+									
+									<span class="light">{Function}</span>
+									
+									<span class="light">JUL.UI.</span><b>_createElement</b>							
+								</div>
+								
+								<div class="description">
+									Reference to a createElement() function used in Virtual DOM
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
 								<div class="fixedFont heading" id="._domDocument">
 									<span class='lighter'>
 									&lt;private&gt; &lt;static&gt; 
@@ -700,6 +742,28 @@
 								
 								<div class="description">
 									May be set to a custom document object to use createDom() for various DOM implementations
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id="._domParser">
+									<span class='lighter'>
+									&lt;private&gt; &lt;static&gt; 
+									</span>
+									
+									<span class="light">{Object}</span>
+									
+									<span class="light">JUL.UI.</span><b>_domParser</b>							
+								</div>
+								
+								<div class="description">
+									It can be set to a user defined DOM Parser instance
 									
 									
 									
@@ -1300,6 +1364,7 @@
 								<div class="description">
 									It allows JUL.UI.obj2str() to output the enclosed expression unquoted.
 		It also applies to JUL.UI.creatDom() when setting the element attributes.
+		When using create() method, it will resolve to an object using get() method of the instance.
 									
 									
 									
@@ -2246,7 +2311,7 @@
 											
 											<span class="light">{Object}</span>
 											
-											<span class="light">JUL.UI.</span><b>xml2jul</b>(oXml, bReturnString)
+											<span class="light">JUL.UI.</span><b>xml2jul</b>(oXml, bReturnString, bTextNodes)
 										</div>
 										
 										<div class="description">
@@ -2274,6 +2339,12 @@
 														<i>Optional</i>
 													</dt>
 													<dd>Whether to serialize converted object to JavaScript code</dd>
+												
+													<dt>
+														<b>bTextNodes</b>
+														
+													</dt>
+													<dd></dd>
 												
 											</dl>
 										
