@@ -1,0 +1,30 @@
+{"result":
+{
+	"keepBindings":false,
+	"lastComponentId":1,
+	"listenersProperty":"listeners",
+	"noLogic":true,
+	"ns":"Calc.react",
+	"suggestedFramework":"html.react",
+	"title":"JUL Calculator - React",
+	"version":"1.1541836859964",
+	"init":"=func: function() {\n\tvar oApp = jul.get('Calc');\n\toApp.init(this);\n}",
+	"template":"<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\">\n<head>\n<meta charset=\"UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0\" />\n<title>{project_title}</title>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/calc/calc.css?v=1.01\" />\n<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.0.0/polyfill.min.js\"></script>\n<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/react/16.4.2/umd/react.production.min.js\"></script>\n<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.2/umd/react-dom.production.min.js\"></script>\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/calc/calc.js?v=1.01\"></script>\n<script type=\"text/javascript\" src=\"../../assets/examples/calc/calc-react.js?v=1.01\"></script>\n  </head>\n<body onclick=\"Calc.onClick(event)\" onkeydown=\"Calc.onKey(event)\">\n<div id=\"content\">\n\t<!--[if lt IE 9]>\n\t<h3><em font-family=\"serif\">Internet Explorer 9 or greater required to run this app.</em></h3>\n\t<![endif]-->\n\t<div id=\"root\"></div>\n</div>\n<div id=\"footer\">\n  <script type=\"text/javascript\">\n    document.write('JUL Calculator v' + Calc.version + '.' +\n  ' Copyright &copy; ' + (new Date()).getFullYear() + ' ' +\n  '<a target=\"_blank\" href=\"https://www.google.com/search?hl=en&num=50&start=0&safe=0&filter=0&nfpr=1&q=The+Zonebuilder+web+development+programming+IT+society+philosophy+politics\">The Zonebuilder<\\/a>.' +\n  ' Powered by <a target=\"_blank\" href=\"https://sourceforge.net/projects/jul-javascript/\">JUL<\\/a> v' + JUL.version +\n  ' &amp; <a target=\"_blank\" href=\"https://reactjs.org/\">React<\\/a> v' + React.version);\n</script>\n</div>\n<script type=\"text/javascript\">\n{project_ns}.init();\n</script>\n</body>\n</html>",
+	"parserConfig":{
+		"classProperty":"c","defaultClass":"Object","childrenProperty":"children","membersProperties":[],"membersMappings":{},
+		"idProperty":"id","bindingProperty":"cid","useTags":false,"tagProperty":"tag","topDown":false,
+		"customFactory":"=func: function(oConfig) {\n\tif (oConfig[this.classProperty] === '#text') { return oConfig.value; }\n\tvar oListeners = oConfig.listeners || {};\n\toConfig = JUL.apply({}, [oConfig, oListeners], false, 'listeners');\n\treturn this.createVDom(oConfig);\n}","_otherProperties":{
+			"referencePrefix":"$","_domDocument":"React"
+		}
+	},
+	"ui":{
+		"c":"div","id":"calc","className":"board-react","children":[
+			{"c":"div","id":"screen","children":[
+				{"c":"input","id":"display","readOnly":true,"type":"text","value":"$Calc.props.display"}
+			]},
+			{"c":"div","id":"keys","include":"Calc.buttons"}
+		]
+	},
+	"logic":{}
+}
+}

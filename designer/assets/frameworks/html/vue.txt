@@ -1,0 +1,34 @@
+{"result":
+{
+	"augments":"html",
+	"groupByLevel":false,
+	"ns":"html.vue",
+	"nsAlias":"html",
+	"prependNS":false,
+	"title":"VueJS HTML5",
+	"version":"1.1541837128560",
+	"components":{
+		"Component":{
+			"description":"ReactComponent base class","inherits":"HTMLElement","restrictParent":"#","members":{
+				"html":{
+					"logic":false,"required":false,"hidden":true,"description":"Hide this to not show inherited"
+				},
+				"title":{
+					"logic":false,"required":false,"hidden":true,"description":"Hide this to not show inherited"
+				}
+			}
+		},
+		"HTMLElement":{
+			"members":{
+				"css":{
+					"logic":false,"required":false,"hidden":false,"description":"Hide this to not show inherited","defaultValue":{}
+				},
+				"style":{
+					"logic":false,"required":false,"hidden":false,"description":"JavaScript style object properties","defaultValue":{},
+					"template":"<object>"
+				}
+			}
+		}
+	}
+}
+}

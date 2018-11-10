@@ -1,0 +1,33 @@
+{"result":
+{
+	"keepBindings":false,
+	"lastComponentId":1,
+	"listenersProperty":"listeners",
+	"noLogic":true,
+	"ns":"Calc.vue",
+	"suggestedFramework":"html.vue",
+	"title":"JUL Calculator - Vue.js",
+	"version":"1.1541837469445",
+	"init":"=func: function() {\n\tvar oApp = jul.get('Calc');\n\toApp.init(this);\n}",
+	"template":"<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\">\n<head>\n<meta charset=\"UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0\" />\n<title>{project_title}</title>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/calc/calc.css?v=1.01\" />\n<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.runtime.min.js\"></script>\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/calc/calc.js?v=1.01\"></script>\n<script type=\"text/javascript\" src=\"../../assets/examples/calc/calc-vue.js?v=1.01\"></script>\n  </head>\n<body onclick=\"Calc.onClick(event)\" onkeydown=\"Calc.onKey(event)\">\n<div id=\"content\">\n\t<!--[if lt IE 9]>\n\t<h3><em font-family=\"serif\">Internet Explorer 9 or greater required to run this app.</em></h3>\n\t<![endif]-->\n\t<div id=\"app\"></div>\n</div>\n<div id=\"footer\">\n  <script type=\"text/javascript\">\n  document.write('JUL Calculator v' + Calc.version + '.' +\n  ' Copyright &copy; ' + (new Date()).getFullYear() + ' ' +\n  '<a target=\"_blank\" href=\"https://www.google.com/search?hl=en&num=50&start=0&safe=0&filter=0&nfpr=1&q=The+Zonebuilder+web+development+programming+IT+society+philosophy+politics\">The Zonebuilder<\\/a>.' +\n  ' Powered by <a target=\"_blank\" href=\"https://sourceforge.net/projects/jul-javascript/\">JUL<\\/a> v' + JUL.version +\n  ' &amp; <a target=\"_blank\" href=\"https://vuejs.org/\">Vue.js<\\/a> v' + Vue.version);\n  </script>\n</div>\n<script type=\"text/javascript\">\n{project_ns}.init();\n</script>\n</body>\n</html>",
+	"parserConfig":{
+		"classProperty":"c","defaultClass":"Object","childrenProperty":"children","membersProperties":[],"membersMappings":{},
+		"idProperty":"id","bindingProperty":"cid","useTags":false,"tagProperty":"tag","topDown":false,
+		"customFactory":"=func: function(oConfig) {\n\tif (oConfig[this.classProperty] === '#text') { return oConfig.value; }\n\tvar aKeys = [this.classProperty, this.childrenProperty, this.cssProperty, this.htmlProperty, this.textProperty, 'attrs', 'class', 'style', 'listeners'];\n\toConfig = JUL.apply({\n\t\tattrs: JUL.apply({}, oConfig, false, aKeys),\n\t\ton: oConfig.listeners || {}\n\t}, oConfig, false, 'listeners', aKeys);\n\treturn this.createVDom(oConfig);\n}","_otherProperties":{
+			"referencePrefix":"$"
+		}
+	},
+	"ui":{
+		"c":"div","id":"calc","css":{
+			"board-vue":true
+		},
+		"children":[
+			{"c":"div","id":"screen","children":[
+				{"c":"input","id":"display","readonly":true,"type":"text","value":"$Calc.props.display"}
+			]},
+			{"c":"div","id":"keys","include":"Calc.buttons"}
+		]
+	},
+	"logic":{}
+}
+}

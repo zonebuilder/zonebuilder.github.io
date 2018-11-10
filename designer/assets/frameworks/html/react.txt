@@ -6,7 +6,7 @@
 	"nsAlias":"html",
 	"prependNS":false,
 	"title":"ReactJS HTML5",
-	"version":"1.1489430850857",
+	"version":"1.1541836463703",
 	"components":{
 		"Component":{
 			"description":"ReactComponent base class","inherits":"HTMLElement","restrictParent":"#","members":{
@@ -30,6 +30,16 @@
 				"style":{
 					"logic":false,"required":false,"hidden":false,"description":"JavaScript style object properties","defaultValue":{},
 					"template":"<object>"
+				}
+			}
+		},
+		"input":{
+			"members":{
+				"readOnly":{
+					"logic":false,"required":false,"hidden":false,"defaultValue":false
+				},
+				"readonly":{
+					"logic":false,"required":false,"hidden":true
 				}
 			}
 		}
