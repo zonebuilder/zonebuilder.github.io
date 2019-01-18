@@ -30,6 +30,7 @@ go: function() {
 		return;
 	}
 	feednami.loadPolyfills(function() {
+		feednami.setPublicApiKey('b8888e776e52505e015cb54fdea3d51d39bb4844fb9b0d5368a460568286bfac');
 		feednami.load(sUrl).then(newsreader.kendo.load);
 	});
 },
