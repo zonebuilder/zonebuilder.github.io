@@ -34,3 +34,12 @@ td.xul-box---box-child, div.xul-dialog--body, div.xul-window--body {
 tr {
 	overflow: hidden;
 }
+#gear {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: x-small;
+	font-family: serif;
+	font-style: italic;
+	padding: 1.1ex 1.3em;
+}

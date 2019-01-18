@@ -6,19 +6,8 @@ go: function() {
 		alert('Address not valid!');
 		return;
 	}
-	jQuery.ajax({
-		type: 'GET',
-		cache: true,
-		url: '//query.yahooapis.com/v1/public/yql',
-		data: {
-			q: "select * from xml where url='" + sUrl + "'",
-			format: 'json',
-			jsonCompat: 'new',
-			_maxage: 180
-		},
-		dataType: 'jsonp',
-		jsonp: 'callback',
-		jsonpCallback: 'newsreader.xul.load'
+	feednami.loadPolyfills(function() {
+		feednami.load(sUrl).then(newsreader.xul.load);
 	});
 },
 load: function(oResult) {
@@ -26,9 +15,7 @@ load: function(oResult) {
 	  	alert(oResult.error.message);
 	  	return;
 	  }
-	  oResult = oResult.query.results.rss;
-	  oResult.feed = oResult.channel;
-	  if (oResult.feed) { oResult.feed.entries = oResult.feed.item; }
+	  oResult = {feed: JUL.apply(oResult, oResult.meta)};
 	  if (oResult.feed && oResult.feed.entries) {
 	  		oResult.feed.entries.sort(function(a, b) {
 			  	return (new Date(b.pubDate)) - (new Date(a.pubDate));
@@ -66,7 +53,7 @@ onSelectArticle: function(sId) {
 	var oEntry = this.feed.entries[sId.substr(6)];
 	ample.query('#description-title').html('<div class="title"><a target="_blank" href="' + ample.$encodeXMLCharacters(oEntry.link) + '">' + oEntry.title + '</a></div>');
 	ample.getElementById('description-date').setAttribute('value', (new Date(oEntry.pubDate)).toLocaleString());
-	var oImage = this.findImage(oEntry.thumbnail || oEntry.group);
+	var oImage = this.findImage(oEntry.thumbnail || oEntry.group || oEntry.image);
 	if (oImage) {
 		ample.getElementById('image-article').setAttribute('src', ample.$encodeXMLCharacters(oImage.url));
 		ample.getElementById('hbox-image').setAttribute('hidden', false);

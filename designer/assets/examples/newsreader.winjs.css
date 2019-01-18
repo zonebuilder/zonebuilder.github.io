@@ -47,3 +47,12 @@ button.ui-btn {
 .ui-header .ui-icon-delete {
   display: none;
 }
+#gear {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: x-small;
+	font-family: serif;
+	font-style: italic;
+	padding: 1.1ex 1.3em;
+}
