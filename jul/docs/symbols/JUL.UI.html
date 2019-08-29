@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
-		<title>JUL.UI | JUL 1.6.1 API Reference</title>
+		<title>JUL.UI | JUL 1.6.5 API Reference</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<meta name="mobileoptimized" content="0" />
@@ -51,7 +51,7 @@
 	</div>
 	<div class="fineprint" style="clear:both">
 		<footer>
-			Copyright &copy; 2012 - 2018 <a href="http://www.google.com/search?hl=en&num=50&start=0&safe=0&filter=0&nfpr=1&q=The+Zonebuilder+web+development+programming+IT+society+philosophy+politics" target="blank"">The Zonebuilder</a><br />
+			Copyright &copy; 2012 - 2019 <a href="http://www.google.com/search?hl=en&num=50&start=0&safe=0&filter=0&nfpr=1&q=The+Zonebuilder+web+development+programming+IT+society+philosophy+politics" target="blank"">The Zonebuilder</a><br />
 			Documentation generator: <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0<br />
 			Template: <a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/" target="_blank">Codeview</a> 1.2
 		</footer>
@@ -625,6 +625,17 @@
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
+													<div class="fixedFont">JUL.UI.<b><a href="../symbols/JUL.UI.html#.html2jul">html2jul</a></b>(oXml, bReturnString, bTextNodes)
+													</div>
+													<div class="description">Converts a HTML string/DOM to a JUL.UI config tree or to JavaScript code, using the current document</div>
+												</td>
+											</tr>
+										
+											<tr
+												 class='item12'
+											>
+												<td class="attributes">&lt;static&gt; &nbsp;</td>
+												<td class="nameDescription">
 													<div class="fixedFont">JUL.UI.<b><a href="../symbols/JUL.UI.html#.include">include</a></b>(oData, fMerger)
 													</div>
 													<div class="description">Does explicit object inheritance based on a predefined object property</div>
@@ -632,7 +643,7 @@
 											</tr>
 										
 											<tr
-												 class='item12'
+												 class='item13'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
@@ -643,13 +654,13 @@
 											</tr>
 										
 											<tr
-												 class='item13'
+												 class='item14'
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont">JUL.UI.<b><a href="../symbols/JUL.UI.html#.xml2jul">xml2jul</a></b>(oXml, bReturnString, bTextNodes)
+													<div class="fixedFont">JUL.UI.<b><a href="../symbols/JUL.UI.html#.xml2jul">xml2jul</a></b>(oXml, bReturnString, bTextNodes, bLowerTags)
 													</div>
-													<div class="description">Converts a XML DOM to a JUL.UI config tree or to JavaScript code</div>
+													<div class="description">Converts a XML string/DOM to a JUL.UI config tree or to JavaScript code</div>
 												</td>
 											</tr>
 										
@@ -2156,6 +2167,79 @@
 									<li 
 										 class='item11'
 									>
+										<div class="fixedFont heading" id=".html2jul">
+											<span class='lighter'>
+											&lt;static&gt; 
+											</span>
+											
+											<span class="light">{Object}</span>
+											
+											<span class="light">JUL.UI.</span><b>html2jul</b>(oXml, bReturnString, bTextNodes)
+										</div>
+										
+										<div class="description">
+											Converts a HTML string/DOM to a JUL.UI config tree or to JavaScript code, using the current document
+											
+											
+											
+											
+										</div>
+										
+										
+										
+										
+											<dl class="detailList params">
+												<dt class="heading">Parameters:</dt>
+												
+													<dt>
+														<span class="light fixedFont">{Object}</span> <b>oXml</b>
+														
+													</dt>
+													<dd>DOM XML object or XML string to convert</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Boolean}</span> <b>bReturnString</b>
+														<i>Optional</i>
+													</dt>
+													<dd>Whether to serialize converted object to JavaScript code</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Boolean}</span> <b>bTextNodes</b>
+														<i>Optional</i>
+													</dt>
+													<dd>Parameter description</dd>
+												
+											</dl>
+										
+										
+										
+											<dl class="detailList nomargin">
+											
+												
+												
+												
+												
+												
+												
+												
+													<dt class="heading">Returns:</dt>
+													
+														<dd><span class="light fixedFont">{Object}</span> JUL.UI config tree or its JavaScript code</dd>
+													
+												
+												
+												
+												
+												
+											
+											</dl>
+										
+										<div class="hr"></div>
+									</li>
+								
+									<li 
+										 class='item12'
+									>
 										<div class="fixedFont heading" id=".include">
 											<span class='lighter'>
 											&lt;static&gt; 
@@ -2224,7 +2308,7 @@
 									</li>
 								
 									<li 
-										 class='item12'
+										 class='item13'
 									>
 										<div class="fixedFont heading" id=".obj2str">
 											<span class='lighter'>
@@ -2302,7 +2386,7 @@
 									</li>
 								
 									<li 
-										 class='item13'
+										 class='item14'
 									>
 										<div class="fixedFont heading" id=".xml2jul">
 											<span class='lighter'>
@@ -2311,11 +2395,11 @@
 											
 											<span class="light">{Object}</span>
 											
-											<span class="light">JUL.UI.</span><b>xml2jul</b>(oXml, bReturnString, bTextNodes)
+											<span class="light">JUL.UI.</span><b>xml2jul</b>(oXml, bReturnString, bTextNodes, bLowerTags)
 										</div>
 										
 										<div class="description">
-											Converts a XML DOM to a JUL.UI config tree or to JavaScript code
+											Converts a XML string/DOM to a JUL.UI config tree or to JavaScript code
 											
 											
 											
@@ -2341,10 +2425,16 @@
 													<dd>Whether to serialize converted object to JavaScript code</dd>
 												
 													<dt>
-														<b>bTextNodes</b>
-														
+														<span class="light fixedFont">{Boolean}</span> <b>bTextNodes</b>
+														<i>Optional</i>
 													</dt>
-													<dd></dd>
+													<dd>Parameter description</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Boolean}</span> <b>bLowerTags</b>
+														<i>Optional</i>
+													</dt>
+													<dd>Force tag names to be converted to lowercase</dd>
 												
 											</dl>
 										
