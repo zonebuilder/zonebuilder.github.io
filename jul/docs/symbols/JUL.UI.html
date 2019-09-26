@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
-		<title>JUL.UI | JUL 1.6.5 API Reference</title>
+		<title>JUL.UI | JUL 1.6.7 API Reference</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<meta name="mobileoptimized" content="0" />
@@ -280,6 +280,16 @@
 													JUL.UI.<b><a href="../symbols/JUL.UI.html#.bindingProperty">bindingProperty</a></b>
 													</div>
 													<div class="description">The name of the binding property in the config tree</div>
+												</td>
+											</tr>
+										
+											<tr>
+												<td class="attributes">&lt;static&gt; &nbsp;</td>
+												<td class="nameDescription">
+													<div class="fixedFont">
+													JUL.UI.<b><a href="../symbols/JUL.UI.html#.booleanAttrs">booleanAttrs</a></b>
+													</div>
+													<div class="description">If enabled, boolean config props passed to JUL.UI.createDom() will be regarded as HTML5 boolean attributes</div>
 												</td>
 											</tr>
 										
@@ -1066,6 +1076,28 @@
 								
 								<div class="description">
 									The name of the binding property in the config tree
+									
+									
+									
+								</div>
+								
+								
+									
+								
+								<div class="hr"></div>
+							
+								<div class="fixedFont heading" id=".booleanAttrs">
+									<span class='lighter'>
+									&lt;static&gt; 
+									</span>
+									
+									<span class="light">{Boolean}</span>
+									
+									<span class="light">JUL.UI.</span><b>booleanAttrs</b>							
+								</div>
+								
+								<div class="description">
+									If enabled, boolean config props passed to JUL.UI.createDom() will be regarded as HTML5 boolean attributes
 									
 									
 									
@@ -2172,7 +2204,7 @@
 											&lt;static&gt; 
 											</span>
 											
-											<span class="light">{Object}</span>
+											<span class="light">{Object|Array}</span>
 											
 											<span class="light">JUL.UI.</span><b>html2jul</b>(oXml, bReturnString, bTextNodes)
 										</div>
@@ -2207,7 +2239,7 @@
 														<span class="light fixedFont">{Boolean}</span> <b>bTextNodes</b>
 														<i>Optional</i>
 													</dt>
-													<dd>Parameter description</dd>
+													<dd>Whether to export text nodes as standalone JUL objects</dd>
 												
 											</dl>
 										
@@ -2224,7 +2256,7 @@
 												
 													<dt class="heading">Returns:</dt>
 													
-														<dd><span class="light fixedFont">{Object}</span> JUL.UI config tree or its JavaScript code</dd>
+														<dd><span class="light fixedFont">{Object|Array}</span> JUL.UI config tree or its JavaScript code</dd>
 													
 												
 												
@@ -2428,7 +2460,7 @@
 														<span class="light fixedFont">{Boolean}</span> <b>bTextNodes</b>
 														<i>Optional</i>
 													</dt>
-													<dd>Parameter description</dd>
+													<dd>Whether to export text nodes as standalone JUL objects</dd>
 												
 													<dt>
 														<span class="light fixedFont">{Boolean}</span> <b>bLowerTags</b>

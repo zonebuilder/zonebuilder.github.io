@@ -1,0 +1,63 @@
+{"result": 
+{
+	"keepBindings":false,
+	"lastComponentId":1,
+	"listenersProperty":"listeners",
+	"noLogic":true,
+	"ns":"newsreader.quasar.layout",
+	"suggestedFramework":"html.quasar.template",
+	"title":"JUL News Reader - Quasar - Layout",
+	"version":"1.1569402651694",
+	"init":"=func: function () {\n\tvar oParser = new JUL.UI.Parser(this.parserConfig);\n\tvar oRoot = oParser.create(this.ui, this.logic, document.getElementById('q-app'));\n}",
+	"template":"<!DOCTYPE html>\n<html>\n<head>\n    <meta charset=\"utf-8\">\n   <meta name=\"description\" content=\"{project_title}\">\n    <meta name=\"format-detection\" content=\"telephone=no\">\n    <meta name=\"msapplication-tap-highlight\" content=\"no\">\n    <meta name=\"viewport\" content=\"user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width\">\n    <title>{project_title}</title>\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons\" rel=\"stylesheet\" type=\"text/css\">\n  <link href=\"https://use.fontawesome.com/releases/v5.0.13/css/all.css\" rel=\"stylesheet\">\n  <link href=\"https://cdn.jsdelivr.net/npm/ionicons@^4.0.0/dist/css/ionicons.min.css\" rel=\"stylesheet\">\n  <link href=\"https://cdn.jsdelivr.net/npm/@mdi/font@^3.0.0/css/materialdesignicons.min.css\" rel=\"stylesheet\">\n  <link href=\"https://cdn.jsdelivr.net/npm/animate.css@^3.5.2/animate.min.css\" rel=\"stylesheet\">\n  <link href=\"https://cdn.jsdelivr.net/npm/quasar@^1.0.3/dist/quasar.min.css\" rel=\"stylesheet\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"../../assets/examples/newsreader.quasar/src/statics/page.css?{ts}\" type=\"text/css\" />\n  {jul_script}\n  {project_script}\n</head>\n<body>\n  <div id=\"q-app\"></div>\n  <script src=\"https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.min.js\"></script>\n  <script src=\"https://cdn.jsdelivr.net/npm/quasar@^1.0.3/dist/quasar.umd.min.js\"></script>\n  <script src=\"https://cdn.jsdelivr.net/npm/quasar@^1.0.3/dist/icon-set/fontawesome-v5.umd.min.js\"></script>\n  <script>\n    {project_ns}.init();\n    Quasar.iconSet.set(Quasar.iconSet.fontawesomeV5);\n    JUL._vueApp = new Vue({\n      el: '#q-app',\n      data: function () {\n        return {\n  title: 'JUL News Reader',\n  drawerOpen: false\n        }\n      },\n      methods: {\n  onMenuClick: function () { this.drawerOpen = !this.drawerOpen; },\n  onNavigate: function (p) { window.alert(p + ' - implemented in the Node project'); }\n}\n    });\n  </script>\n<div id=\"gear\">This project edits visually a VueJS component template. For more info, click \n<a target=\"_test_app\" href=\"../../index.php/main/manage?type=app&operation=test&ns=newsreader.quasar&ts={ts}\">here</a>.\n</div>\n</body>\n</html>",
+	"parserConfig":{
+		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"membersMappings":{},
+		"idProperty":"id","bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,
+		"customFactory":"=func: function (oConfig) {\n\tif (this._keepInstance) {\n\t\tJUL._vueCounter = JUL._vueCounter || 0;\n\t\toConfig.ref = 'r' + (++JUL._vueCounter);\n\t}\n\treturn this.createDom(oConfig);\n}","_otherProperties":{
+			"booleanAttrs":true
+		}
+	},
+	"ui":{
+		"xclass":"html","tag":"q-layout","view":"lHh Lpr lFf","children":[
+			{"xclass":"html","tag":"q-header","elevated":true,"children":[
+				{"xclass":"html","tag":"q-toolbar","children":[
+					{"xclass":"html","tag":"q-btn","aria-label":"Menu","dense":true,"flat":true,"round":true,"v-on:click":"onMenuClick()","children":[
+						{"xclass":"html","tag":"q-icon","name":"menu"}
+					]},
+					{"xclass":"html","tag":"q-toolbar-title","html":"{{title}}","style":"text-align:center"},
+					{"xclass":"html","tag":"q-btn","dense":true,"flat":true,"icon":"keyboard_arrow_right","label":"next",
+					"v-on:click":"onNavigate('next')"},
+					{"xclass":"html","tag":"q-btn","dense":true,"flat":true,"icon":"keyboard_arrow_left","label":"prev",
+					"v-on:click":"onNavigate('prev')"},
+					{"xclass":"html","tag":"q-btn","dense":true,"flat":true,"icon":"home","label":"home","v-on:click":"onNavigate('home')"}
+				]}
+			]},
+			{"xclass":"html","tag":"q-drawer","bordered":true,"content-class":"bg-grey-2","v-model":"drawerOpen","children":[
+				{"xclass":"html","tag":"q-list","children":[
+					{"xclass":"html","tag":"q-item-label","header":true,"html":"NAVIGATION"},
+					{"xclass":"html","tag":"q-item","clickable":true,"exact":true,"to":"/","children":[
+						{"xclass":"html","tag":"q-item-section","avatar":true,"children":[
+							{"xclass":"html","tag":"q-icon","name":"list"}
+						]},
+						{"xclass":"html","tag":"q-item-section","children":[
+							{"xclass":"html","tag":"q-item-label","html":"ARTICLES"}
+						]}
+					]},
+					{"xclass":"html","tag":"q-item","clickable":true,"exact":true,"to":"/entry","children":[
+						{"xclass":"html","tag":"q-item-section","avatar":true,"children":[
+							{"xclass":"html","tag":"q-icon","name":"photo"}
+						]},
+						{"xclass":"html","tag":"q-item-section","children":[
+							{"xclass":"html","tag":"q-item-label","html":"ENTRY"}
+						]}
+					]}
+				]}
+			]},
+			{"xclass":"html","tag":"q-page-container","children":[
+				{"xclass":"html","tag":"router-view"}
+			]}
+		]
+	},
+	"logic":{}
+}
+}

@@ -1,0 +1,13 @@
+#gear {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	max-width: 50ex;
+	font-size: small;
+	font-family: serif;
+	font-style: italic;
+	padding: 1.1ex 1.3em;
+}
+#gear a {
+	font-weight: bold;
+}

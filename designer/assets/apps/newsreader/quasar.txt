@@ -1,0 +1,28 @@
+{"result": 
+{
+	"ns":"newsreader.quasar",
+	"preferredFramework":"html.quasar.template",
+	"title":"JUL News Reader - Quasar",
+	"version":"1.1569403426736",
+	"init":"=func: function () {\n\tfor (var sItem in this.modules) {\n\t\tif (this.modules.hasOwnProperty(sItem)) {\n\t\t\tvar sNS = this.modules[sItem].ns;\n\t\t\tif (sNS.substr(0, 1) === '.') { sNS = this.ns + sNS; }\n\t\t\tvar oModule = JUL.get(sNS);\n\t\t\tif (!oModule) { continue; }\n\t\t\tvar oParser = new JUL.UI.Parser(oModule.parserConfig);\n\t\t\toParser.create(oModule.ui, oModule.logic);\n\t\t}\n\t}\n}",
+	"modules":{
+		"articles":{
+			"ns":".articles","description":"JUL News Reader - Quasar - Articles"
+		},
+		"entry":{
+			"ns":".entry","description":"JUL News Reader - Quasar - Entry"
+		},
+		"layout":{
+			"ns":".layout","description":"JUL News Reader - Quasar - Layout"
+		}
+	},
+	"defaultParser":{
+		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"membersMappings":{},
+		"idProperty":"id","bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"_otherProperties":{
+			"booleanAttrs":true
+		},
+		"customFactory":"=func: function (oConfig) {\n\tif (this._keepInstance) {\n\t\tJUL._vueCounter = JUL._vueCounter || 0;\n\t\toConfig.ref = 'r' + (++JUL._vueCounter);\n\t}\n\treturn this.createDom(oConfig);\n}"
+	},
+	"template":"<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset=\"utf-8\">\n\t\t<meta name=\"description\" content=\"{app_title}\">\n\t\t<meta name=\"format-detection\" content=\"telephone=no\">\n\t\t<meta name=\"msapplication-tap-highlight\" content=\"no\">\n\t\t<meta name=\"viewport\" content=\"user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width\">\n\t\t<title>{app_title}\n\t\t</title>\n\t\t<link href=\"https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons\" rel=\"stylesheet\" type=\"text/css\">\n\t\t<link href=\"https://use.fontawesome.com/releases/v5.0.13/css/all.css\" rel=\"stylesheet\">\n\t\t<link href=\"https://cdn.jsdelivr.net/npm/ionicons@^4.0.0/dist/css/ionicons.min.css\" rel=\"stylesheet\">\n\t\t<link href=\"https://cdn.jsdelivr.net/npm/@mdi/font@^3.0.0/css/materialdesignicons.min.css\" rel=\"stylesheet\">\n\t\t<link href=\"https://cdn.jsdelivr.net/npm/animate.css@^3.5.2/animate.min.css\" rel=\"stylesheet\">\n\t\t<link href=\"https://cdn.jsdelivr.net/npm/quasar@^1.0.3/dist/quasar.min.css\" rel=\"stylesheet\" type=\"text/css\">\n\t\t<style type=\"text/css\">div { font-size: 107%; } em { font-family: serif; } #content {  max-width: 120ex;  margin-left: auto;  margin-right: auto;  padding: 1em 1ex 2em 1ex; } #heading {  text-align: center; }\n\t\t</style>\n\t</head>\n\t<body>\n\t\t<div id=\"content\">\n\t\t\t<div id=\"heading\"><h3>{app_title}</h3> \n\t\t\t\t<img alt=\"{app_title}\" width=\"640\" src=\"../../assets/examples/newsreader.quasar/screenshot/jnrq.png\" />\n\t\t\t\t<h6>For a live demo, click \n\t\t\t\t\t<a target=\"_blank\" href=\"../../assets/examples/newsreader.quasar/dist/spa/\" >HERE</a>\n\t\t\t\t</h6>\n\t\t\t</div>\n\t\t\t<div>Each project/module of this app builds the template for a VueJS SFC in a Node ES6 project. The Node project is located in Designer's \n\t\t\t\t<code>'assets/examples/nesreader.quasar/'\n\t\t\t\t</code> working folder.\n\t\t\t</div>\n\t\t\t<div>The \n\t\t\t\t<code>module -> file\n\t\t\t\t</code> mapping is as follows:\n\t\t\t\t<ul> \n\t\t\t\t\t<li> \n\t\t\t\t\t<code>Articles -> src/pages/index.vue\n\t\t\t\t\t</code>\n\t\t\t\t\t</li> \n\t\t\t\t\t<li> \n\t\t\t\t\t<code>Entry -> src/pages/entry.vue\n\t\t\t\t\t</code>\n\t\t\t\t\t</li> \n\t\t\t\t\t<li> \n\t\t\t\t\t<code>Layout -> src/layouts/MyLayout.vue\n\t\t\t\t\t</code>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>If you run the hot reloading development server ( \n\t\t\t\t<code>quasar dev \n\t\t\t\t</code>), each save of a project in Designer will update the Node application. You may inspect the \n\t\t\t\t<code>.vue\n\t\t\t\t</code> files to see how the Designer generated template is imported in the SFC component.\n\t\t\t</div>\n\t\t\t<div> \n\t\t\t\t<em>Note that the Vue runtime template compiler and all Quasar components are enabling in \n\t\t\t\t\t<code>quasar.conf.js\n\t\t\t\t\t</code> fine.\n\t\t\t\t</em>\n\t\t\t</div>\n\t\t\t<div>For the actual development, you need to have \n\t\t\t\t<a target=\"_blank\" href=\"https://nodejs.org/\">Node.js</a> installed, open a console window in the Node project folder, and type the following shell commands: \n<pre>\nnpm install -g @quasar/cli\nnpm install\nquasar dev   \n</pre>   The development app will start at  \t\t\t\t \n\t\t\t\t<code>http://localhost:8080/\n\t\t\t\t</code>. Use an up-to-date browser to run the development app or the live demo.\n\t\t\t</div>\n\t\t\t<div>To build a production app, use the command: \n<pre>\nquasar build -m &lt;target&gt;  \n</pre>  as specified in the  \t\t\t\t \n\t\t\t\t<a target=\"_blank\" href=\"https://quasar.dev/start\">Quasar Docs</a>. Good luck and have a nice development :-)\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<em> Regards,\n\t\t\t\t</em> \n\t\t\t</div>\n\t\t\t<div> \n\t\t\t\t<em> \n\t\t\t\t\t<a target=\"_blank\" href=\"https://www.google.com/search?hl=en&num=50&start=0&safe=0&filter=0&nfpr=1&q=The+Zonebuilder+web+development+programming+IT+society+philosophy+politics\" >The Zonebuilder</a>\n\t\t\t\t</em> \n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>"
+}
+}

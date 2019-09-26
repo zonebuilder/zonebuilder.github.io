@@ -1,0 +1,115 @@
+{"result": 
+{
+	"augments":"html.vue.template",
+	"groupByLevel":true,
+	"ns":"html.quasar.template",
+	"nsAlias":"html",
+	"prependNS":false,
+	"title":"Quasar Framework",
+	"version":"1.1569397957126",
+	"components":{
+		"HTMLElement":{
+			"restrictParent":"#","members":{
+				"title":{
+					"logic":false,"required":false,"hidden":true
+				}
+			}
+		},
+		"q-btn":{
+			"description":"A button with a few extra useful features","inherits":"HTMLElement","members":{
+				"dense":{
+					"logic":false,"required":false,"hidden":false,"defaultValue":false
+				},
+				"flat":{
+					"logic":false,"required":false,"hidden":false,"defaultValue":false
+				},
+				"label":{
+					"logic":false,"required":false,"hidden":false
+				},
+				"round":{
+					"logic":false,"required":false,"hidden":false,"defaultValue":false
+				}
+			}
+		},
+		"q-card":{
+			"description":"A great way to display important pieces of grouped content","inherits":"HTMLElement"
+		},
+		"q-card-section":{
+			"description":"A section of a card","inherits":"HTMLElement"
+		},
+		"q-chip":{
+			"description":"Rectangular piece of information","inherits":"HTMLElement"
+		},
+		"q-drawer":{
+			"description":"Side pane of a layout","inherits":"HTMLElement","members":{
+				"bordered":{
+					"logic":false,"required":false,"hidden":false,"defaultValue":false
+				}
+			}
+		},
+		"q-footer":{
+			"description":"Header and/or Footer (mostly used for navbar, but can be anything)","inherits":"HTMLElement","members":{
+				"elevated":{
+					"logic":false,"required":false,"hidden":false,"defaultValue":false
+				}
+			}
+		},
+		"q-header":{
+			"description":"Header and/or Footer (mostly used for navbar, but can be anything)","inherits":"HTMLElement","members":{
+				"elevated":{
+					"logic":false,"required":false,"hidden":false,"defaultValue":false
+				}
+			}
+		},
+		"q-icon":{
+			"description":"Allows you to easily insert icons within other components or any other area of your pages",
+			"inherits":"HTMLElement","members":{
+				"name":{
+					"logic":false,"required":false,"hidden":false
+				}
+			}
+		},
+		"q-input":{
+			"description":"Qiasar enhanced input component","inherits":"HTMLElement","members":{
+				"dense":{
+					"logic":false,"required":false,"hidden":false,"defaultValue":false
+				}
+			}
+		},
+		"q-item":{
+			"description":"List and QItem are a group of components which can work together to present multiple line items",
+			"inherits":"HTMLElement","members":{
+				"clickable":{
+					"logic":false,"required":false,"hidden":false,"defaultValue":false
+				}
+			}
+		},
+		"q-item-label":{
+			"description":"Label of an item","inherits":"HTMLElement"
+		},
+		"q-item-section":{
+			"description":"A separate segment of an item","inherits":"HTMLElement"
+		},
+		"q-layout":{
+			"description":"Allows you to configure your views as a 3x3 matrix","inherits":"HTMLElement"
+		},
+		"q-list":{
+			"description":"List and QItem are a group of components which can work together to present multiple line items",
+			"inherits":"HTMLElement"
+		},
+		"q-page":{
+			"inherits":"HTMLElement"
+		},
+		"q-page-container":{
+			"description":"Container of SPA pages","inherits":"HTMLElement"
+		},
+		"q-toolbar":{
+			"description":"A component usually part of Layout Header and Footer, but it can be used anywhere on the page",
+			"inherits":"HTMLElement"
+		},
+		"q-toolbar-title":{
+			"description":"The title element for a toolbar","inherits":"HTMLElement"
+		}
+	}
+}
+}
