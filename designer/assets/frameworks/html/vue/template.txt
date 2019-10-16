@@ -6,11 +6,11 @@
 	"nsAlias":"html",
 	"prependNS":false,
 	"title":"VueJS HTML5 Template",
-	"version":"1.1569400557048",
+	"version":"1.1570037481812",
 	"components":{
 		"HTMLElement":{
 			"restrictParent":"#",
-			"getBoundingRect":"=func: function () {\n\tvar oVue = document.getElementById('iframe-test').contentWindow.JUL._vueApp;\n\tif (!oVue) { return null; }\n\tif (!this || !this.getAttribute) { return null; }\n\tvar sRef = this.getAttribute('ref');\n\tvar oEl = oVue.$refs[sRef || '_____'];\n\toEl = oEl.$el || oEl;\n\tif (!oEl || !oEl.getBoundingClientRect) { return null; }\n\tvar oRect = oEl.getBoundingClientRect();\n\treturn {\n\t\tleft: oRect.left,\n\t\ttop: oRect.top,\n\t\twidth: oRect.right - oRect.left,\n\t\theight: oRect.bottom - oRect.top\n};\n}","members":{
+			"getBoundingRect":"=func: function () {\n\tvar oVue = document.getElementById('iframe-test').contentWindow.JUL._vueApp;\n\tif (!oVue) { return null; }\n\tif (!this || !this.getAttribute) { return null; }\n\tvar sRef = this.getAttribute('ref');\n\tvar oEl = oVue.$refs[sRef || '_____'];\n\tif (!oEl || !(oEl.$el || oEl).getBoundingClientRect) { return null; }\n\tvar oRect = (oEl.$el || oEl).getBoundingClientRect();\n\treturn {\n\t\tleft: oRect.left,\n\t\ttop: oRect.top,\n\t\twidth: oRect.right - oRect.left,\n\t\theight: oRect.bottom - oRect.top\n};\n}","members":{
 				"v-bind":{
 					"logic":false,"required":false,"hidden":false
 				},
