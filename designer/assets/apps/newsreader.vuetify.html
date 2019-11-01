@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="description" content="JUL News Reader - Vuetify">
+  <meta name="theme-color" content="#fff">
+  <title>JUL News Reader - Vuetify</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.1.x/dist/vuetify.min.css" rel="stylesheet">
+		<style type="text/css">div { font-size: 107%; } em { font-family: serif; } #content {  max-width: 120ex;  margin-left: auto;  margin-right: auto;  padding: 1em 1ex 2em 1ex; } #heading {  text-align: center; }
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<div id="heading"><h2>JUL News Reader - Vuetify</h2> 
+				<img alt="JUL News Reader - Vuetify" width="640" src="../../assets/examples/newsreader.vuetify/screenshot/jnrv.png" />
+				<h4>For a live demo, click 
+					<a target="_blank" href="../../assets/examples/newsreader.vuetify/dist/" >HERE</a>
+				</h4>
+				<br />
+			</div>
+			<div>Each project/module of this app builds the template for a VueJS SFC in a Node ES6 project. The Node project is located in Designer's 
+				<code>'assets/examples/nesreader.vuetify/'
+				</code> working folder.
+			</div>
+			<div>The 
+				<code>module -> file
+				</code> mapping is as follows:
+				<ul> 
+					<li> 
+					<code>Articles -> pages/index.vue
+					</code>
+					</li> 
+					<li> 
+					<code>Entry -> pages/entry.vue
+					</code>
+					</li> 
+					<li> 
+					<code>Layout -> layouts/defaut.vue
+					</code>
+					</li>
+				</ul>If you run the hot reloading development server ( 
+				<code>npm run dev 
+				</code>), each save of a project in Designer will update the Node application. You may inspect the 
+				<code>convert.js
+				</code> file to see how the Designer generated template is converted to the SFC inline.
+			</div>
+			<div> 
+				<em>Note the Vue routing mode setup in 
+					<code>nuxt.conf.js
+					</code> fine.
+				</em>
+			</div>
+			<div>For the actual development, you need to have 
+				<a target="_blank" href="https://nodejs.org/">Node.js</a> installed, open a console window in the Node project folder, and type the following shell commands: 
+<pre>
+npm install
+npm run dev   
+</pre>   The development app will start at  				 
+				<code>http://localhost:3000/
+				</code>. Use an up-to-date browser to run the development app or the live demo.
+			</div>
+			<div>To build a production app, use the command: 
+<pre>
+npm run generate  
+</pre>  as specified in the  				 
+				<a target="_blank" href="https://vuetifyjs.com/en/getting-started/quick-start">Vuetify Docs</a>. Good luck and have a nice development :-)
+			</div>
+			<div>
+				<em> Regards,
+				</em> 
+			</div>
+			<div> 
+				<em> 
+					<a target="_blank" href="https://www.google.com/search?hl=en&num=50&start=0&safe=0&filter=0&nfpr=1&q=The+Zonebuilder+web+development+programming+IT+society+philosophy+politics" >The Zonebuilder</a>
+				</em> 
+			</div>
+		</div>
+	</body>
+</html>

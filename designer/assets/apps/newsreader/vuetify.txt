@@ -1,0 +1,28 @@
+{"result":
+{
+	"ns":"newsreader.vuetify",
+	"preferredFramework":"html.vuetify.template",
+	"title":"JUL News Reader - Vuetify",
+	"version":"1.1572507510248",
+	"init":"=func: function () {\n\tfor (var sItem in this.modules) {\n\t\tif (this.modules.hasOwnProperty(sItem)) {\n\t\t\tvar sNS = this.modules[sItem].ns;\n\t\t\tif (sNS.substr(0, 1) === '.') { sNS = this.ns + sNS; }\n\t\t\tvar oModule = JUL.get(sNS);\n\t\t\tif (!oModule) { continue; }\n\t\t\tvar oParser = new JUL.UI.Parser(oModule.parserConfig);\n\t\t\toParser.create(oModule.ui, oModule.logic);\n\t\t}\n\t}\n}",
+	"modules":{
+		"articles":{
+			"ns":".articles","description":"JUL News Reader - Vuetify - Articles"
+		},
+		"entry":{
+			"ns":".entry","description":"JUL News Reader - Vuetify - Entry"
+		},
+		"layout":{
+			"ns":".layout","description":"JUL News Reader - Vuetify - Layout"
+		}
+	},
+	"defaultParser":{
+		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"membersMappings":{},
+		"idProperty":"id","bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"_otherProperties":{
+			"booleanAttrs":true
+		},
+		"customFactory":"=func: function (oConfig) {\n\tif (this._keepInstance && !oConfig.ref) {\n\t\tJUL._vueCounter = JUL._vueCounter || 0;\n\t\toConfig.ref = 'r' + (++JUL._vueCounter);\n\t}\n\treturn this.createDom(oConfig);\n}"
+	},
+	"template":"<!DOCTYPE html>\n<html>\n\t<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n  <meta name=\"mobile-web-app-capable\" content=\"yes\">\n  <meta name=\"description\" content=\"{app_title}\">\n  <meta name=\"theme-color\" content=\"#fff\">\n  <title>{app_title}</title>\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900\" rel=\"stylesheet\">\n  <link href=\"https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css\" rel=\"stylesheet\">\n  <link href=\"https://cdn.jsdelivr.net/npm/vuetify@2.1.x/dist/vuetify.min.css\" rel=\"stylesheet\">\n\t\t<style type=\"text/css\">div { font-size: 107%; } em { font-family: serif; } #content {  max-width: 120ex;  margin-left: auto;  margin-right: auto;  padding: 1em 1ex 2em 1ex; } #heading {  text-align: center; }\n\t\t</style>\n\t</head>\n\t<body>\n\t\t<div id=\"content\">\n\t\t\t<div id=\"heading\"><h2>{app_title}</h2> \n\t\t\t\t<img alt=\"{app_title}\" width=\"640\" src=\"../../assets/examples/newsreader.vuetify/screenshot/jnrv.png\" />\n\t\t\t\t<h4>For a live demo, click \n\t\t\t\t\t<a target=\"_blank\" href=\"../../assets/examples/newsreader.vuetify/dist/\" >HERE</a>\n\t\t\t\t</h4>\n\t\t\t\t<br />\n\t\t\t</div>\n\t\t\t<div>Each project/module of this app builds the template for a VueJS SFC in a Node ES6 project. The Node project is located in Designer's \n\t\t\t\t<code>'assets/examples/nesreader.vuetify/'\n\t\t\t\t</code> working folder.\n\t\t\t</div>\n\t\t\t<div>The \n\t\t\t\t<code>module -> file\n\t\t\t\t</code> mapping is as follows:\n\t\t\t\t<ul> \n\t\t\t\t\t<li> \n\t\t\t\t\t<code>Articles -> pages/index.vue\n\t\t\t\t\t</code>\n\t\t\t\t\t</li> \n\t\t\t\t\t<li> \n\t\t\t\t\t<code>Entry -> pages/entry.vue\n\t\t\t\t\t</code>\n\t\t\t\t\t</li> \n\t\t\t\t\t<li> \n\t\t\t\t\t<code>Layout -> layouts/defaut.vue\n\t\t\t\t\t</code>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>If you run the hot reloading development server ( \n\t\t\t\t<code>npm run dev \n\t\t\t\t</code>), each save of a project in Designer will update the Node application. You may inspect the \n\t\t\t\t<code>convert.js\n\t\t\t\t</code> file to see how the Designer generated template is converted to the SFC inline.\n\t\t\t</div>\n\t\t\t<div> \n\t\t\t\t<em>Note the Vue routing mode setup in \n\t\t\t\t\t<code>nuxt.conf.js\n\t\t\t\t\t</code> fine.\n\t\t\t\t</em>\n\t\t\t</div>\n\t\t\t<div>For the actual development, you need to have \n\t\t\t\t<a target=\"_blank\" href=\"https://nodejs.org/\">Node.js</a> installed, open a console window in the Node project folder, and type the following shell commands: \n<pre>\nnpm install\nnpm run dev   \n</pre>   The development app will start at  \t\t\t\t \n\t\t\t\t<code>http://localhost:3000/\n\t\t\t\t</code>. Use an up-to-date browser to run the development app or the live demo.\n\t\t\t</div>\n\t\t\t<div>To build a production app, use the command: \n<pre>\nnpm run generate  \n</pre>  as specified in the  \t\t\t\t \n\t\t\t\t<a target=\"_blank\" href=\"https://vuetifyjs.com/en/getting-started/quick-start\">Vuetify Docs</a>. Good luck and have a nice development :-)\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<em> Regards,\n\t\t\t\t</em> \n\t\t\t</div>\n\t\t\t<div> \n\t\t\t\t<em> \n\t\t\t\t\t<a target=\"_blank\" href=\"https://www.google.com/search?hl=en&num=50&start=0&safe=0&filter=0&nfpr=1&q=The+Zonebuilder+web+development+programming+IT+society+philosophy+politics\" >The Zonebuilder</a>\n\t\t\t\t</em> \n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>"
+}
+}

@@ -1,4 +1,4 @@
-{"result": 
+{"result":
 {
 	"augments":"html.vue.template",
 	"groupByLevel":true,

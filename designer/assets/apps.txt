@@ -1,1 +1,1 @@
-{"result":[["JUL.Comments","JUL Comment System"],["JWL.components","JWL Components"],["newsreader.quasar","JUL News Reader - Quasar"]]}
+{"result":[["JUL.Comments","JUL Comment System"],["JWL.components","JWL Components"],["newsreader.quasar","JUL News Reader - Quasar"],["newsreader.vuetify","JUL News Reader - Vuetify"]]}

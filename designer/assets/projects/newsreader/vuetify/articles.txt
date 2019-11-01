@@ -1,0 +1,51 @@
+{"result":
+{
+	"keepBindings":false,
+	"lastComponentId":1,
+	"listenersProperty":"listeners",
+	"noLogic":true,
+	"ns":"newsreader.vuetify.articles",
+	"suggestedFramework":"html.vuetify.template",
+	"title":"JUL News Reader - Vuetify - Articles",
+	"version":"1.1572507510248",
+	"init":"=func: function () {\n\tvar oUI = {\n\t\ttag: 'v-app',\n\t\tchildren: [\n\t\t\t{tag: 'v-navigation-drawer', app: true, fixed: true, 'v-bind:clipped': 'clipped',\n\t\t\t 'v-model': 'drawer'},\n\t\t\t{tag: 'v-app-bar', app: true, fixed: true, 'v-bind:clipped-left': 'clipped', children: [\n\t\t\t\t{tag: 'v-app-bar-nav-icon', 'v-on:click': 'drawer = !drawer'},\n\t\t\t\t{tag: 'v-toolbar-title', style: 'width:100%;text-align:center', 'v-text': 'title'}\n\t\t\t]},\n\t\t\t{tag: 'v-content', children: this.ui}\n\t\t]\n\t};\n\tvar oParser = new JUL.UI.Parser(this.parserConfig);\n\toParser.create(oUI, this.logic, document.getElementById('app'));\n}",
+	"template":"<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n  <meta name=\"mobile-web-app-capable\" content=\"yes\">\n  <meta name=\"description\" content=\"{project_title}\">\n  <meta name=\"theme-color\" content=\"#fff\">\n  <title>{project_title}</title>\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900\" rel=\"stylesheet\">\n  <link href=\"https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css\" rel=\"stylesheet\">\n  <link href=\"https://cdn.jsdelivr.net/npm/vuetify@2.1.x/dist/vuetify.min.css\" rel=\"stylesheet\">\n  <link rel=\"stylesheet\" href=\"../../assets/examples/newsreader.vuetify/static/page.css?{ts}\" type=\"text/css\" />\n  {jul_script}\n  {project_script}\n</head>\n<body>\n  <div id=\"app\">\n  </div>\n\n  <script src=\"https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js\"></script>\n  <script src=\"https://cdn.jsdelivr.net/npm/vuetify@2.1.x/dist/vuetify.js\"></script>\n  <script>\n    {project_ns}.init();\n\tJUL._vueApp = new Vue({\n      el: '#app',\n      vuetify: new Vuetify(),\n          data: function () {\n    return {\n      clipped: false,\n      drawer: false,\n      title: 'JUL News Reader',\n  address: 'http://feeds.skynews.com/feeds/rss/technology.xml',\n  entries: [\n    {id: 'entry-0', title: 'Get the news'}\n  ]\n    };\n\t      },\n      methods: {\n  onGo: function () { window.alert('Implemented in the Node project'); },\n  onArticleClick: function (id) { window.alert(id + ' - implemented in the Node project'); }\n}\n\t});\n  </script>\n<div id=\"gear\">This project edits visually a VueJS component template. For more info, click \n<a target=\"_test_app\" href=\"../../index.php/main/manage?type=app&operation=test&ns=newsreader.vuetify&ts={ts}\">here</a>.\n</div>\n</body>\n</html>",
+	"parserConfig":{
+		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"membersMappings":{},
+		"idProperty":"id","bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,
+		"customFactory":"=func: function (oConfig) {\n\tif (this._keepInstance && !oConfig.ref) {\n\t\tJUL._vueCounter = JUL._vueCounter || 0;\n\t\toConfig.ref = 'r' + (++JUL._vueCounter);\n\t}\n\treturn this.createDom(oConfig);\n}","_otherProperties":{
+			"booleanAttrs":true
+		}
+	},
+	"ui":{
+		"xclass":"html","tag":"v-container","fluid":true,"children":[
+			{"xclass":"html","tag":"v-row","children":[
+				{"xclass":"html","tag":"v-col"},
+				{"xclass":"html","tag":"v-col","children":[
+					{"xclass":"html","tag":"v-chip","html":"Address"}
+				]},
+				{"xclass":"html","tag":"v-col","cols":8,"children":[
+					{"xclass":"html","tag":"v-text-field","dense":true,"v-model":"address","v-on:keypress.enter":"onGo()"}
+				]},
+				{"xclass":"html","tag":"v-col","children":[
+					{"xclass":"html","tag":"v-btn","html":"Go","v-on:click":"onGo()"}
+				]},
+				{"xclass":"html","tag":"v-col"}
+			]},
+			{"xclass":"html","tag":"v-row","children":[
+				{"xclass":"html","tag":"v-col","cols":12,"children":[
+					{"xclass":"html","tag":"v-list","children":[
+						{"xclass":"html","tag":"v-list-item","clickable":true,"v-bind:key":"entry.id","v-for":"entry in entries",
+						"v-on:click":"onArticleClick(entry.id)","children":[
+							{"xclass":"html","tag":"v-list-item-title","children":[
+								{"xclass":"html","tag":"h2","html":"{{ entry.title }}"}
+							]}
+						]}
+					]}
+				]}
+			]}
+		]
+	},
+	"logic":{}
+}
+}

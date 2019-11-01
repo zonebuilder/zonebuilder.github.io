@@ -1,0 +1,83 @@
+{"result":
+{
+	"augments":"html.vue.template",
+	"groupByLevel":true,
+	"ns":"html.vuetify.template",
+	"nsAlias":"html",
+	"prependNS":false,
+	"title":"Vuetify.js",
+	"version":"1.1572345442852",
+	"components":{
+		"HTMLElement":{
+			"restrictParent":"#","members":{
+				"title":{
+					"logic":false,"required":false,"hidden":true
+				}
+			}
+		},
+		"v-app":{
+			"description":"Vuetify application wrapper","inherits":"HTMLElement"
+		},
+		"v-app-bar":{
+			"description":"It generally is the primary source of site navigation","inherits":"HTMLElement"
+		},
+		"v-app-bar-nav-icon":{
+			"description":"Icon for site navigation","inherits":"HTMLElement"
+		},
+		"v-btn":{
+			"description":"Replaces the standard html button with a material design theme and a multitude of options",
+			"inherits":"HTMLElement"
+		},
+		"v-card":{
+			"description":"A versatile component that can be used for anything from a panel to a static image",
+			"inherits":"HTMLElement"
+		},
+		"v-chip":{
+			"description":"This component is used to convey small pieces of information","inherits":"HTMLElement"
+		},
+		"v-col":{
+			"description":"Column in the 12 point grid system built using flex-box","inherits":"HTMLElement"
+		},
+		"v-container":{
+			"description":"Can be used for a center focused page, or given the fluid prop to extend its full width",
+			"inherits":"HTMLElement"
+		},
+		"v-content":{
+			"description":"Content section of a Vuetify app","inherits":"HTMLElement"
+		},
+		"v-icon":{
+			"description":"Provides a large set of glyphs to provide context to various aspects of your application",
+			"inherits":"HTMLElement"
+		},
+		"v-list":{
+			"description":"This component is used to display information. It can contain an avatar, content, actions, subheaders and much more",
+			"inherits":"HTMLElement"
+		},
+		"v-list-item":{
+			"description":"An item in the v-list component","inherits":"HTMLElement"
+		},
+		"v-list-item-action":{
+			"description":"List item action","inherits":"HTMLElement"
+		},
+		"v-list-item-content":{
+			"description":"List item content","inherits":"HTMLElement"
+		},
+		"v-list-item-title":{
+			"description":"List item title","inherits":"HTMLElement"
+		},
+		"v-navigation-drawer":{
+			"description":"This component is what your users will utilize to navigate through the application",
+			"inherits":"HTMLElement"
+		},
+		"v-row":{
+			"description":"Row in the 12 point grid system built using flex-box","inherits":"HTMLElement"
+		},
+		"v-text-field":{
+			"description":"Used for collecting user provided information","inherits":"HTMLElement"
+		},
+		"v-toolbar-title":{
+			"description":"Title for a toolbar or app bar","inherits":"HTMLElement"
+		}
+	}
+}
+}
