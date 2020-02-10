@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
-		<title>JUL.UI | JUL 1.6.7 API Reference</title>
+		<title>JUL.UI | JUL 1.6.8 API Reference</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<meta name="mobileoptimized" content="0" />
@@ -51,7 +51,7 @@
 	</div>
 	<div class="fineprint" style="clear:both">
 		<footer>
-			Copyright &copy; 2012 - 2019 <a href="http://www.google.com/search?hl=en&num=50&start=0&safe=0&filter=0&nfpr=1&q=The+Zonebuilder+web+development+programming+IT+society+philosophy+politics" target="blank"">The Zonebuilder</a><br />
+			Copyright &copy; 2012 - 2020 <a href="http://www.google.com/search?hl=en&num=50&start=0&safe=0&filter=0&nfpr=1&q=The+Zonebuilder+web+development+programming+IT+society+philosophy+politics" target="blank"">The Zonebuilder</a><br />
 			Documentation generator: <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0<br />
 			Template: <a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/" target="_blank">Codeview</a> 1.2
 		</footer>
@@ -72,7 +72,7 @@
 				<div class="intro">
 					<p class="description summary">
 						JUL tools for working with a config tree of component configs<br />
-	It can be also used as an instantiator (see <a href="../symbols/JUL.UI.Parser.html">JUL.UI.Parser</a> method)
+  It can be also used as an instantiator (see <a href="../symbols/JUL.UI.Parser.html">JUL.UI.Parser</a> method)
 					</p>
 						
 					
@@ -557,8 +557,8 @@
 													<div class="fixedFont">JUL.UI.<b><a href="../symbols/JUL.UI.html#.create">create</a></b>(oTree, oBindings, oParent, bSparse)
 													</div>
 													<div class="description">Creates a tree of runtime objects specified by a config tree<br>
-		Object instances are created bottom-up by default with children instances put in the parent config, 
-		or top-down with parent instance put in the children configs</div>
+    Object instances are created bottom-up by default with children instances put in the parent config, 
+    or top-down with parent instance put in the children configs</div>
 												</td>
 											</tr>
 										
@@ -570,7 +570,7 @@
 													<div class="fixedFont">JUL.UI.<b><a href="../symbols/JUL.UI.html#.createComponent">createComponent</a></b>(oConfig)
 													</div>
 													<div class="description">Creates a single component given its config<br>
-		If the ID property is a dotted path, the component is published (made available) under that path</div>
+    If the ID property is a dotted path, the component is published (made available) under that path</div>
 												</td>
 											</tr>
 										
@@ -582,7 +582,7 @@
 													<div class="fixedFont">JUL.UI.<b><a href="../symbols/JUL.UI.html#.createDom">createDom</a></b>(oConfig, oWidget)
 													</div>
 													<div class="description">Custom factory for DOM languages<br>
-		To use it, set the 'customFactory' property of the parser to JUL.UI.createDom</div>
+    To use it, set the 'customFactory' property of the parser to JUL.UI.createDom</div>
 												</td>
 											</tr>
 										
@@ -807,7 +807,7 @@
 								
 								<div class="description">
 									May be set to a 'include' merging function used globally by the parser.
-		See JUL.UI.include() parameters.
+    See JUL.UI.include() parameters.
 									
 									
 									
@@ -1406,8 +1406,8 @@
 								
 								<div class="description">
 									It allows JUL.UI.obj2str() to output the enclosed expression unquoted.
-		It also applies to JUL.UI.creatDom() when setting the element attributes.
-		When using create() method, it will resolve to an object using get() method of the instance.
+    It also applies to JUL.UI.creatDom() when setting the element attributes.
+    When using create() method, it will resolve to an object using get() method of the instance.
 									
 									
 									
@@ -1744,8 +1744,8 @@
 										
 										<div class="description">
 											Creates a tree of runtime objects specified by a config tree<br>
-		Object instances are created bottom-up by default with children instances put in the parent config, 
-		or top-down with parent instance put in the children configs
+    Object instances are created bottom-up by default with children instances put in the parent config, 
+    or top-down with parent instance put in the children configs
 											
 											
 											
@@ -1781,8 +1781,8 @@
 														<i>Optional</i>
 													</dt>
 													<dd>This allows parsing a ‘sparse’ tree, i.e. a tree where some component nodes are not direct children of other components.
-		Every node which has a class or a tag set will be instantiated, regardless of its membership.
-		The ‘defaultClass’ property of the parser does not apply in this mode.</dd>
+    Every node which has a class or a tag set will be instantiated, regardless of its membership.
+    The ‘defaultClass’ property of the parser does not apply in this mode.</dd>
 												
 											</dl>
 										
@@ -1827,7 +1827,7 @@
 										
 										<div class="description">
 											Creates a single component given its config<br>
-		If the ID property is a dotted path, the component is published (made available) under that path
+    If the ID property is a dotted path, the component is published (made available) under that path
 											
 											
 											
@@ -1889,7 +1889,7 @@
 										
 										<div class="description">
 											Custom factory for DOM languages<br>
-		To use it, set the 'customFactory' property of the parser to JUL.UI.createDom
+    To use it, set the 'customFactory' property of the parser to JUL.UI.createDom
 											
 											
 											
@@ -1957,9 +1957,9 @@
 										
 										<div class="description">
 											Uses a variant of createElement(sClass, oProps, aChildren) like in React or Vue.js to create a V-DOM node.
-		createElement() must be present in the outer environment or the _domDocument parser property must be set 
-		t
-		to an object with the appropriate method.
+    createElement() must be present in the outer environment or the _domDocument parser property must be set 
+    t
+    to an object with the appropriate method.
 											
 											
 											
@@ -2149,7 +2149,7 @@
 										
 										<div class="description">
 											Gets a list of members to instantiate that may depend on the supplied config node.
-		It takes into account all members settings and mappings.
+    It takes into account all members settings and mappings.
 											
 											
 											
@@ -2307,9 +2307,9 @@
 														<i>Optional</i>
 													</dt>
 													<dd>Callback function to do a custom object merging. it has two parameters:<ul>
-		<li>oSource - the current object to be affected</li>
-		<li>oAdd - the object to be merged with oSource</li>
-		</ul>If not present, the merging is done using JUL.apply()</dd>
+    <li>oSource - the current object to be affected</li>
+    <li>oAdd - the object to be merged with oSource</li>
+    </ul>If not present, the merging is done using JUL.apply()</dd>
 												
 											</dl>
 										
@@ -2383,11 +2383,11 @@
 														<i>Optional</i>
 													</dt>
 													<dd>Postprocessing the code fragment corresponding to each inner member, up to the next delimiter. 
-		Only available for the JavaScript generated code. Parameters:<ul>
-		<li><b>sContent</b>: the code fragment</li>
-		<li><b>sPath</b>: the dotted path to the current member relative to the root object</li>
-		<li><b>sIndent</b>: the current indentation in the generated code</li>
-		</ul>The call is made in the context of the root object. You should return the unchanged fragment when not processing.</dd>
+    Only available for the JavaScript generated code. Parameters:<ul>
+    <li><b>sContent</b>: the code fragment</li>
+    <li><b>sPath</b>: the dotted path to the current member relative to the root object</li>
+    <li><b>sIndent</b>: the current indentation in the generated code</li>
+    </ul>The call is made in the context of the root object. You should return the unchanged fragment when not processing.</dd>
 												
 											</dl>
 										
