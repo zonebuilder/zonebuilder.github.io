@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
-		<title>JWL | JWL 0.8.5 API Reference</title>
+		<title>JWL | JWL 0.8.7 API Reference</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<meta name="mobileoptimized" content="0" />
@@ -53,7 +53,7 @@
 	</div>
 	<div class="fineprint" style="clear:both">
 		<footer>
-			Copyright &copy; 2016 - 2018 <a href="http://www.google.com/search?hl=en&num=50&start=0&safe=0&filter=0&nfpr=1&q=The+Zonebuilder+web+development+programming+IT+society+philosophy+politics" target="blank"">The Zonebuilder</a><br />
+			Copyright &copy; 2016 - 2020 <a href="http://www.google.com/search?hl=en&num=50&start=0&safe=0&filter=0&nfpr=1&q=The+Zonebuilder+web+development+programming+IT+society+philosophy+politics" target="blank"">The Zonebuilder</a><br />
 			Documentation generator: <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0<br />
 			Template: <a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/" target="_blank">Codeview</a> 1.2
 		</footer>
@@ -245,7 +245,7 @@
 											>
 												<td class="attributes">&lt;static&gt; &nbsp;</td>
 												<td class="nameDescription">
-													<div class="fixedFont">JWL.<b><a href="../symbols/JWL.html#.loadCss">loadCss</a></b>(sComponent)
+													<div class="fixedFont">JWL.<b><a href="../symbols/JWL.html#.loadCss">loadCss</a></b>(sComponent, fCall, oScope)
 													</div>
 													<div class="description">Loads external CSS for a component using XMLHttpRequest</div>
 												</td>
@@ -449,7 +449,7 @@
 										
 										<div class="description">
 											Callback to be used as the JWL.Parser custom factory to self-register and to create custom HTML elements.
-		e.g. var oParser = new JWL.Parser({customFactory: 'JWL.custom'});
+    e.g. var oParser = new JWL.Parser({customFactory: 'JWL.custom'});
 											
 											
 											
@@ -511,7 +511,7 @@
 										
 										<div class="description">
 											Callback to be used as the JWL.Parser custom factory to create element wrappers.
-		e.g. var oParser = new JWL.Parser({customFactory: 'JWL.factory'});
+    e.g. var oParser = new JWL.Parser({customFactory: 'JWL.factory'});
 											
 											
 											
@@ -702,7 +702,7 @@
 											
 											<span class="light">{Array}</span>
 											
-											<span class="light">JWL.</span><b>loadCss</b>(sComponent)
+											<span class="light">JWL.</span><b>loadCss</b>(sComponent, fCall, oScope)
 										</div>
 										
 										<div class="description">
@@ -724,6 +724,18 @@
 														
 													</dt>
 													<dd>Component name</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Function}</span> <b>fCall</b>
+														<i>Optional</i>
+													</dt>
+													<dd>If supplied, the CSS will be loaded asynchronously</dd>
+												
+													<dt>
+														<span class="light fixedFont">{Object}</span> <b>oScope</b>
+														<i>Optional</i>
+													</dt>
+													<dd>Optional scope to run the callback in</dd>
 												
 											</dl>
 										

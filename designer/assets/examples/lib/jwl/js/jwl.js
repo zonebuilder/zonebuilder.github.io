@@ -567,7 +567,7 @@ jul.apply(jul.get('JWL'), /** @lends JWL */ {
 			},
 			createdCallback: function() {
 				var oRoot = this;
-				if (typeof this.attachShadow === 'function') { oRoot = this.attachShadow({mode: 'open'}); }
+				if (typeof this.attachShadowN === 'function') { oRoot = this.attachShadow({mode: 'open'}); }
 				else if (typeof this.createShadowRoot === 'function') {  oRoot = this.createShadowRoot(); }
 				var oComponent = JWL.components[this._componentName] || {};
 				if (oComponent.css) {
