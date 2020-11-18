@@ -39,9 +39,12 @@ p.note {
 	text-align: center;
 }
 </style>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.22/webcomponents.min.js"></script>
+<script type="text/javascript">
+if (!window.customElements || typeof window.customElements.define !== 'function') {
+	document.write('<' + 'script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.24/webcomponents.min.js">' + '<' + '/script>');
+}
+</script>
 <script type="text/javascript" src="../js/lib/jwl/js/jwl.js?v=1.3.8"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.22/webcomponents.min.js"></script>
 <script type="text/javascript" src="../js/jul.js?v=1.3.5"></script>
 <script type="text/javascript" src="../projects/JWL/components/playerbar.js?v=0.8.1"></script>
 	<script type="text/javascript" src="../projects/JWL/components/jsonoptions.js?v=0.8.1"></script>
