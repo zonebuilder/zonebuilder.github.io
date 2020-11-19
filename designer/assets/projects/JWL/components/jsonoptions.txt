@@ -1,57 +1,57 @@
 {"result":
 {
-	"keepBindings":true,
-	"lastComponentId":14,
-	"listenersProperty":"listeners",
-	"noLogic":false,
-	"ns":"JWL.components.jsonoptions",
-	"suggestedFramework":"html",
-	"title":"JWL Components - Options object stored as JSON",
-	"version":"1.1501921280860",
-	"init":"=func: function () {\n\tJWL.parser._keepInstance = true;\n\tJWL.parser.create(this.ui, this.logic, document.body);\n}",
-	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>{project_title}</title>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/faws/css/font-awesome.min.css?{ts}\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/jwl/css/jsonoptions.css?{ts}\" />\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl-data.js?{ts}\"></script>\n</head>\n<body>\n<script type=\"text/javascript\">\n{project_ns}.init();\n</script>\n</body>\n</html>",
-	"parserConfig":{
-		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"idProperty":"id",
-		"bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent",
-		"customFactory":"JUL.UI.createDom","membersMappings":{}
-	},
-	"ui":{
-		"xclass":"html","tag":"div","cid":".jsonoptions","css":"jsonoptions","children":[
-			{"xclass":"html","tag":"a","cid":".jsonoptions-show","css":"fa fa-gear","href":"#","title":"Options"},
-			{"xclass":"html","tag":"div","css":"jsonoptions-opts-wrap","children":[
-				{"xclass":"html","tag":"div","css":"jsonoptions-opts","children":[
-					{"xclass":"html","tag":"textarea","cid":".jsonoptions-edit","cols":"30","css":"jsonoptions-edit","rows":"10",
-					"wrap":"off"},
-					{"xclass":"html","tag":"div","css":"jsonoptions-buttons","children":[
-						{"xclass":"html","tag":"button","cid":".jsonoptions-ok","html":"OK"},
-						{"xclass":"html","tag":"button","cid":".jsonoptions-cancel","html":"Cancel"}
-					]}
-				]}
-			]}
-		]
-	},
-	"logic":{
-		".jsonoptions":{
-			"data-options":"","listeners":{
-				"saveoptions":"=func: function () {\n\tthis.saveOptions();\n}",
-				"toggleoptions":"=func: function () {\n\tthis.showOptions();\n}"
-			}
-		},
-		".jsonoptions-cancel":{
-			"listeners":{
-				"click":"=func: function () {\n\tJWL.trigger(this, 'toggleoptions');\n}"
-			}
-		},
-		".jsonoptions-ok":{
-			"listeners":{
-				"click":"=func: function () {\n\tJWL.trigger(this, 'saveoptions');\n}"
-			}
-		},
-		".jsonoptions-show":{
-			"listeners":{
-				"click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this, 'toggleoptions');\n\treturn false;\n}"
-			}
-		}
-	}
+  "keepBindings":true,
+  "lastComponentId":14,
+  "listenersProperty":"listeners",
+  "noLogic":false,
+  "ns":"JWL.components.jsonoptions",
+  "suggestedFramework":"html",
+  "title":"JWL Components - Options object stored as JSON",
+  "version":"1.1605779870416",
+  "init":"=func: function () {\n\tJWL.parser._keepInstance = true;\n\tJWL.parser.create(this.ui, this.logic, document.body);\n}",
+  "template":"<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\" />\n<title>{project_title}</title>\n{polyfill_script}\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/faws/css/font-awesome.min.css?{ts}\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/jwl/css/jsonoptions.css?{ts}\" />\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl-data.js?{ts}\"></script>\n</head>\n<body>\n<script type=\"text/javascript\">\n{project_ns}.init();\n</script>\n</body>\n</html>",
+  "parserConfig":{
+    "classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"idProperty":"id",
+    "bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent",
+    "customFactory":"JUL.UI.createDom","membersMappings":{}
+  },
+  "ui":{
+    "xclass":"html","tag":"div","cid":".jsonoptions","css":"jsonoptions","children":[
+      {"xclass":"html","tag":"a","cid":".jsonoptions-show","css":"fa fa-gear","href":"#","title":"Options"},
+      {"xclass":"html","tag":"div","css":"jsonoptions-opts-wrap","children":[
+        {"xclass":"html","tag":"div","css":"jsonoptions-opts","children":[
+          {"xclass":"html","tag":"textarea","cid":".jsonoptions-edit","cols":"30","css":"jsonoptions-edit","rows":"10",
+          "wrap":"off"},
+          {"xclass":"html","tag":"div","css":"jsonoptions-buttons","children":[
+            {"xclass":"html","tag":"button","cid":".jsonoptions-ok","html":"OK"},
+            {"xclass":"html","tag":"button","cid":".jsonoptions-cancel","html":"Cancel"}
+          ]}
+        ]}
+      ]}
+    ]
+  },
+  "logic":{
+    ".jsonoptions":{
+      "data-options":"","listeners":{
+        "saveoptions":"=func: function () {\n\tthis.saveOptions();\n}",
+        "toggleoptions":"=func: function () {\n\tthis.showOptions();\n}"
+      }
+    },
+    ".jsonoptions-cancel":{
+      "listeners":{
+        "click":"=func: function () {\n\tJWL.trigger(this, 'toggleoptions');\n}"
+      }
+    },
+    ".jsonoptions-ok":{
+      "listeners":{
+        "click":"=func: function () {\n\tJWL.trigger(this, 'saveoptions');\n}"
+      }
+    },
+    ".jsonoptions-show":{
+      "listeners":{
+        "click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this, 'toggleoptions');\n\treturn false;\n}"
+      }
+    }
+  }
 }
 }

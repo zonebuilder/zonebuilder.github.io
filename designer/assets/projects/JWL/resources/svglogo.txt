@@ -1,28 +1,28 @@
 {"result":
 {
-	"keepBindings":false,
-	"lastComponentId":1,
-	"listenersProperty":"listeners",
-	"noLogic":true,
-	"ns":"JWL.resources.svglogo",
-	"suggestedFramework":"html",
-	"title":"JWL Components - SVG Logo",
-	"version":"1.1501922783017",
-	"init":"=func: function () {\n\tvar oParser = new jul.ui.Parser(this.parserConfig);\n\toParser.create(this.ui, this.logic, document.body);\n}",
-	"template":"<!DOCTYPE html>\n<html>\n<head>\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n\t<title>{project_title}</title>\n\t<!-- Custom includes -->\n\t{jul_script}\n\t{project_script}\n\t<script type=\"text/javascript\">\n\t// chnge as needed\n\twindow.onload = function() {\n\t\t// create UI\n\t\t{project_ns}.init();\n\t};\n\t</script>\n</head>\n<body>\n\t<!-- Custom body -->\n</body>\n</html>\n",
-	"parserConfig":{
-		"classProperty":"xclass","defaultClass":"svg","childrenProperty":"children","membersProperties":[],"idProperty":"id",
-		"bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent",
-		"customFactory":"JUL.UI.createDom","membersMappings":{}
-	},
-	"ui":{
-		"xclass":"svg","tag":"svg","fill":"transparent","height":"300","viewBox":"-10 -10 20 20","width":"300","children":[
-			{"xclass":"svg","tag":"polygon","points":"-2,-1 2,-1 0,-8","stroke":"yellow"},
-			{"xclass":"svg","tag":"polygon","points":"-2,1 2,1 0,8","stroke":"blue"},
-			{"xclass":"svg","tag":"polygon","points":"-1,-2 -1,2 -8,0","stroke":"red"},
-			{"xclass":"svg","tag":"polygon","points":"1,-2 1,2 8,0","stroke":"lightgreen"}
-		]
-	},
-	"logic":{}
+  "keepBindings":false,
+  "lastComponentId":1,
+  "listenersProperty":"listeners",
+  "noLogic":true,
+  "ns":"JWL.resources.svglogo",
+  "suggestedFramework":"html",
+  "title":"JWL Components - SVG Logo",
+  "version":"1.1605780062748",
+  "init":"=func: function () {\n\tvar oParser = new jul.ui.Parser(this.parserConfig);\n\toParser.create(this.ui, this.logic, document.body);\n}",
+  "template":"<!DOCTYPE html>\n<html>\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<title>{project_title}</title>\n{polyfill_script}\n\t<!-- Custom includes -->\n\t{jul_script}\n\t{project_script}\n\t<script type=\"text/javascript\">\n\t// chnge as needed\n\twindow.onload = function() {\n\t\t// create UI\n\t\t{project_ns}.init();\n\t};\n\t</script>\n</head>\n<body>\n\t<!-- Custom body -->\n</body>\n</html>",
+  "parserConfig":{
+    "classProperty":"xclass","defaultClass":"svg","childrenProperty":"children","membersProperties":[],"idProperty":"id",
+    "bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent",
+    "customFactory":"JUL.UI.createDom","membersMappings":{}
+  },
+  "ui":{
+    "xclass":"svg","tag":"svg","fill":"transparent","height":"300","viewBox":"-10 -10 20 20","width":"300","children":[
+      {"xclass":"svg","tag":"polygon","points":"-2,-1 2,-1 0,-8","stroke":"yellow"},
+      {"xclass":"svg","tag":"polygon","points":"-2,1 2,1 0,8","stroke":"blue"},
+      {"xclass":"svg","tag":"polygon","points":"-1,-2 -1,2 -8,0","stroke":"red"},
+      {"xclass":"svg","tag":"polygon","points":"1,-2 1,2 8,0","stroke":"lightgreen"}
+    ]
+  },
+  "logic":{}
 }
 }

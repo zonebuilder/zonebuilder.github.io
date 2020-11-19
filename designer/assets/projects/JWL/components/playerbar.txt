@@ -1,68 +1,68 @@
 {"result":
 {
-	"keepBindings":true,
-	"lastComponentId":9,
-	"listenersProperty":"listeners",
-	"noLogic":false,
-	"ns":"JWL.components.playerbar",
-	"suggestedFramework":"html",
-	"title":"JWL Components - General purpose player bar",
-	"version":"1.1501921245531",
-	"init":"=func: function () {\n\tJWL.parser._keepInstance = true;\n\tJWL.parser.create(this.ui, this.logic, document.body);\n}",
-	"template":"<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<title>{project_title}</title>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/faws/css/font-awesome.min.css?{ts}\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/jwl/css/playerbar.css?{ts}\" />\n\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl-data.js?{ts}\"></script>\n</head>\n<body>\n<script type=\"text/javascript\">\n{project_ns}.init();\n</script>\n</body>\n</html>",
-	"parserConfig":{
-		"classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"idProperty":"id",
-		"bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent",
-		"customFactory":"JUL.UI.createDom","membersMappings":{}
-	},
-	"ui":{
-		"xclass":"html","tag":"div","cid":".playerbar","css":"playerbar","children":[
-			{"xclass":"html","tag":"a","cid":".playerbar-gotostart","css":"fa fa-fast-backward","href":"#","title":"Go to start"},
-			{"xclass":"html","tag":"a","cid":".playerbar-stepbackward","css":"fa fa-step-backward","href":"#",
-			"title":"Step backward"},
-			{"xclass":"html","tag":"a","cid":".playerbar-play","css":"playerbar-play fa fa-play","href":"#","title":"Play"},
-			{"xclass":"html","tag":"a","cid":".playerbar-stepforward","css":"fa fa-step-forward","href":"#","title":"Step forward"},
-			{"xclass":"html","tag":"a","cid":".playerbar-gotoend","css":"fa fa-fast-forward","href":"#","title":"Go to end"},
-			{"xclass":"html","tag":"a","cid":".playerbar-stop","css":"fa fa-stop","href":"#","title":"Stop"}
-		]
-	},
-	"logic":{
-		".playerbar":{
-			"listeners":{
-				"pause":"=func: function () {\n\tthis.showPlay();\n}","play":"=func: function () {\n\tthis.showPlay(true);\n}",
-				"stop":"=func: function () {\n\tthis.showPlay();\n}"
-			}
-		},
-		".playerbar-gotoend":{
-			"listeners":{
-				"click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this, 'gotoend');\n\treturn false;\n}"
-			}
-		},
-		".playerbar-gotostart":{
-			"listeners":{
-				"click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this, 'gotostart');\n\treturn false;\n}"
-			}
-		},
-		".playerbar-play":{
-			"listeners":{
-				"click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tvar sClass = this.getAttribute('class');\n\tif (sClass.indexOf('fa-play') > -1) {\n\t\tJWL.trigger(this, 'play');\n\t}\n\telse {\n\t\tJWL.trigger(this, 'pause');\n}\n\treturn false;\n}"
-			}
-		},
-		".playerbar-stepbackward":{
-			"listeners":{
-				"click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this, 'stepbackward');\n\treturn false;\n}"
-			}
-		},
-		".playerbar-stepforward":{
-			"listeners":{
-				"click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this, 'stepforward');\n\treturn false;\n}"
-			}
-		},
-		".playerbar-stop":{
-			"listeners":{
-				"click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this, 'stop');\n\treturn false;\n}"
-			}
-		}
-	}
+  "keepBindings":true,
+  "lastComponentId":9,
+  "listenersProperty":"listeners",
+  "noLogic":false,
+  "ns":"JWL.components.playerbar",
+  "suggestedFramework":"html",
+  "title":"JWL Components - General purpose player bar",
+  "version":"1.1605779827202",
+  "init":"=func: function () {\n\tJWL.parser._keepInstance = true;\n\tJWL.parser.create(this.ui, this.logic, document.body);\n}",
+  "template":"<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\" />\n<title>{project_title}</title>\n{polyfill_script}\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/faws/css/font-awesome.min.css?{ts}\" />\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../../assets/examples/lib/jwl/css/playerbar.css?{ts}\" />\n\n{jul_script}\n{project_script}\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl.js?{ts}\"></script>\n<script type=\"text/javascript\" src=\"../../assets/examples/lib/jwl/js/jwl-data.js?{ts}\"></script>\n</head>\n<body>\n<script type=\"text/javascript\">\n{project_ns}.init();\n</script>\n</body>\n</html>",
+  "parserConfig":{
+    "classProperty":"xclass","defaultClass":"html","childrenProperty":"children","membersProperties":[],"idProperty":"id",
+    "bindingProperty":"cid","useTags":true,"tagProperty":"tag","topDown":true,"parentProperty":"parent",
+    "customFactory":"JUL.UI.createDom","membersMappings":{}
+  },
+  "ui":{
+    "xclass":"html","tag":"div","cid":".playerbar","css":"playerbar","children":[
+      {"xclass":"html","tag":"a","cid":".playerbar-gotostart","css":"fa fa-fast-backward","href":"#","title":"Go to start"},
+      {"xclass":"html","tag":"a","cid":".playerbar-stepbackward","css":"fa fa-step-backward","href":"#",
+      "title":"Step backward"},
+      {"xclass":"html","tag":"a","cid":".playerbar-play","css":"playerbar-play fa fa-play","href":"#","title":"Play"},
+      {"xclass":"html","tag":"a","cid":".playerbar-stepforward","css":"fa fa-step-forward","href":"#","title":"Step forward"},
+      {"xclass":"html","tag":"a","cid":".playerbar-gotoend","css":"fa fa-fast-forward","href":"#","title":"Go to end"},
+      {"xclass":"html","tag":"a","cid":".playerbar-stop","css":"fa fa-stop","href":"#","title":"Stop"}
+    ]
+  },
+  "logic":{
+    ".playerbar":{
+      "listeners":{
+        "pause":"=func: function () {\n\tthis.showPlay();\n}","play":"=func: function () {\n\tthis.showPlay(true);\n}",
+        "stop":"=func: function () {\n\tthis.showPlay();\n}"
+      }
+    },
+    ".playerbar-gotoend":{
+      "listeners":{
+        "click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this, 'gotoend');\n\treturn false;\n}"
+      }
+    },
+    ".playerbar-gotostart":{
+      "listeners":{
+        "click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this, 'gotostart');\n\treturn false;\n}"
+      }
+    },
+    ".playerbar-play":{
+      "listeners":{
+        "click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tvar sClass = this.getAttribute('class');\n\tif (sClass.indexOf('fa-play') > -1) {\n\t\tJWL.trigger(this, 'play');\n\t}\n\telse {\n\t\tJWL.trigger(this, 'pause');\n}\n\treturn false;\n}"
+      }
+    },
+    ".playerbar-stepbackward":{
+      "listeners":{
+        "click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this, 'stepbackward');\n\treturn false;\n}"
+      }
+    },
+    ".playerbar-stepforward":{
+      "listeners":{
+        "click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this, 'stepforward');\n\treturn false;\n}"
+      }
+    },
+    ".playerbar-stop":{
+      "listeners":{
+        "click":"=func: function (oEvent) {\n\toEvent = oEvent || event;\t\n\ttry { oEvent.preventDefault(); } catch(e) {}\n\tJWL.trigger(this, 'stop');\n\treturn false;\n}"
+      }
+    }
+  }
 }
 }
