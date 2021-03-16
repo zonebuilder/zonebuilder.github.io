@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+      mapper.js - Documentation
+  </title>
+
+  <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+  <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+  
+  <link type="text/css" rel="stylesheet" href="styles/collapse.css">
+  
+
+  
+
+  <!-- start Mixpanel -->
+  <script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+  0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+  for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+  mixpanel.init("1919205b2da72e4da3b9b6639b444d59");</script>
+  <!-- end Mixpanel -->
+</head>
+
+<body>
+  <svg style="display: none;">
+    <defs>
+      <symbol id="linkIcon" fill="#706d77" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+  <label for="nav-trigger" class="navicon-button x">
+    <div class="navicon"></div>
+  </label>
+
+  <label for="nav-trigger" class="overlay"></label>
+
+  <div class="top-nav-wrapper">
+    <ul>
+      <li >
+        <a href="index.html">
+          
+            <svg fill="#6D6D6D" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+              <path d="M0 0h24v24H0z" fill="none"/>
+            </svg>
+          
+          
+        </a>
+      </li>
+
+      
+
+    </ul>
+  </div>
+
+  <nav>
+    <h3 class="reference-title">
+      Data Mapper
+    </h3>
+
+    
+      <h3>
+        Resources
+      </h3>
+      
+        <a href="https://www.google.com/">google</a>
+      
+    
+
+    <h3>Modules</h3><ul><li id="jul-data-mapper-nav"><a href="module-jul-data-mapper.html">jul-data-mapper</a><ul class='methods'><li data-type="method" id="jul-data-mapper-compact-nav"><a href="module-jul-data-mapper.html#~compact">compact</a></li><li data-type="method" id="jul-data-mapper-mapper-nav"><a href="module-jul-data-mapper.html#~mapper">mapper</a></li></ul></li></ul>
+  </nav>
+
+  <div id="main">
+    
+      <h1 class="page-title">
+        mapper.js
+      </h1>
+    
+
+    
+      
+
+<section>
+  <article>
+    <pre class="prettyprint source linenums"><code>/*
+    JUL jul-data-mapper v1.0.0
+    Copyright (c) 2021 The Zonebuilder &lt;zone.builder@gmx.com>
+    https://www.npmjs.com/package/data-mapper
+    Licenses: GNU GPL2 or later; GNU LGPLv3 or later
+*/
+/**
+    @fileOverview    Use this tool to map a JavaScript object from a data schema to another data schema&lt;br>
+    Example code:
+    &lt;pre>'use strict';
+    const {mapper} = require('jul-data-mapper');
+    
+    const oSrc = {
+        server: 'express',
+        items: [
+            {id: 101, name: 'Ana'},
+            {id: 102, name: 'Bell'},
+            {id: 103, name: 'Kevin'}
+        ],
+        pref: {perPage: 25, filter: false},
+        grid: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    };
+    const oDest = {version: '1.0.0'};
+    const oMap = {
+        'server': 'result.source',
+        'items[$u].id': 'result.entries[$u].uid',
+        'items[$u].name': 'result.entries[$u].fullName',
+        'grid[$i][$j]': 'map[$i][$j].value',
+        pref: 'result.show'
+    };
+    
+    console.info(
+        mapper(oDest, oSrc, oMap)
+    );
+    &lt;/pre>
+    @author    {@link https://www.google.com/search?hl=en&amp;num=50&amp;start=0&amp;safe=0&amp;filter=0&amp;nfpr=1&amp;q=The+Zonebuilder+web+development+programming+IT+society+philosophy+politics|The Zonebuilder}
+    @version    1.0.0
+*/
+/**
+    Converts an object to another using a namespace path mapping
+    @module jul-data-mapper
+ */
+'use strict';
+const jul = require('jul');
+
+/**
+    Gets the array of segments for a JavaScript path&lt;br>
+    e.g. &lt;code>'a.b.c[1[2].d' => ['a', 'b', 'c', '1', '2', 'd']  &lt;/code>
+    @param    {String}    sNs    A JavaScript (namespace) path
+    @returns    {Array}    An array of path segments from left to right
+    @private
+*/
+const segments = sNs => sNs ? jul._square2dots(sNs, ':::::').split('.').map(sItem => sItem.replace(/:{5}/g, '.')) : [];
+
+/**
+    Makes a dotted path from an array of path segments&lt;br>
+    e.g. &lt;code>['a', 'b', 1, 0, 'c'] => 'a.b.1.0.c'&lt;/code>
+    @param    {Array}    aSeg    An array of path segments
+    @returns    {String}    A dotted (namespace) path
+    @private
+*/
+const dotted = aSeg => jul.trim(aSeg.map(sItem => sItem.toString().replace(/\./g, '\\.')).join('.'), '.', true);
+
+/**
+    Gets the intersection of two arrays of path segments
+    @param    {Array}    aNs1    First array to intersect
+    @param    {Array}    aNs2    Second array to intersect
+    @returns    {Array}    Empty array or array of common segments from the beginning
+    @private
+*/
+const intersect = (aNs1, aNs2) => {
+    const aNs = aNs1.length > aNs2.length ? aNs2 : aNs1;
+    const oAcc = aNs.reduce(({pair: aPair, done: bDone, result: aRes}, sItem, i) => {
+        const bMatch = !bDone &amp;&amp; sItem === aPair[i];
+        return {
+            pair: aPair,
+            done: !bMatch,
+            result: aRes.concat(bMatch ? sItem : [])
+        };}, {
+        pair: aNs === aNs1 ? aNs2 : aNs1,
+        done: false,
+        result: []
+    });
+    return oAcc.result;
+};
+
+/**
+    Compacts a mapping (key:value) object into a tree-like structure
+    @param    {Object}    oMap    Key-value object to compact
+    @returns    {Object}    The compacted object
+*/
+const compact = oMap => {
+    const oRes = Object.keys(oMap).reduce((oRes, sKey) => {
+        const oMapVal = oMap[sKey];
+        if (sKey === '.') {
+            oRes[sKey] = oMapVal;
+            return oRes;
+        }
+        const aNs1 = segments(sKey);
+        const nIntersect = Object.keys(oRes).reduce((nIntersect, sItem) => {
+            if (nIntersect) { return nIntersect; }
+            if (sItem === '.') { return 0; }
+            const aNs2 = segments(sItem);
+            const aIntersect = intersect(aNs2, aNs1);
+            nIntersect = aIntersect.length;
+            if (!nIntersect) { return 0; }
+            const oVal = oRes[sItem];
+            const aRest1 = aNs1.slice(nIntersect);
+            const aRest2 = aNs2.slice(nIntersect);
+            if (aRest1.length || aRest2.length) {
+                const sCommon = dotted(aIntersect);
+                if (!oRes[sCommon] || typeof oRes[sCommon] !== 'object') { oRes[sCommon] = {'.': '.'}; }
+                if (aRest2.length) {
+                    oRes = Object.keys(oRes).reduce((oAcc, s) => {
+                        if (s === sItem) {
+                            oAcc[sCommon] = oRes[sCommon];
+                            oAcc[sCommon][dotted(aRest2)] = oVal;
+                        }
+                        else {
+                            oAcc[s] = oRes[s];
+                        }
+                        return oAcc;
+                    }, {});
+                }
+                else {
+                    if (typeof oVal !== 'object') { oRes[sCommon]['.'] = oVal; }
+                }
+                if (aRest1.length) { oRes[sCommon][dotted(aRest1)] = oMapVal; }
+                else { oRes[sCommon][ '.'] = oMapVal; }
+            }
+            else {
+                if (!oVal || typeof oVal !== 'object') { oRes[sItem] = oMapVal; }
+                else { oRes[sItem]['.'] = oMapVal; }
+            }
+            return nIntersect;
+        }, 0);
+        if (!nIntersect) { oRes[dotted(aNs1)] = oMapVal; }
+        return oRes;
+    }, {'.': '.'});
+    Object.keys(oRes).forEach(sKey => {
+        const oVal = oRes[sKey];
+        if (oVal &amp;&amp; typeof oVal === 'object') { oRes[sKey] = compact(oVal); }
+        if (typeof oVal === 'string' &amp;&amp; oVal !== '.') { oRes[sKey] = jul._square2dots(oVal); }
+    });
+    return oRes;
+};
+
+/**
+    Performs a mapping with a given object from a data schema to another data schema
+    @param    {Object}    oDest    The destination object where the mapped values are applied over
+    @param    {Object}    oSrc    The source object
+    @param    {Object}    oMap    A key-value hash (mapping) between namespace paths in the source and those in the destination
+    @param    {Object}    [oConfig]    Optional configuration object with any of the following options:&lt;ul>
+    &lt;li>&lt;code>uint {RegExp|String}&lt;/code> - regular expression or string to match an array index
+    placeholder e.g. &lt;code>'$n'&lt;/code>. &lt;br>Defaults to &lt;code>/\$[a-z]/&lt;/code>&lt;/li>
+    &lt;li>&lt;code>prefixProp {String}&lt;/code> - name of a property of the mapping the will be used
+    as a prefix when computing the destination namespace for the current siblings.
+    &lt;br>Defaults to &lt;code>'_mapToPrefix'&lt;/code>&lt;/li>
+    &lt;li>&lt;code>strict {Boolean}&lt;/code> - performs checkings of not overwriting descendant values
+    that are already. &lt;br>Defaults tO &lt;code>false&lt;/code>&lt;/li>
+    &lt;/ul>
+    @returns    {Object}    The destination object
+*/
+const mapper = (oDest, oSrc, oMap, oConfig) => {
+    oConfig = oConfig || {};
+    oConfig.uint = oConfig.uint || /\$[a-z]/;
+    if (typeof oConfig.uint !== 'object') {
+        oConfig.uint = new RegExp(oConfig.uint.toString().split('').map(c => {
+            return '\\x' + c.charCodeAt(0).toString(16);
+        }).join(''));
+    }
+    oConfig.prefixProp = oConfig.prefixProp || '_mapToPrefix';
+    oConfig.strict = oConfig.strict || false;
+    oConfig._level = oConfig._level || {
+        instSrc: jul.instance({nsRoot: oSrc}),
+        instDest: jul.instance({nsRoot: oDest}),
+        depth: 0,
+        indexes: [],
+        hash: []
+    };
+    const oLevel = oConfig._level;
+    if (typeof oMap['.'] === 'undefined') { oMap = compact(oMap); }
+    const aKeys = Object.keys(oMap);
+    (oConfig.strict ? aKeys.filter(sKey => sKey !== '.').concat('.') : aKeys).forEach(sKey => {
+        if (!sKey) { return; }
+        const oMapVal = typeof oMap[sKey] === 'object' ? oMap[sKey] :
+            jul.trim([].concat(oMap[oConfig.prefixProp] || [], oMap[sKey]).join('.'), '.', true);
+        if (!oMapVal) { return; }
+        if (oConfig.uint.test(sKey)) {
+            const sParent = dotted(segments(sKey.split(oConfig.uint)[0]).filter(sItem => sItem));
+            const oTo = oLevel.instSrc.get(sParent);
+            if (!oTo || typeof oTo !== 'object') { return; }
+            const oNewLevel = jul.apply({
+                depth: oLevel.depth + 1
+            }, oLevel, true);
+            oLevel.indexes[oLevel.depth] = 0;
+            for (const oItem of oTo) {
+                if (typeof oItem !== 'undefined') {
+                    const oNewMap = {'.': '.'};
+                    oNewMap[sKey.replace(oConfig.uint, oLevel.indexes[oLevel.depth])] =  oMap[sKey];
+                    mapper(oDest, oSrc, oNewMap, jul.apply({
+                        _level: oNewLevel
+                    }, oConfig, true));
+                }
+                oLevel.indexes[oLevel.depth]++;
+            }
+        }
+        else {
+            oSrc = oLevel.instSrc.get(jul.trim(sKey, '.', true));
+            if (typeof oSrc === 'undefined') { return; }
+            if (typeof oMapVal === 'object') {
+                const oNewLevel = jul.apply({
+                    instSrc: jul.instance({nsRoot: oSrc})
+                }, oConfig._level, true);
+                mapper(oDest, oSrc, oMap[sKey], jul.apply({
+                    _level: oNewLevel
+                }, oConfig, true));
+            }
+            else {
+                if (oConfig.strict) {
+                    const aPath = segments(oMapVal).map(sItem => oConfig.uint.test(sItem) ? '$$n' : sItem);
+                    for (var j = 0; j &lt; oLevel.hash.length; j++) {
+                        const aItem = oLevel.hash[j];
+                        const aIntersect = intersect(aItem, aPath);
+                        if (aIntersect.length === aPath.length &amp;&amp; aIntersect.length !== aItem.length) { return; }
+                        if (aIntersect.length === aPath.length &amp;&amp; aItem.length === aPath.length) { j = oLevel.hash.length + 1;  }
+                    }
+                    if (j === oLevel.hash.length) { oLevel.hash.push(aPath); }
+                }
+                const sMapTo = !oLevel.depth || !oConfig.uint.test(oMapVal) ? oMapVal :
+                    oLevel.indexes.slice(0, oLevel.depth).reduce((sNs, n) => {
+                        return sNs.replace(oConfig.uint, n);
+                    }, oMapVal);
+                oLevel.instDest.ns(sMapTo, oSrc);
+            }
+        }
+    });
+    return oDest;
+};
+
+Object.assign(exports, {mapper, compact});
+</code></pre>
+  </article>
+</section>
+
+    
+
+
+  </div>
+
+  <br class="clear">
+
+  <footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
+  </footer>
+
+  <script src="scripts/linenumber.js"></script>
+  <script src="scripts/pagelocation.js"></script>
+
+  
+
+</body>
+</html>
