@@ -82,7 +82,7 @@
       
     
 
-    <h3>Modules</h3><ul><li id="jul-data-mapper-nav"><a href="module-jul-data-mapper.html">jul-data-mapper</a><ul class='methods'><li data-type="method" id="jul-data-mapper-compact-nav"><a href="module-jul-data-mapper.html#~compact">compact</a></li><li data-type="method" id="jul-data-mapper-mapper-nav"><a href="module-jul-data-mapper.html#~mapper">mapper</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="jul-data-mapper-nav"><a href="module-jul-data-mapper.html">jul-data-mapper</a><ul class='methods'><li data-type="method" id="jul-data-mapper-compact-nav"><a href="module-jul-data-mapper.html#~compact">compact</a></li><li data-type="method" id="jul-data-mapper-dotted-nav"><a href="module-jul-data-mapper.html#~dotted">dotted</a></li><li data-type="method" id="jul-data-mapper-intersect-nav"><a href="module-jul-data-mapper.html#~intersect">intersect</a></li><li data-type="method" id="jul-data-mapper-mapper-nav"><a href="module-jul-data-mapper.html#~mapper">mapper</a></li><li data-type="method" id="jul-data-mapper-segments-nav"><a href="module-jul-data-mapper.html#~segments">segments</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
@@ -121,8 +121,10 @@
         
             <div class="description">
               Use this tool to map a JavaScript object from a data schema to another data schema<br>
-    Example code:
-    <pre>'use strict';
+    Use with parsed JSON responses or any native JavaScript object structures.<br>
+    Code example:
+    <code><pre>
+    'use strict';
     const {mapper} = require('jul-data-mapper');
     
     const oSrc = {
@@ -144,10 +146,17 @@
         pref: 'result.show'
     };
     
+	// source -> destination
     console.info(
         mapper(oDest, oSrc, oMap)
     );
-    </pre>
+    
+    const oReverseMap = Object.fromEntries(Object.entries(oMap).map(aItem => aItem.reverse()));
+    // destination -> source
+    console.info(
+        mapper({}, oDest, oReverseMap)
+    );
+    </pre></code>
             </div>
         
 
@@ -160,7 +169,7 @@
     <dd class="tag-version">
       <ul class="dummy">
         <li>
-          1.0.0
+          1.0.5
         </li>
       </ul>
     </dd>

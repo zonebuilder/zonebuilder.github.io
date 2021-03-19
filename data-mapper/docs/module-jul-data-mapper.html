@@ -82,7 +82,7 @@
       
     
 
-    <h3>Modules</h3><ul><li id="jul-data-mapper-nav"><a href="module-jul-data-mapper.html">jul-data-mapper</a><ul class='methods'><li data-type="method" id="jul-data-mapper-compact-nav"><a href="module-jul-data-mapper.html#~compact">compact</a></li><li data-type="method" id="jul-data-mapper-mapper-nav"><a href="module-jul-data-mapper.html#~mapper">mapper</a></li></ul></li></ul>
+    <h3>Modules</h3><ul><li id="jul-data-mapper-nav"><a href="module-jul-data-mapper.html">jul-data-mapper</a><ul class='methods'><li data-type="method" id="jul-data-mapper-compact-nav"><a href="module-jul-data-mapper.html#~compact">compact</a></li><li data-type="method" id="jul-data-mapper-dotted-nav"><a href="module-jul-data-mapper.html#~dotted">dotted</a></li><li data-type="method" id="jul-data-mapper-intersect-nav"><a href="module-jul-data-mapper.html#~intersect">intersect</a></li><li data-type="method" id="jul-data-mapper-mapper-nav"><a href="module-jul-data-mapper.html#~mapper">mapper</a></li><li data-type="method" id="jul-data-mapper-segments-nav"><a href="module-jul-data-mapper.html#~segments">segments</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
@@ -106,7 +106,8 @@
       
         
           <div class="description">
-            Converts an object to another using a namespace path mapping
+            Converts an object to another using a namespace path mapping.<br>
+    Isomorphic: works both in backends and in frontends e.g. voa webpack
           </div>
         
 
@@ -156,7 +157,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line39">line 39</a>
+          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line48">line 48</a>
         </li>
       </ul>
     </dd>
@@ -321,7 +322,329 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line92">line 92</a>
+          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line101">line 101</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#~dotted">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="~dotted">
+      <span class="type-signature">(private, inner) </span>dotted<span class="signature">(aSeg)</span><span class="type-signature"> &rarr; {String}</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    Makes a dotted path from an array of path segments<br>
+    e.g. <code>['a', 'b', 1, 0, 'c'] => 'a.b.1.0.c'</code>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>aSeg</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Array
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          An array of path segments
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line73">line 73</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#~intersect">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="~intersect">
+      <span class="type-signature">(private, inner) </span>intersect<span class="signature">(aNs1, aNs2)</span><span class="type-signature"> &rarr; {Array}</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    Gets the intersection of two arrays of path segments
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>aNs1</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Array
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          First array to intersect
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>aNs2</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      Array
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          Second array to intersect
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line82">line 82</a>
         </li>
       </ul>
     </dd>
@@ -598,7 +921,154 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line164">line 164</a>
+          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line173">line 173</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#~segments">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="~segments">
+      <span class="type-signature">(private, inner) </span>segments<span class="signature">(sNs)</span><span class="type-signature"> &rarr; {Array}</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    Gets the array of segments for a JavaScript path<br>
+    e.g. <code>'a.b.c[1[2].d' => ['a', 'b', 'c', '1', '2', 'd']  </code>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>sNs</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      String
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          A JavaScript (namespace) path
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line63">line 63</a>
         </li>
       </ul>
     </dd>
