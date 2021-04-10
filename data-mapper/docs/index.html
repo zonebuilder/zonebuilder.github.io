@@ -121,42 +121,57 @@
         
             <div class="description">
               Use this tool to map a JavaScript object from a data schema to another data schema<br>
-    Use with parsed JSON responses or any native JavaScript object structures.<br>
-    Code example:
-    <code><pre>
-    'use strict';
-    const {mapper} = require('jul-data-mapper');
-    
-    const oSrc = {
-        server: 'express',
-        items: [
-            {id: 101, name: 'Ana'},
-            {id: 102, name: 'Bell'},
-            {id: 103, name: 'Kevin'}
-        ],
-        pref: {perPage: 25, filter: false},
-        grid: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-    };
-    const oDest = {version: '1.0.0'};
-    const oMap = {
-        'server': 'result.source',
-        'items[$u].id': 'result.entries[$u].uid',
-        'items[$u].name': 'result.entries[$u].fullName',
-        'grid[$i][$j]': 'map[$i][$j].value',
-        pref: 'result.show'
-    };
-    
-	// source -> destination
-    console.info(
-        mapper(oDest, oSrc, oMap)
-    );
-    
-    const oReverseMap = Object.fromEntries(Object.entries(oMap).map(aItem => aItem.reverse()));
-    // destination -> source
-    console.info(
-        mapper({}, oDest, oReverseMap)
-    );
-    </pre></code>
+Use with parsed JSON responses or any native JavaScript object structures.<br>
+Code example:
+<code><pre>
+'use strict';
+const {mapper} = require('jul-data-mapper');
+
+const oSrc = {
+    server: 'express',
+    items: [
+        {id: 101, name: 'Ana'},
+        {id: 102, name: 'Bell'},
+        {id: 103, name: 'Kevin'}
+    ],
+    pref: {perPage: 25, filter: false},
+    grid: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+};
+const oDest = {version: '1.0.0'};
+const oMap = {
+    'server': 'result.source',
+    'items[$u].id': 'result.entries[$u].uid',
+    'items[$u].name': 'result.entries[$u].fullName',
+    'grid[$i][$j]': 'map[$i][$j].value',
+    pref: 'result.show'
+};
+
+// source -> destination
+console.info(
+    mapper(oDest, oSrc, oMap)
+);
+
+// destination -> source
+const oReverseMap = Object.fromEntries(Object.entries(oMap).map(aItem => aItem.reverse()));
+console.info(
+    mapper({}, oDest, oReverseMap)
+);
+
+// using a more compact form of mapping
+const oCompactMap = {
+    'server': 'result.source',
+    'items[$u]': {
+        _mapTo: 'result.entries[$u]',
+        id: 'uid',
+        name: 'fullName'
+    },
+    'grid[$i][$j]': 'map[$i][$j].value',
+    pref: 'result.show'
+};
+console.info(
+    mapper({}, oSrc, oCompactMap, {prefixProp: '_mapTo'})
+);
+</code></pre>
             </div>
         
 
@@ -169,7 +184,7 @@
     <dd class="tag-version">
       <ul class="dummy">
         <li>
-          1.0.7
+          1.1.0
         </li>
       </ul>
     </dd>

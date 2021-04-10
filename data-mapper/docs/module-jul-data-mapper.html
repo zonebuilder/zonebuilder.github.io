@@ -107,7 +107,7 @@
         
           <div class="description">
             Converts an object to another using a namespace path mapping.<br>
-    Isomorphic: works both in backends and in frontends via e.g. webpack
+Isomorphic: works both in backends and in frontends via e.g. webpack
           </div>
         
 
@@ -157,7 +157,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line48">line 48</a>
+          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line63">line 63</a>
         </li>
       </ul>
     </dd>
@@ -197,6 +197,77 @@
 
     
 
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+
+<h4 class="name" id="~rexs">
+  <span class="type-signature">(private, inner, constant) </span>rexs<span class="type-signature"> :Object</span>
+</h4>
+
+
+
+
+  <div class="description">
+    Cached regexs for internal use
+  </div>
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line76">line 76</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+          
+        
     
 
     
@@ -322,7 +393,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line101">line 101</a>
+          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line126">line 126</a>
         </li>
       </ul>
     </dd>
@@ -371,7 +442,7 @@
 
   <div class="description">
     Makes a dotted path from an array of path segments<br>
-    e.g. <code>['a', 'b', 1, 0, 'c'] => 'a.b.1.0.c'</code>
+e.g. <code>['a', 'b', 1, 0, 'c'] => 'a.b.1.0.c'</code>
   </div>
 
 
@@ -469,7 +540,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line73">line 73</a>
+          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line98">line 98</a>
         </li>
       </ul>
     </dd>
@@ -644,7 +715,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line82">line 82</a>
+          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line107">line 107</a>
         </li>
       </ul>
     </dd>
@@ -870,14 +941,14 @@
 
         <td class="description last">
           Optional configuration object with any of the following options:<ul>
-    <li><code>uint {RegExp|String}</code> - regular expression or string to match an array index
-    placeholder e.g. <code>'$n'</code>. <br>Defaults to <code>/\$[a-z]/</code></li>
-    <li><code>prefixProp {String}</code> - name of a property of the mapping the will be used
-    as a prefix when computing the destination namespace for the current siblings.
-    <br>Defaults to <code>'_mapToPrefix'</code></li>
-    <li><code>strict {Boolean}</code> - performs checkings of not overwriting descendant values
-    that are already. <br>Defaults tO <code>false</code></li>
-    </ul>
+<li><code>uint {RegExp|String}</code> - regular expression or string to match an array index
+placeholder e.g. <code>'$n'</code>. <br>Defaults to <code>/\$[a-z]/</code></li>
+<li><code>prefixProp {String}</code> - name of a property of the mapping the will be used
+as a prefix when computing the destination namespace for the current siblings.
+<br>Defaults to <code>'_mapToPrefix'</code></li>
+<li><code>strict {Boolean}</code> - performs checkings of not overwriting descendant values
+that are already mapped. <br>Defaults tO <code>false</code></li>
+</ul>
           
         </td>
       </tr>
@@ -921,7 +992,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line173">line 173</a>
+          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line198">line 198</a>
         </li>
       </ul>
     </dd>
@@ -970,7 +1041,7 @@
 
   <div class="description">
     Gets the array of segments for a JavaScript path<br>
-    e.g. <code>'a.b.c[1][2].d' => ['a', 'b', 'c', '1', '2', 'd']  </code>
+e.g. <code>'a.b.c[1][2].d' => ['a', 'b', 'c', '1', '2', 'd']  </code>
   </div>
 
 
@@ -1068,7 +1139,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line63">line 63</a>
+          <a href="mapper.js.html">mapper.js</a>, <a href="mapper.js.html#line88">line 88</a>
         </li>
       </ul>
     </dd>
