@@ -80,7 +80,7 @@
         Resources
       </h3>
       
-        <a href="https://www.google.com/">google</a>
+        <a href="https://www.npmjs.com/package/jul-data-mapper">Node package</a>
       
     
 
@@ -100,7 +100,7 @@
 <section>
   <article>
     <pre class="prettyprint source linenums"><code>/*
-    JUL jul-data-mapper v1.1.0
+    JUL jul-data-mapper v1.1.1
     Copyright (c) 2021 The Zonebuilder &lt;zone.builder@gmx.com>
     https://www.npmjs.com/package/jul-data-mapper
     Licenses: GNU GPL2 or later; GNU LGPLv3 or later
@@ -159,7 +159,7 @@
  * );
  * &lt;/code>&lt;/pre>
  * @author    {@link https://www.google.com/search?hl=en&amp;num=50&amp;start=0&amp;safe=0&amp;filter=0&amp;nfpr=1&amp;q=The+Zonebuilder+web+development+programming+IT+society+philosophy+politics|The Zonebuilder}
- * @version    1.1.0
+ * @version    1.1.1
  */
 /**
  * Converts an object to another using a namespace path mapping.&lt;br>
@@ -292,7 +292,7 @@ const compact = oMap => {
  * as a prefix when computing the destination namespace for the current siblings.
  * &lt;br>Defaults to &lt;code>'_mapToPrefix'&lt;/code>&lt;/li>
  * &lt;li>&lt;code>strict {Boolean}&lt;/code> - performs checkings of not overwriting descendant values
- * that are already mapped. &lt;br>Defaults tO &lt;code>false&lt;/code>&lt;/li>
+ * that are already mapped. &lt;br>Defaults to &lt;code>false&lt;/code>&lt;/li>
  * &lt;/ul>
  * @returns    {Object}    The destination object
  */
@@ -312,6 +312,7 @@ const mapper = (oDest, oSrc, oMap, oConfig) => {
         instSrc: jul.instance({nsRoot: oSrc}),
         indexes: [],
         depth: 0,
+        splits: 0,
         refs: [],
         last: [],
         hash: []
@@ -335,7 +336,7 @@ const mapper = (oDest, oSrc, oMap, oConfig) => {
             oMap[sKey].toString() : sMapPrefix + '.' + oMap[sKey], '.', true) : oMap[sKey];
         if (!oMapVal) { return; }
         if (aIx) { oLevel.indexes[oLevel.depth - 1] = aIx[ix]; }
-        if (oConfig.uint.test(sKey)) {
+        if (oLevel.splits !== 1 &amp;&amp; (oLevel.splits || oConfig.uint.test(sKey))) {
             const aRex = sKey.split(oConfig.uint);
             const sParent = dotted(segments(aRex[0]).filter(sItem => sItem));
             const oTo = oLevel.instSrc.get(sParent);
@@ -349,15 +350,18 @@ const mapper = (oDest, oSrc, oMap, oConfig) => {
                 oNewMap[sKey.replace(oConfig.uint, s)] = typeof oItem !== 'undefined' ? oMapVal : '';
             }
             oNewMap['.'] = aIv;
+            oLevel.splits = aRex.length - 1;
             oLevel.depth++;
             oLevel.indexes.length = oLevel.depth;
             mapper(oDest, oSrc, oNewMap, oConfig);
             oLevel.depth--;
+            oLevel.splits = 0;
         }
         else {
             oSrc = oLevel.instSrc.get(jul.trim(sKey, '.', true));
             if (typeof oSrc === 'undefined') { return; }
             if (typeof oMapVal === 'object') {
+                oLevel.splits = 0;
                 const oInst = oLevel.instSrc;
                 oLevel.instSrc = jul.instance({nsRoot: oSrc});
                 mapper(oDest, oSrc, oMapVal, oConfig);
@@ -378,7 +382,7 @@ const mapper = (oDest, oSrc, oMap, oConfig) => {
                     }
                     if (j === oLevel.hash.length) { oLevel.hash.push(aPath); }
                 }
-                const sMapTo = !oLevel.depth || !oConfig.uint.test(oMapVal) ? oMapVal :
+                const sMapTo = !oLevel.depth ? oMapVal :
                     oLevel.indexes.reduce((sNs, n) => {
                         return sNs.replace(oConfig.uint, n);
                     }, oMapVal);
